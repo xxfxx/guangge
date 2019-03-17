@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../../config/config.js.js"></script>
+    <title>五倍积分疯狂拿 百万奖学金等你来抢</title>
+    <style>
+        body {
+            background: #FDD456;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        .picture img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-image-width: 0;
+        }
+
+        .text {
+            background: url(images/phone4.png) no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            text-align: center;
+            font-size: 1rem;
+            color: #0874f3;
+            min-height: 1.5rem;
+            padding: 1rem;
+        }
+
+        .isLogin {
+            background: url(images/phone3.png) no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            padding: 1rem;
+            align-items: center;
+            display: none;
+        }
+
+        .isLogin p {
+            text-align: center;
+            font-size: 1rem;
+            color: #fcc910;
+        }
+
+        .isLogin p * {
+            text-align: center;
+            font-size: 1rem;
+            color: #fcc910;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picture">
+        <img src="images/phone1.png" alt=""/>
+        <img src="images/phone2.png" alt=""/>
+        <div class="isLogin">
+            <p style="color:#33427ce0">您已累计上课</p>
+            <p class="">
+                <span id="periods" style="font-size: 2rem;">0</span>
+                <span class="">课时</span>
+            </p>
+            <p id="periodsP">
+                <span style="color:#33427ce0;">再上</span>
+                <span id="rest">0</span>
+                <span>课时</span>
+                <span style="color:#33427ce0;">即可获得瓜分资格</span>
+            </p>
+        </div>
+        <div class="text">
+            <div id="num"></div>
+        </div>
+        <img src="images/phone5.png" alt=""/>
+    </div>
+    <script type="text/javascript">
+        (function init() {
+            var userId = getHtmlParam('userId') ? '?userId=' + getHtmlParam('userId') : ""
+            $.ajax({
+                url: XUE_DOMAIN + '/study/StudyActivities/getAppActivityParticipantsNums' + userId,
+                crossDomain: true,
+                success: function (res) {
+                    var content = res.data.nums ? '已有 ' + '<span style="font-size:1.5rem;">' + res.data.nums + '</span>' + ' 人获得瓜分百万奖学金资格' : ''
+                    $('#num').html(content)
+                    var rest = parseFloat(res.data.rest)
+                    var periods = parseFloat(res.data.periods)
+                    if (rest === 0 && periods === 0) {
+                        //匿名用户
+                    } else {
+                        $('.isLogin').css('display', 'block');
+                        $('#rest').text(rest)
+                        $('#periods').html(periods)
+                        if (rest <= 0) {
+                            $('#periodsP').text("恭喜你已获得瓜分资格")
+                        }
+                    }
+                }
+            })
+        })()
+        function getHtmlParam(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    </script>
+</body>
+
+</html>

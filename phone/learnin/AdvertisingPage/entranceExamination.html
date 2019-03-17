@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    高考红榜
+  </title>
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+  <link rel="stylesheet" href="css/dialogAuditiongaokao.css">
+  <script src="../../../config/config.js"></script>
+  <script type="text/javascript">
+    ! function () {
+      var htmlEl = document.getElementsByTagName('html')[0];
+      var fitPage = function () {
+        /* The calculate of with from zepto  */
+        var w = htmlEl.getBoundingClientRect().width;
+        w = Math.round(w);
+        w = w > 750 ? 750 : w;
+        var newW = w / 750 * 100;
+        htmlEl.style.fontSize = newW + 'px';
+      }
+      fitPage();
+      var t;
+      var func = function () {
+        clearTimeout(t);
+        t = setTimeout(fitPage, 25);
+      }
+      window.addEventListener('resize', func);
+    }();
+  </script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      Attribute: 0;
+    }
+
+    .main {
+      overflow: hidden;
+    }
+
+    .imgcontent {
+      vertical-align: top;
+      width: 100%;
+      font-size: 0px;
+    }
+
+    .spk-parent {
+      position: relative;
+      font-size: 0px;
+    }
+    /* .learpage01-Superlink {
+      width: 9.5vw;
+      height: 38%;
+      position: absolute;
+      top: 0px;
+      left: 45.3%;
+      opacity: 0;
+    } */
+
+    /* .learpage01-Superlink {
+      width: 3rem;
+      height: 56%;
+      position: absolute;
+      top: 0px;
+      left: 30%;
+      opacity: 0;
+    } */
+
+    .inventory-02-b {
+      position: absolute;
+      width: 90%;
+      top: 19%;
+      left: 5%;
+    }
+  </style>
+  </meta>
+  </meta>
+</head>
+
+<body>
+  <div class="learpage01 main">
+    <div>
+      <img id="img0" alt="" class="imgcontent">
+      </img>
+    </div>
+    <div class="spk-parent">
+      <img id="img1" alt="" class="imgcontent" onclick='addUser()'>
+      <!-- <a class="learpage01-Superlink" onclick='addUser()'>
+      </a> -->
+      </img>
+    </div>
+  </div>
+  <div class="learpage02 main">
+    <div>
+      <div class="spk-parent">
+        <img id="img2" alt="" class="imgcontent">
+        </img>
+        <img id="img3" alt="" class="inventory-02-b">
+        </img>
+      </div>
+    </div>
+    <div class="learpage03 main">
+      <div>
+        <img id="img4" alt="" class="imgcontent">
+        </img>
+      </div>
+    </div>
+    <div class="learpage04 main">
+      <div>
+        <img id="img5" alt="" class="imgcontent">
+        </img>
+      </div>
+    </div>
+    <div class="learpage05 main">
+      <div>
+        <img id="img6" alt="" class="imgcontent">
+        </img>
+      </div>
+      <div class="spk-parent">
+        <img id="img7" alt="" class="imgcontent" onclick='addUser()'>
+        <!-- <a class="learpage01-Superlink" onclick='addUser()'>
+        </a> -->
+        </img>
+      </div>
+    </div>
+    <div class="learpage06 main">
+      <div>
+        <img id="img8" alt="" class="imgcontent">
+        </img>
+      </div>
+      <div class="spk-parent">
+        <img id="img9" alt="" class="imgcontent" onclick='addUser()'>
+        <!-- <a class="learpage01-Superlink" onclick='addUser()'>
+        </a> -->
+        </img>
+      </div>
+    </div>
+    <div class="learpage07 main">
+      <div>
+        <img id="img10" alt="" class="imgcontent">
+        </img>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-1.12.3.min.js"></script>
+  <script src="js/dialog.js"></script>
+</body>
+<script>
+  document.getElementById('img0').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-01-a.jpg';
+  document.getElementById('img1').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-01-b.jpg';
+  document.getElementById('img2').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-02-a.jpg';
+  document.getElementById('img3').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-02-b.jpg';
+  document.getElementById('img4').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-03.jpg';
+  document.getElementById('img5').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-04.jpg';
+  document.getElementById('img6').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-05-a.jpg';
+  document.getElementById('img7').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-05-b.jpg';
+  document.getElementById('img8').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-06-a.jpg';
+  document.getElementById('img9').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-06-b.jpg';
+  document.getElementById('img10').src = S_WWW_DOMAIN +　'/mobile/images/inventory/M-inventory-07.jpg';
+</script>
+</html>

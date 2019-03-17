@@ -1,0 +1,192 @@
+﻿.ax_default {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-weight:400;
+  font-style:normal;
+  font-size:14px;
+  color:#666666;
+  text-align:center;
+  line-height:24px;
+}
+.head {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:30px;
+  color:#666666;
+  text-align:left;
+  line-height:normal;
+}
+.body {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:16px;
+  color:#666666;
+  text-align:left;
+  line-height:28px;
+}
+.ic_white {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:12px;
+  color:rgba(255, 255, 255, 0.866666666666667);
+}
+.ic_black {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:12px;
+  color:#999999;
+}
+.navi_tab {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:14px;
+  color:#999999;
+  text-align:left;
+  line-height:24px;
+}
+.navi_btn {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:14px;
+  color:rgba(102, 102, 102, 0.866666666666667);
+  text-align:left;
+  line-height:24px;
+}
+.func_head_selected {
+  font-family:'造字工房悦圆（非商用） 常规体', '造字工房悦圆（非商用）';
+  font-size:30px;
+  color:#333333;
+  text-align:center;
+  line-height:74px;
+}
+.picholder {
+}
+.box_3 {
+}
+.box_4 {
+  color:#FFFFFF;
+}
+.page_bg_grey {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:16px;
+  color:#666666;
+  line-height:28px;
+}
+.func_head_default {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:20px;
+  color:#999999;
+  text-align:left;
+  line-height:normal;
+}
+.func_body {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:14px;
+  color:#666666;
+  text-align:center;
+  line-height:28px;
+}
+.func_bg {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:22px;
+  color:#999999;
+  text-align:left;
+  line-height:normal;
+}
+.box_1 {
+}
+.placeholder {
+}
+.default_button {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+.image {
+}
+.heading_1 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:32px;
+  text-align:left;
+}
+.heading_2 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:24px;
+  text-align:left;
+}
+.heading_3 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:18px;
+  text-align:left;
+}
+.heading_4 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:14px;
+  text-align:left;
+}
+.heading_5 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  text-align:left;
+}
+.heading_6 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:10px;
+  text-align:left;
+}
+.paragraph {
+  text-align:left;
+}
+.text_field {
+  font-family:'Arial Normal', 'Arial';
+  font-size:13px;
+  color:#000000;
+  text-align:left;
+  line-height:normal;
+}
+.text_area {
+  font-family:'Arial Normal', 'Arial';
+  font-size:13px;
+  color:#000000;
+  text-align:left;
+  line-height:normal;
+}
+.line {
+}
+.shape {
+  font-size:12px;
+  color:#999999;
+}
+.image1 {
+  color:#000000;
+}
+.heading_21 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  text-align:left;
+}
+.paragraph1 {
+  text-align:left;
+}
+.text_field1 {
+  color:#000000;
+  text-align:left;
+}
+.horizontal_line {
+}
+.vertical_line {
+}
+.bottom_tab {
+  font-family:'微软雅黑 Regular', '微软雅黑';
+  font-size:12px;
+  color:#666666;
+  text-align:left;
+  line-height:24px;
+}
+.flow_shape {
+}
+.round_default {
+}
+.bg_grey {
+}
+.icon {
+}

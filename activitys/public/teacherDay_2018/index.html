@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name='HandheldFriendly' content='True'>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <title>感恩教师节</title>
+</head>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="../../../static/css/mui.min.css">
+<script src="./js/config.js"></script>
+<script src="./js/common.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../../static/js/zepto.min.js"></script>
+<script src="../../../static/js/common.js"></script>
+<script src="../../../static/js/mui.min.js"></script>
+
+<!--<script src="//cdn.jsdelivr.net/npm/eruda"></script>-->
+<!--<script>eruda.init()</script>-->
+<body>
+<div id="oldUser" class="page-index">
+    <div class="page-bg blessing-box-bg"></div>
+    <div class="blessing-box">
+        <p class="blessing-box-hd">已有 <span class="num">0</span> 人为教师送上祝福</p>
+        <ul class="hf-list"/>
+    </div>
+    <div class="blessing-box no-data-box">
+        <img src="images/nodata.png" alt="" class="no-data-img">
+        加载失败，请检查网络后重试。
+        <img src="images/reload_btn.png" alt="" class="reload-btn">
+    </div>
+    <div class="from-modal-mask">
+        <!-- 表单 -->
+        <div class="page03-bg from-modal-mask-bg"></div>
+        <div class="page-pc-box">
+            <div class="page-container">
+                <div class="comment-hd">
+                    <a class="close"> </a>
+                </div>
+                <div class="comment-bd">
+                    <div id="tip"></div>
+                    <p class="animated animated2 fadeIn"> TA见证了你的每一次成长</p>
+                    <p class="animated animated3 fadeIn"> TA与你分享了每一次快乐</p>
+                    <p class="animated animated4 fadeIn"> 你可曾想过为老师送上一句最温馨的祝福</p>
+                </div>
+                <h3 class="teacher-name"/>
+            </div>
+            <div class="from-box">
+                <div class="form-group-hd">To <span> </span>老师</div>
+                <textarea class="hf-textarea" placeholder="对老师说点什么吧~" maxlength="60"></textarea>
+                <div class="form-group-footer">
+                    <div class="form-group-footer-left"><span class="num">0</span>/60个字</div>
+                    <div class="form-group-footer-right"> From <span> </span></div>
+                </div>
+                <div class="form-group-btn"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="newUser" class="page-index">
+    <div class="page-bg after-login-box">
+        <p class="after-login-hd">已有 <span class="num">0</span> 人为教师送上祝福</p>
+        <a class="hf-btn"> </a>
+    </div>
+    <!-- 已送出 -->
+    <div class="page-bg sent-out-box">
+        <p class="after-login-hd">已有 <span class="num">0</span> 人为教师送上祝福</p>
+        <a class="hf-btn"> </a>
+    </div>
+</div>
+
+<div id="visitor" class="page-index">
+    <div class="page-bg login-box"></div>
+    <div class="pad-index-teacher-bg"></div>
+</div>
+
+<!-- 弹出框 -->
+<div class="modal-mask">
+    <div class="modal-container">
+        <div class="bg-img">
+            <img src="images/bg-gold.png" alt=""/>
+        </div>
+        <!-- 得到宝箱 -->
+        <div class="modal-body feedback-modal">
+            <img src="images/Treasure_box01.png" alt=""/>
+            <p>祝福已送出，领取150海贝</p>
+            <a class="feedback-btn"> </a>
+        </div>
+        <!-- 打开宝箱 -->
+        <div class="modal-body open-feedback-modal">
+            <img src="images/Treasure_box.gif" alt=""/>
+            <p>再次送上祝福，可再领150海贝</p>
+            <p><span id="second">0</span>秒后自动跳转首页</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+  var userId = getHtmlParam('userId')
+  var timer
+
+  $(function init () {
+    mui.init()
+    if (userId && userId > 0) {
+      showIndex('#oldUser')
+      getTeacherListByStudent(userId)
+    } else {
+      showIndex('#visitor')
+    }
+    initEvents()
+  })
+
+  function initEvents () {
+    $('#oldUser .no-data-box .reload-btn').on('click', function () {
+      getTeacherListByStudent(userId)
+    })
+    $('#newUser .after-login-box .hf-btn').on('click', function () {
+      submitTeacherDayGreetings(0)
+    })
+    $('.from-modal-mask .close').on('click', function () {
+      displayWish(false)
+    })
+    $('.modal-mask .feedback-btn').on('click', function () {
+      showGold(true)
+    })
+    $('.from-modal-mask .hf-textarea').on('input', function () {
+      var length = $(this).val().length
+      $('.from-modal-mask .num').text(length > 60 ? 60 : length)
+    })
+  }
+
+  function showIndex (id) {
+    $('.page-index').hide()
+    $(id).show()
+  }
+
+  function displayError (isShow) {
+    $('#oldUser .no-data-box')[isShow ? 'show' : 'hide']()
+  }
+
+  function displayWish (isShow) {
+    $('.from-modal-mask')[isShow ? 'show' : 'hide']()
+    if (isShow) {
+      scrollTo(0, 0)
+      $('.from-modal-mask .hf-textarea').val('')
+      $('.from-modal-mask .num').text(0)
+    }
+  }
+
+  function clearTimer () {
+    timer && clearInterval(timer)
+    timer = null
+  }
+
+  function showGold (isOpen) {
+    $('.modal-mask').show()
+    $('.modal-mask .feedback-modal')[isOpen ? 'hide' : 'show']()
+    $('.modal-mask .open-feedback-modal')[isOpen ? 'show' : 'hide']()
+    clearTimer()
+    if (isOpen) {
+      var second = 4
+      $('#second').text(second)
+      timer = setInterval(function () {
+        if (--second <= 0) {
+          hideGold()
+          return
+        }
+        $('#second').text(second)
+      }, 1000)
+    }
+  }
+
+  function hideGold () {
+    clearTimer()
+    displayWish(false)
+    $('.modal-mask').hide()
+  }
+
+  function getTeacherListByStudent (userId) {
+    $('#oldUser .hf-list').empty()
+    $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      crossDomain: true,
+      url: XUE_DOMAIN + APIS.getTeacherListByStudent,
+      data: {
+        userId: userId
+      },
+      success: function (res) {
+        var data = res.data
+        if (res.code === 200) {
+          displayError(false)
+          $('#oldUser .blessing-box .num').text(data.hadCommitNum)
+          var teacherList = data.teacherList
+          if (teacherList) {
+            renderTeacherRow(teacherList)
+          } else {
+            showIndex('#newUser')
+            $('#newUser .page-bg .num').text(data.hadCommitNum)
+            if (data.canSubmit === 1) {
+              $('#newUser .after-login-box').show()
+            } else {
+              $('#newUser .sent-out-box').show()
+            }
+          }
+        } else {
+          mui.toast(res.message)
+          displayError(true)
+        }
+      },
+      error: function () {
+        mui.toast('网络异常,请稍后重试')
+        displayError(true)
+      }
+    })
+  }
+
+  function renderTeacherRow (list) {
+    $('#oldUser .hf-list').empty()
+    list.sort(function (a, b) {
+      return a.hadCommit - b.hadCommit
+    })
+    list.map(function (item) {
+      var img = $('<img/>', {class: 'subject-name', src: item.subjectURl})
+      var p = $('<p/>', {class: 'teacher-name', text: item.teacherName})
+      var a = $('<a/>', {class: 'blessing-btn'})
+      if (item.hadCommit) {
+        a.addClass('blessing-btn-active')
+      } else {
+        a.on('click', function () {
+          if (!$(this).hasClass('blessing-btn-active')) {
+            displayWish(true)
+            getInfoFormTeacherAndStudent(item)
+            $('.from-modal-mask .form-group-btn').off().on('click', function () {
+              submitTeacherDayGreetings(item.teacherId)
+            })
+          }
+        })
+      }
+      var li = $('<li/>').append(img).append(p).append(a)
+      $('#oldUser .hf-list').append(li)
+    })
+  }
+
+  function getInfoFormTeacherAndStudent (data) {
+    $('.from-modal-mask .form-group-hd span').text(data.teacherName.replace(/老师/g, ''))
+    $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      crossDomain: true,
+      url: XUE_DOMAIN + APIS.getInfoFormTeacherAndStudent,
+      data: {
+        userId: userId,
+        teacherId: data.teacherId
+      },
+      success: function (res) {
+        var data = res.data
+        var span = $('<span/>', {class: 'teacher-name-color', text: data.content})
+        var p = $('<p/>', {class: 'teacher-name animated fadeIn'}).append(span)
+        p.html(TIPS[data.dataId - 1].format(p.html()))
+        $('#tip').html(p)
+
+        $('.from-modal-mask .form-group-footer-right span').text(data.studentName)
+      },
+      error: function () {
+        mui.toast('网络异常,请稍后重试')
+      }
+    })
+  }
+
+  function submitTeacherDayGreetings (teacherId) {
+    var textarea = $('.from-modal-mask .hf-textarea')
+    var greetings = teacherId === 0 ? '教师节快乐' : textarea.val()
+    if (greetings && greetings !== '') {
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        crossDomain: true,
+        url: XUE_DOMAIN + APIS.submitTeacherDayGreetings,
+        data: {
+          userId: userId,
+          teacherId: teacherId,
+          greetings: greetings
+        },
+        success: function (res) {
+          if (res.code === 200) {
+            getTeacherListByStudent(userId)
+            showGold(false)
+          } else {
+            mui.toast(res.message)
+          }
+        },
+        error: function () {
+          mui.toast('网络异常,请稍后重试')
+        }
+      })
+    } else {
+      mui.toast(textarea[0].placeholder)
+    }
+  }
+
+</script>
+</html>

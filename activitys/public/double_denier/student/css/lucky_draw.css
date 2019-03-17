@@ -1,0 +1,252 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 841248 */
+  src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot');
+  src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.woff') format('woff'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.ttf') format('truetype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.svg#iconfont') format('svg');
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'sans-serif';
+}
+.jigsaw_puzzle_box {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.jigsaw_puzzle_box .bg-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.jigsaw_puzzle_box .bubble-img-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  margin: 11% 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.12rem;
+  height: 2.66666667rem;
+  background: url(../img/Bubble.png) no-repeat;
+  background-size: 100% 100%;
+}
+.jigsaw_puzzle_box .bubble-img-box .text-box {
+  box-sizing: border-box;
+  text-align: center;
+}
+.jigsaw_puzzle_box .bubble-img-box .text-box .share-text {
+  font-size: 0.4rem;
+  color: #f8e71c;
+}
+.jigsaw_puzzle_box .bubble-img-box .text-box .share-detail-text {
+  padding: 0.13333333rem 0.18666667rem 0 0.18666667rem;
+  font-size: 0.26666667rem;
+  color: #ffffff;
+  line-height: 0.33333333rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content {
+  box-sizing: border-box;
+  width: 100%;
+  height: 9.25333333rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.17333333rem 1.33333333rem 0;
+  margin: 50% auto 0;
+  z-index: 4;
+  background: url('../img/Luck-draw.png') no-repeat;
+  background-size: 100% 100%;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .activity-over-show {
+  position: relative;
+  z-index: 31;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7.33333333rem;
+  height: 7.33333333rem;
+  font-size: 0.48rem;
+  color: #4D0000;
+  background: #FFF5E1;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 7.33333333rem;
+  height: 7.33333333rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .jigsaw_puzzle-item {
+  box-sizing: border-box;
+  position: relative;
+  width: 33.33%;
+  height: 2.44533333rem;
+  padding: 0.13333333rem 0 0;
+  text-align: center;
+  background: #FFF5E1;
+  border-radius: 0.16rem;
+  border: 1px solid #ff6d4d;
+  transform: all 300ms;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .jigsaw_puzzle-item .shape-img {
+  width: 1.73333333rem;
+  height: 1.73333333rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .jigsaw_puzzle-item .reward-name {
+  font-size: 0.32rem;
+  color: #FF9546;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .reward-box {
+  box-sizing: border-box;
+  padding: 0.66666667rem 0 0;
+  color: #763700;
+  background: #FCD947;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .reward-box .get-reward {
+  font-size: 0.53333333rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .reward-box .get-times {
+  font-size: 0.32rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .disabled {
+  background: #D8D8D8;
+  color: #626262;
+}
+.jigsaw_puzzle_box .my-task-box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 7.73333333rem;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 142% auto 0;
+  text-align: center;
+  z-index: 3;
+  font-size: 0.34666667rem;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg {
+  position: absolute;
+  width: 9.46666667rem;
+  height: 100%;
+  background: url('../img/my-gifts.png') no-repeat;
+  background-size: 100% 100%;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 28% auto 0;
+  padding: 0.26666667rem 0 0;
+  width: 9.2rem;
+  height: 5.06666667rem;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .item img {
+  width: 3.04rem;
+  height: 3.04rem;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .item .itme-remark {
+  margin: 0.13333333rem 0 0;
+  font-size: 0.34666667rem;
+  color: #5C5C5C;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .gifts-box .img-box {
+  box-sizing: border-box;
+  width: 3.04rem;
+  height: 3.04rem;
+  background: #ffffff;
+  border-radius: 0.16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .gifts-box .img-box .gift-img {
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  margin: 0 0 0.13333333rem;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .gifts-box .img-box p {
+  font-size: 0.26666667rem;
+  color: #9b9b9b;
+}
+.jigsaw_puzzle_box .my-task-box .my-task-bg .tab-box .gifts-box .img-box .prizes-grids {
+  width: 94%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.jigsaw_puzzle_box .activity-detail-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 7.72rem;
+  position: absolute;
+  top: 0;
+  margin: 219% auto 0;
+  z-index: 1;
+}
+.jigsaw_puzzle_box .activity-detail-box .activity-detail-bg {
+  box-sizing: border-box;
+  width: 9.46666667rem;
+  background: url('../img/activity_detail_bg.png') no-repeat;
+  background-size: 100% 100%;
+  padding: 0 0.4rem;
+}
+.jigsaw_puzzle_box .activity-detail-box .activity-detail-bg .text-box {
+  margin: 45% auto 0;
+  font-size: 0.34666667rem;
+  color: #4a4a4a;
+}
+.jigsaw_puzzle_box .activity-detail-box .activity-detail-bg .text-box .date-text {
+  font-weight: 600;
+}
+.jigsaw_puzzle_box .footer-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 307% auto 0;
+}
+.jigsaw_puzzle_box .footer-img img {
+  width: 100%;
+}
+.jigsaw_puzzle_box .mask-content .no-reward-box .title-img {
+  width: 3.65333333rem;
+  height: 2.58666667rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 2.48rem 0 0 2.13333333rem;
+}
+.luckyDraw-preview-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.luckyDraw-preview-img img {
+  width: 90%;
+  height: auto;
+}
+.luckyDraw-preview-img .preview-img-close {
+  width: 40px;
+  height: 40px;
+  margin-top: 30px;
+}

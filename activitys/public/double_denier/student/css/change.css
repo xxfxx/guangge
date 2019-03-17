@@ -1,0 +1,133 @@
+.not-open-task {
+  margin-top: 2rem;
+}
+.not-open-task img {
+  width: 4rem;
+}
+.not-open-task p {
+  font-size: 0.4rem;
+  color: #7D0929;
+  font-weight: bold;
+}
+.task-details .title {
+  margin-top: 2rem;
+}
+.task-details .one-btn {
+  position: absolute;
+  bottom: 1.2rem;
+  left: .9rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces {
+  background: transparent;
+}
+.jigsaw_puzzle_box .guide-general-pieces .title-img {
+  width: 3.2rem;
+  height: 5rem;
+  position: absolute;
+  margin-top: -2.5rem;
+  margin-left: 5.5rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces .text-box {
+  width: 6.68rem;
+  margin-top: 1.5rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces .text-box .title {
+  color: #fff;
+  margin-bottom: .4rem;
+  margin-top: 1rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces .text-box .detail-text {
+  width: 100%;
+  font-size: .46rem;
+  color: #fff;
+  line-height: 0.7rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces .one-btn {
+  margin-top: 1rem;
+}
+.jigsaw_puzzle_box .guide-general-pieces .one-btn .default-btn {
+  border: 1px solid;
+  border-radius: 2px;
+  font-size: .48rem;
+  width: 5.1rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+.jigsaw_puzzle_box .guide-pieces {
+  background: transparent;
+}
+.jigsaw_puzzle_box .guide-pieces .title-img {
+  width: 7.4rem;
+  height: 8.9rem;
+  margin: .8rem auto 0;
+}
+.loading img {
+  width: 3rem;
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box .jigsaw_puzzle-item-mask {
+  background: rgba(0, 0, 0, 0.8)
+}
+.jigsaw_puzzle_box .jigsaw_puzzle-content .jigsaw_puzzle-box {
+  width: 7.27rem;
+  height: 7.4rem;
+  top: .16rem;
+  left: 1.38rem;
+}
+.jigsaw_puzzle_box .finish-task {
+  z-index: 22;
+  height: 11.15rem;
+}
+.load-error img {
+  width: 2.4rem !important;
+  height: auto !important;
+  margin-top: -0.8rem;
+}
+.load-error .refresh-btn {
+  background: #F85C0B;
+  width: 3rem;
+  display: inline-block;
+  height: .8rem;
+  border-radius: .5rem;
+  color: #fff;
+  line-height: .8rem;
+  margin-top: .1rem;
+  cursor: pointer;
+}
+.jigsaw_puzzle_box .guide-general-func {
+  background: transparent;
+}
+.jigsaw_puzzle_box .guide-general-func .title-img {
+  width: 7rem;
+  height: 7rem;
+  margin-top: 2rem;
+  margin-left: .3rem;
+}
+.jigsaw_puzzle_box .guide-general-func .one-btn {
+  margin-top: 1rem;
+}
+.jigsaw_puzzle_box .guide-general-func .text-box {
+  position: absolute;
+  top: -2rem;
+  width: 100%;
+}
+.jigsaw_puzzle_box .guide-general-func .text-box .title {
+  color: #fff;
+  font-size: .42rem;
+  margin-bottom: .5rem;
+}
+.jigsaw_puzzle_box .guide-general-func .text-box .detail-text {
+  font-size: 0.38rem;
+  color: #fff;
+  padding: 0;
+  line-height: .7rem;
+  width: 100%;
+}
+.jigsaw_puzzle_box .guide-general-func .one-btn .default-btn {
+  border: 1px solid;
+  border-radius: .1rem;
+}
+
+..jigsaw_puzzle_box .virtual-reward img {
+  width: 3.5rem;
+  margin-top: 2.4rem;
+}

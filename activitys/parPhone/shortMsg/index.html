@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp -->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>点击下载</title>
+</head>
+<link rel="stylesheet" href="../../../static/css/reset.css" />
+<style>
+    .download_box {
+        position: relative;
+    }
+
+    .bg-img {
+        width: 100%;
+    }
+
+    .btn-box {
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        margin: 0 auto 6%;
+        text-align: center; 
+    }
+
+    .btn-img {
+        width: 80%;
+    }
+</style>
+
+<body>
+    <div id="app" class="download_box">
+        <img src="./bg.jpg" alt="" class="bg-img">
+        <a class="btn-box" href="//a.app.qq.com/o/simple.jsp?pkgname=com.hfjy.learningparentphone">
+            <img src="./btn-img.png" alt="" class="btn-img">
+        </a>
+    </div>
+</body>
+
+</html>

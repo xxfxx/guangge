@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp -->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT" />
+    <title>我的礼物</title>
+</head>
+<link rel="stylesheet" href="../../../../static/css/reset.css" />
+<link rel="stylesheet" href="./css/my_gift.css" />
+<link rel="stylesheet" href="./css/common.css">
+<script src="../../../../static/js/flexable.js"></script>
+<script>
+    function onMessage(dt) {
+        writeAddress.onMessage(dt, 'app')
+    }
+</script>
+
+<body v-cloak>
+    <div id="app" class="gift-box">
+        <div class="no-gift" v-if="rewardInfo.length==0">
+            <img src="./img/no-gift.png" class="no-gift-img" alt="">
+            <p>当前还没有礼物哦~</p>
+        </div>
+        <div class="address" v-for="(val,index) in rewardInfo" :key="index">
+            <div v-if="val.prizeType==1">
+                <div class="gift-detail">
+                    <img class="gift-img" :src="val.prizeImageUrl" alt="">
+                    <div class="right">
+                        <p class="title">{{val.prizeName}}</p>
+                        <p class="time">{{val.createTime | dateformat}}</p>
+                    </div>
+                </div>
+                <p class="title">收货人信息</p>
+                <div v-if="val.receiver">
+                    <div class="reciver-detail">
+                        <p class="detail">收货人:{{val.receiver.name}}</p>
+                        <p class="detail">联系电话:{{val.receiver.phone}}</p>
+                        <p class="detail">收货地址:{{val.receiver.address}}</p>
+                    </div>
+                    <div class="reciver-detail" v-if="val.express">
+                        <p class="title">物流信息</p>
+                        <p class="detail">单号:{{val.express.expressNo}}</p>
+                    </div>
+                </div>
+                <p v-else class="please-write" @click="addAddress(val.id)">请填写收货地址&nbsp;></p>
+            </div>
+            <div v-if="val.prizeType==2" class="gift-detail gift-detail-spec">
+                <img class="gift-img" :src="val.prizeImageUrl" alt="">
+                <div class="right">
+                    <p class="title">{{val.prizeIntegral}}{{val.prizeName}}</p>
+                    <p class="time">{{val.createTime | dateformat}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../../static/js/zepto.min.js"></script>
+    <script src="../../../../static/js/vue.min.js"></script>
+    <script src="../../../../config/config.js"></script>
+    <script src="../common/index.js"></script>
+    <script src="./js/my_gift.js"></script>
+</body>
+
+</html>

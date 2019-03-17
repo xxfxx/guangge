@@ -1,0 +1,46 @@
+ body {
+   margin: 0;
+ }
+
+ .answer-body {
+   display: block;
+ }
+
+ .blue-character-imgone {
+   width: 100%;
+ }
+
+ .blue-character-imgtwo {
+   width: 100%;
+   margin-top: -0.3rem;
+ }
+
+ .blue-character-imgthree {
+   width: 100%;
+   margin-top: -0.3rem;
+ }
+
+ .blue-character-imgfour {
+   width: 100%;
+   margin-top: -0.3rem;
+ }
+
+ .blue-character-imgfive {
+   width: 100%;
+   margin-top: -0.3rem;
+ }
+
+ .s-font-size {
+   font-size: 0;
+ }
+
+ .classname {
+   width: 100%;
+ }
+
+ .reset-test-btn {
+   width: 80%;
+   position: absolute;
+   margin-top: -3.5rem;
+   margin-left: 10%;
+ }

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp -->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>双旦活动</title>
+</head>
+<link rel="stylesheet" href="../../../../static/css/reset.css" />
+<link rel="stylesheet" href="./css/jigsaw_puzzle.css" />
+<link rel="stylesheet" href="./css/change.css">
+<link rel="stylesheet" href="./css/pieces.css">
+<link rel="stylesheet" href="./css/common.css">
+<script src="../../../../static/js/vue.min.js"></script>
+<script src="../../../../static/js/flexable.js"></script>
+<script>
+    function onMessage(dt) {
+        jigsaw.onMessage(dt, 'app')
+    }
+</script>
+
+<body v-cloak>
+    <div id="app" class="jigsaw_puzzle_box">
+        <template v-if="isloaded">
+            <div class="toast" v-show="toastFlag">{{toastFlagCont}}</div>
+            <div class="mask" v-show='alertBoxFlag' @click.self="closeModel">
+            </div>
+            <!-- 完成任务弹框 -->
+            <div class="mask-content finish-task" v-if="isFinishPieces">
+                <div class="text-box">
+                    <p class="alert-title">双旦荣耀榜</p>
+                    <img class="activtiy-img" src="./img/highlight.png" alt="">
+                    <p class="stu-name" style="margin: 0.2rem 0 0;">恭喜{{shareData.studentName.slice(0, 4)}}同学</p>
+                    <p class="detail-text" style="padding: .2rem;">成为第<span style="color: #FF8122;">{{shareData.ranking}}</span>位<br>完成所有学习任务的同学
+                        <br>打败了<span style="color: #FF8122;">{{shareData.scale}}</span>%参与活动的同学</p>
+                </div>
+                <div class="get-reward-box">
+                    <div class="get-reward-content">
+                        <div class="get-label">获得战利品</div>
+                        <ul class="show-right">
+                            <li class="item">
+                                <div class="img-box"></div>
+                                <p class="img-bottom-text">成堆海贝</p>
+                            </li>
+                            <li class="item">
+                                <div class="img-box sec"></div>
+                                <p class="img-bottom-text">x 1</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <div class="btn blue-btn" @click="shareGifts">我要分享</div>
+                    <div class="btn orange-btns" style="background: #FF8122;" @click="getGifts">领取礼物</div>
+                </div>
+            </div>
+
+            <!-- 我的任务 获得拼图 -->
+            <div class="mask-content" v-show='alertBoxFlag' :class='alertInfo.boxClass'>
+                <div v-if="alertInfo.imgUrl" :style="{backgroundImage: 'url(' + alertInfo.imgUrl + ')'}" style="backgroundSize: cover;" class="title-img" ></div>
+                <!-- <img :src='alertInfo.imgUrl' alt="加载有误" v-if="alertInfo.imgUrl" > -->
+                <div class="text-box">
+                    <p class="title" v-if="alertInfo.title" v-text="alertInfo.title"></p>
+                    <p class="detail-text" v-html="alertInfo.detail"></p>
+                </div>
+                <div class="btn-box" :class='alertInfo.btnNum'>
+                    <div class="btn" :class='alertInfo.btnBgClass' v-text="alertInfo.btnText" @click="alertInfo['cancel'](jigsaw)"></div>
+                    <div class="btn" v-if="alertInfo.btnNum==2" :class='alertInfo.btnBgClassSec' @click="alertInfo['ok'](jigsaw)"
+                        v-text="alertInfo.btnTextSec"></div>
+                </div>
+                <img v-show="alertInfo.closeBtnFlag" class="close-btn" src="./img/Close@2x.png" @click.self="alertBoxFlag = false"
+                    alt="">
+            </div>
+            <div class="mask" v-if="isShowPiecesList" @click.self="isShowPiecesList = false">
+                <div class="mask-get-skill">
+                    <div class="title-box">
+                        <p class="title">每个老师只能帮助你一次，最多可使用3个万能拼块</p>
+                        <p class="detail">已获得万能拼块:<span class="highlight">{{hasNum}}</span>&nbsp;&nbsp;可使用万能拼块:<span class="highlight">{{usePieceNum}}</span>
+                        </p>
+                    </div>
+                    <ul class="tab-content">
+                        <div class="no-teacher" v-if="generalUniPiecesList.length==0">
+                            <img src="./img/no-teacher-list.png" alt="" class="backImg">
+                            <p class="">暂无老师哦</p>
+                        </div>
+                        <li class="content-item teacher-list" v-for="it in generalUniPiecesList">
+                            <div class="item-left">
+                                <img class="teacher-header-img" src="./img/default-img.png" alt="">
+                            </div>
+                            <div class="item-right">
+                                <div class="item-detail">
+                                    <p class="teacher-name">{{it.teacherName}}</p>
+                                    <p class="get-help-text">向老师寻求帮助</p>
+                                </div>
+                                <img src="./img/yinzhang-get.png" alt="" v-if="it.status === 2">
+                                <div class="btn disable-btn" v-else-if="it.status === 1">已求助</div>
+                                <div class="btn blue-btn" v-else @click="requestTeacherHelp(it)">寻求帮助</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> 
+                <img src="./img/Close@2x.png" class="teacher-close-btn" @click.self="isShowPiecesList = false" alt=""/>
+            </div>
+            <div>
+                <img class="bg-img" src="./img/bg.png" alt="" />
+                <div class="bubble-img-box" @click="useUniversalPieces">
+                    <div class="text-box" v-if="isOpenGeneralPiece === 0">
+                        <p>12月22日</p>
+                        <p>开启万能拼块</p>
+                    </div>
+                    <div class="text-box" v-else>
+                        <p>可用<p style="color: orange">{{usePieceNum}}张</p></p>
+                        <p>万能拼块</p>
+                    </div>
+                </div>
+                <div class="jigsaw_puzzle-content">
+                    <div class="jigsaw">
+                        <ul class="jigsaw_modal" id="jigsaw_m">
+                        </ul>
+                    </div>
+                    <ul class="jigsaw_puzzle-box" v-if="isShowTasks">
+                        <li class="jigsaw_puzzle-item-mask" v-for="(it, index) in plists" :style="{'opacity': it.status != 0 ? 0 : 1, 'marginTop': Math.ceil((index + 1) / 3) === 2 ? '-0.2rem' : (Math.ceil((index + 1) / 3) === 3 ? '-0.2rem' : '')}">
+                            <div class="jigsaw_puzzle-item" @click="selectPiece(it)">
+
+                                <img class="shape-img" :src="it.status === 0 && usePieceNum > 0 && it.taskStatus === 1 ? './img/heighligt-lock.png' : './img/Shape.png'"
+                                    alt="" />
+                                <p>任务{{taskName[index]}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="my-task-box">
+                    <div class="my-task-bg">
+                        <div class="my-task-text">
+                            <p class="title">我的任务</p>
+                            <p class="center-text">
+                                电脑/平板/手机上都可做任务哦~
+                            </p>
+                            <p class="bottom-text">
+                                已获得拼块:<span class="bold-text">{{blockNum}}</span>&nbsp;&nbsp;海贝:<span class="bold-text">{{goldNum}}</span>
+                            </p>
+                        </div>
+                        <div class="tab-box">
+                            <ul class="tab-title">
+                                <li :class="['title-item-box', {'active': currentStage === 1}]" @click="changeStage(1)">阶段一</li>
+                                <li :class="['title-item-box', {'active': currentStage === 2}]" @click="changeStage(2)">
+                                    <p>阶段二</br><span class="open-date-text" v-if="stageTwo">12月22日开启</span></p>
+                                </li>
+                                <li :class="['title-item-box', {'active': currentStage === 3}]" @click="changeStage(3)">
+                                    <p>阶段三</br><span class="open-date-text" v-if="stageThree">12月25日开启</span></p>
+                                </li>
+                            </ul>
+                            <!-- <div class="tab-content">
+                                <img class="not-opend-bg" src="./img/not-opend-bg.png" alt="">
+                                <p class="not-opend-text">12月22日第二阶段任务开启</p>
+                            </div> -->
+                            <ul class="tab-content" v-if="currentStage === 1 || (currentStage === 2 && !stageTwo) || (currentStage === 3 && !stageThree)">
+                                <li class="content-item" v-for="(it, index) in taskList">
+                                    <div class="item-left" @click="taskDetails(it)">
+                                        <div class="task-bg">
+                                            <span class="task-name">任务{{taskName[it.taskId - 1]}}</span>
+                                        </div>
+                                        <div class="progress-box">
+                                            <span>{{it.progress}}/{{it.total}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="item-right">
+                                        <div class="item-detail" @click="taskDetails(it)">
+                                            <p class="detail-title">{{it.name}}</p>
+                                            <p class="reward-text">奖励: {{it.rewardBlock}}个拼块+{{it.rewardGold}}海贝</p>
+                                            <span class="show-detail">查看任务详情</span>
+                                        </div>
+                                        <img :src="it.status === 2 ? './img/yinzhang-done.png' : './img/yinzhang-wanneng.png'"
+                                            alt="" v-if="[2, 3].indexOf(it.status) >= 0">
+                                        <div class="lighten-up-pieces" v-if="it.status === 1" style="background: #FF6D4D;width: 1.8rem;height: 0.8rem;color: #fff;border-radius: .5rem;text-align: center;line-height: .8rem;margin-right: 0.3rem;"
+                                            @click="blingPieces(it)">点亮拼块</div>
+                                        <div class="over-task" v-if="it.status === 0" style="width: 1.8rem;height: 0.8rem;color: #FF6D4D;border-radius: .5rem;text-align: center;line-height: .8rem;margin-right: 0.3rem;border: 1px solid #FF6D4D;"
+                                            @click.stop="jumpToTaskDetails(it.taskId)">去完成</div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="not-open-task" v-if="(currentStage === 2 && stageTwo) || (currentStage === 3 && stageThree)">
+                                <img src="./img/not-opend-bg.png" alt="">
+                                <p>{{currentStage === 2 ? '12月22日第二阶段' : '12月25日第三阶段'}}开启任务</p>
+                            </div>
+                            <div class="loading" v-if="(currentStage === 2 && !stageTwo && loading) || (currentStage === 3 && !stageThree && loading) || (currentStage === 1 && loading)"><img
+                                    src="./img/loading02.gif" alt=""></div>
+                            <template v-if="(currentStage === 2 && !stageTwo) || (currentStage === 3 && !stageThree) || currentStage === 1">
+                                <div class="load-error" v-if="!loading && loaderError">
+                                    <img src="./img/refresh.png" alt=""/>
+                                    <p>加载失败</p>
+                                    <div class="refresh-btn" @click="refreshTaskList">重新加载</div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-list">
+                    <img class="reward-list-img" src="./img/reward-list.png" alt="" />
+                </div>
+                <div class="activity-detail-box">
+                    <div class="activity-detail-bg">
+                        <div class="text-box">
+                            <p>
+                                1.活动时间:<span class="date-text">2018.12.20-2019.1.7</span>
+                            </p>
+                            <p>2.活动期间，电脑、平板、手机都可做任务，查看任务、拼图与抽取礼物只能在手机智学中心APP操作</p>
+                            <p>3.活动分为三个阶段，每阶段开启3个任务</p>
+                            <p>4.完成每个任务可点亮1个拼块,且获得相应海贝奖励</p>
+                            <p>5.点亮所有拼块并完成拼图，即可抽取双旦礼物</p>
+                            <p>6.拼图完成后,分享战绩可多得1次抽取礼物的机会</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-img"><img src="./img/footer.png" alt="" /></div>
+            </div>
+        </template>
+        
+    </div>
+    <script src="../../../../config/config.js"></script>
+    <script src="../../../../static/js/zepto.min.js"></script>
+    <script src="../common/index.js"></script>
+    <script src="./js/pieces.js"></script>
+    <script src="./js/jigsaw_alert.js"></script>
+    <script src="../common/buryingPoint.js"></script>
+    <script src="./js/jigsaw_puzzle.js"></script>
+</body>
+
+</html>

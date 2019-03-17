@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>yellows-character</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1，user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <link rel="" type="" href="../css/recet.css">
+    <link rel="stylesheet" href="../css/character.css">
+    <script type="text/javascript">
+        ! function () {
+            var htmlEl = document.getElementsByTagName('html')[0];
+            var fitPage = function () {
+                /* The calculate of with from zepto  */
+                var w = htmlEl.getBoundingClientRect().width;
+                w = Math.round(w);
+                w = w > 750 ? 750 : w;
+                var newW = w / 750 * 100;
+                htmlEl.style.fontSize = newW + 'px';
+            }
+            fitPage();
+            var t;
+            var func = function () {
+                clearTimeout(t);
+                t = setTimeout(fitPage, 25);
+            }
+            window.addEventListener('resize', func);
+        }();
+    </script>
+</head>
+<body>
+    <div class="answer-body">
+        <image class="blue-character-imgone" src="../img/img/yellows/images/1.jpg"></image>
+        <image class="blue-character-imgtwo" src="../img/img/yellows/images/2.jpg"></image>
+        <image class="blue-character-imgthree" src="../img/img/yellows/images/3.jpg"></image>
+        <image class="blue-character-imgfour" src="../img/img/yellows/images/4.jpg"></image>
+        <div class="s-font-size">
+            <image class="blue-character-imgfive" src="../img/img/yellows/images/5.jpg"></image>
+            <div class="classname">
+                <a href="index.html">
+                    <image class="reset-test-btn" src="../img/img/testing.png"></image>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

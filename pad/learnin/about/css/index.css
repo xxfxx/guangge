@@ -1,0 +1,121 @@
+.container {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.hd img{
+  width:100%;
+}
+.index_page01{
+      margin: 0 10%;
+      text-align:center;
+
+}
+.index_page02{
+margin:80px auto;
+text-align:center;
+}
+.index_page02_box{
+    position: relative;
+    overflow: hidden;
+}
+.index_page02_box ul li{
+  position: relative;
+    float: left;
+    margin: 0 auto;
+    padding: 20px 10px;
+    width: 33.33333333%;
+    box-sizing: border-box;
+}
+.index_page03{
+ margin: 0 10%;
+      text-align:center;
+}
+.min_t{
+  width:280px;
+  margin:0 auto;
+}
+.index_page03_box {
+  margin:30px;
+}
+.index_page03_box p{
+        font-size:13px;
+    line-height:19px;
+        margin-top: .77em;
+    margin-bottom: .3em;
+    color: #c0c6d0;
+}
+.index_page03_t{
+  overflow:hidden; 
+  margin-top:30px; 
+}
+.index_page03_t li{
+    width:49%;
+    text-align:left;
+}
+.index_page03_t li p{
+       font-size:13px;
+    line-height:19px;
+        margin-top: .77em;
+    margin-bottom: .3em;
+   color:#c0c6d0;  
+}
+.index_page03_t li img{
+    float:left;
+    width:62.5px;
+   
+}
+.index_page04{
+    text-align: left;
+    margin:80px 10%;
+  
+}
+.index_page04 .min_t{
+width:280px;
+margin:0 auto;
+text-align:center;
+}
+.index_page04_box{
+    margin:30px auto; 
+}
+.index_page04_box ul{
+    overflow:hidden;
+   
+}
+.index_page04_box ul li{
+    float:left;
+    width:18%;
+    margin-right:1%;
+}
+.index_page04_box ul .no_mar{
+    margin-right:0;
+}
+.index_page04_t ul{
+    overflow:hidden;
+}
+.index_page04_t ul li{
+    width:28%;
+    margin-right:48px;
+    text-align:left;
+    float:left;
+}
+.index_page04_t ul li p{
+      font-size:13px;
+    line-height:19px;
+        margin-top: .77em;
+    margin-bottom: .3em;
+   color:#c0c6d0;  
+   
+}
+.index_page04_t ul li .yellow{
+     font-size:15px;
+   color:#fed129;  
+}
+.index_page04_t ul .no_mar{
+    margin-right:0;
+}
+.index_page05{
+    text-align: center;
+    margin-top:40px;
+  
+}

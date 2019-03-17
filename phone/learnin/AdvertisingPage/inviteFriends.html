@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+
+<head>
+    <title>邀请好友</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/recet.css">
+    <script type="text/javascript" src="js/jQuery.js"></script>
+    <script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="../../../config/config.js"></script>
+    <script type="text/javascript">
+        !function () {
+            var htmlEl = document.getElementsByTagName('html')[0];
+            var fitPage = function () {
+                /* The calculate of with from zepto  */
+                var w = htmlEl.getBoundingClientRect().width;
+                w = Math.round(w);
+                w = w > 750 ? 750 : w;
+                var newW = w / 750 * 100;
+                htmlEl.style.fontSize = newW + 'px';
+            }
+            fitPage();
+            var t;
+            var func = function () {
+                clearTimeout(t);
+                t = setTimeout(fitPage, 25);
+            }
+            window.addEventListener('resize', func);
+        }();
+    </script>
+    <style>
+        .inviteFriends-one {
+            width: 100%;
+        }
+
+        .inviteFriends-twoall {
+            position: relative;
+        }
+
+        .inviteFriends-imgtwoall {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            padding: 3px;
+            margin-top: -2.9rem;
+            margin-left: 4.8rem;
+        }
+
+        .inviteFriends-imgtwo {
+            width: 100%;
+        }
+
+        .cont {
+            width: 100%;
+            height: 100%;
+            /* overflow-y: scroll; */
+        }
+
+        .instruction {
+            width: 100%;
+            position: relative;
+        }
+
+        .instruction p {
+            font-size: 0.4em;
+            position: relative;
+            padding-top: 0.09em;
+            margin-left: 0.20em;
+        }
+
+        .instruction ol {
+            margin-top: 0px;
+        }
+
+        .instruction ol li {
+            font-size: 0.32em;
+            color: #666;
+            position: relative;
+            margin-left: 0.6rem;
+        }
+        .username{
+            position: absolute;
+            width: 1.7rem;
+            height: 0.5rem;
+            top: 7.1rem;
+        }
+        #username {
+            font-size: 0.36rem;
+            vertical-align: text-top;
+            text-align: center;
+            width: 1.7rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <img src="img/18.jpg" class="inviteFriends-one">
+    <div class="inviteFriends-twoall">
+        <div class="inviteFriends-imgtwoall">
+            <div id="code"></div>
+        </div>
+    </div>
+    <div class="username"><span id="username"></span></div>
+</div>
+<div class="cont">
+    <div class="instruction">
+        <p>邀请卡使用方式：</p>
+        <ol>
+            <li>长按保存邀请卡为图片</li>
+            <li>分享给好友或发送到朋友圈</li>
+            <li>成功邀请好友报名课程可获奖学金奖励！<a href="//mp.weixin.qq.com/s/GNr_yHl7YbCtggm1IKw4sA" target="_self">（了解详细规则）</a>
+            </li>
+        </ol>
+    </div>
+</div>
+</body>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]); return null;
+    }
+    var strValue = WX_DOMAIN + "/gongkai/index.php?s=/addon/Haifengjiaoyu/Index/recommend/inviteuid/"+getQueryString("userId")+"/learninPhone/1";
+    document.getElementById('username').innerHTML = getQueryString("userName");
+    $("#code").qrcode({
+        width: 95, //宽度
+        height: 95, //高度
+        text: strValue//任意内容
+    });
+   // $('#username').text(getQueryString("userName"))
+</script>
+</html>

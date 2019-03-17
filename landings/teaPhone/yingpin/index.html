@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>海风教育</title>
+    <style>
+
+        body,h1,h2,h3,p,dl,dd,ol,ul,th,td,form,fieldset,input,button,textarea {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            overflow: hidden;
+            -webkit-text-size-adjust: none;
+            word-wrap: break-word;
+        }
+
+        body{
+            height: 100%;
+            overflow: auto;
+            font-size:0.2rem;
+            font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+            background:#eaeaec;
+        }
+        h1,h2,h3 {
+            font-size: 100%;
+        }
+
+        ol,ul {
+            list-style: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show;
+            font-size: inherit;
+        }
+
+        fieldset,img {
+            border: 0;
+        }
+
+        cite,em,s,i,b {
+            font-style: normal;
+        }
+
+        input,button,textarea,select {
+            font-size: 100%;
+        }
+
+        body,input,button,textarea,select,option {
+            font-size: normal;
+        }
+
+        a,input,textarea {
+            text-decoration: none;
+            outline: 0;
+        }
+
+        li,img,label,input {
+            vertical-align: middle;
+        }
+
+        var {
+            font-style: normal;
+        }
+
+        ins {
+            text-decoration: none;
+        }
+
+        a{
+            -webkit-tap-highlight-color:transparent;
+            color:#333;
+        }
+        input {-webkit-appearance:none;/*去除input默认样式*/}
+        .banner{
+            position:relative;
+            width:100%;
+        }
+        .banner img{
+            width:100%;
+        }
+        .banner a {
+            position: absolute;
+            width: 4rem;
+            height: 2rem;
+            top: 20%;
+            left: 25%;
+            display: block;
+            cursor: pointer;
+        }
+        .page01,.page02,.page03,.page04,.page05,.
+        {
+            width: 100%;
+            position: relative;
+        }
+        .page01 img ,.page02 img ,.page03 img,.page04 img,.page05 img,.page06 img,.page07 img{
+            width:100%;
+        }
+        .btn{
+            display:block;
+            width: 100%;
+            height: 0.98rem;
+            line-height: 0.98rem;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            cursor: pointer;
+            font-size: 0.34rem;
+            transition: all ease .2s;
+            background: #FA2828;
+            -webkit-transition: all ease .2s;
+        }
+        .page01 .btn,.page02 .btn,.page03 .btn,.page04 .btn,.page05 .btn,.page06 .btn, .page07 .btn{
+            width:92%;
+            position:absolute;
+            bottom:0.6rem;
+            left:0.3rem;
+        }
+        .page07-from{
+            position:absolute;
+            top:0.9rem;
+            width:100%;
+            text-align:center;
+        }
+        .page07-from h3{
+            font-size:0.56rem;
+            font-weight: 200;
+
+        }
+        .page07-from img{
+            width:2.4rem;
+        }
+        .page07-from p{
+            font-size:0.36rem;
+            color:#FA2828;
+
+        }
+        .form-item{
+            position:relative;
+            margin-top:0.9rem;
+        }
+        .form-item-box{
+            display: flex;
+            padding: 0 0.3rem;
+            margin-bottom: 0.2rem;
+        }
+        .ui-input{
+            display:block;
+            width: 100%;
+            height: 0.98rem;
+            font-size: 0.3rem;
+            padding-left: 0.34rem;
+            border: 1px solid #ededed;
+            outline: 0;
+            border-radius: 0.08rem;
+            background: #fff;
+            color: #999;
+        }
+        .Modal{
+            position: fixed;
+            z-index: 5000;
+            width: 74%;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background: rgba(255,255, 255, 1);
+            text-align: center;
+            border-radius: 0.13rem;
+            overflow: hidden;
+        }
+        .Modal-bd{
+            padding: 0.3rem 0.4rem;
+            font-size:0.34rem;
+            line-height: 0.6rem;
+            word-wrap: break-word;
+            word-break: break-all;
+            color: #333;
+        }
+        .Modal-ft{
+            position: relative;
+            height:0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.34rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            border-top: 1px solid #D5D5D6;
+        }
+        .Modal-ft a{
+            display: block;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            color: #0076ff;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            position: relative;
+        }
+        .banner .jionus{
+            display: block;
+            position: absolute;
+            width: 13em;
+            height: 3em;
+            top: 10em;
+            left: 50%;
+            margin-left: -6.5em;
+        }
+        .page .page02 .jionus{
+            position: absolute;
+            width: 13em;
+            height: 3em;
+            bottom:15px;
+            left: 50%;
+            margin-left: -6.5em;
+
+        }
+        .pages .page03 .jionus{
+              position: absolute;
+              width: 13em;
+              height: 3em;
+               bottom:15px;
+              left: 50%;
+              margin-left: -6.5em;
+          }
+        .banner .best{
+            position: absolute;
+            top: 1.5em;
+            font-size: 2.7em ;
+            left: 50%;
+            bottom:6em;
+            margin-left: -6.2em;
+            color: #ffffff;
+        }
+        .banner .online{
+            position: absolute;
+            top: 7.45em;
+            font-size: 1em;
+            left: 50%;
+            margin-left: -12em;
+            color: #ffffff;
+        }
+        .page,.pages{
+            position: relative;
+        }
+        .pages .page05 .jionus{
+            position: absolute;
+            width: 13em;
+            height: 3em;
+            bottom: 3em;
+            left: 50%;
+            margin-left: -6.5em;
+        }
+
+    </style>
+</head>
+<script>
+  var iScale = 1;
+  !function(){
+    var htmlEl = document.getElementsByTagName('html')[0];
+    var fitPage = function(){
+        /* The calculate of with from zepto  */
+      var w = htmlEl.getBoundingClientRect().width;
+      w = Math.round(w);
+      w = w > 750 ? 750: w;
+      var newW = w/750 * 100;
+      htmlEl.style.fontSize = newW + 'px';
+    }
+    fitPage();
+    var t;
+    var func = function(){
+      clearTimeout(t);
+      t = setTimeout(fitPage, 25);
+    }
+    window.addEventListener('resize', func);
+  }();
+</script>
+<body>
+<div class="banner">
+    <P class="best">最光荣的职业&nbsp;最优越的待遇</P>
+    <p class="online">在线一对一全/兼职授课老师正在招募（从小学奥高中）</p>
+    <img src="images/part01.jpg" alt="" title="">
+    <a href="./luodi.html" class="jionus"><img src="images/btn_01.png"></a>
+</div>
+<!--banner End-->
+<!--page01 Start-->
+<div class="page01">
+    <!--<img src="images/page01.jpg" alt="" title="">-->
+</div>
+<!--page01 End-->
+<!--page02 Start-->
+<div class="page">
+<div class="page02">
+    <img src="images/part02.jpg" alt="" title="">
+    <a href="./luodi.html" > <img class="jionus" src="images/btn_02.png"></a>
+</div>
+</div>
+<!--page02 End-->
+<!--page03 Start-->
+<div class="pages">
+<div class="page03">
+    <img src="images/part03.jpg" alt="" title="">
+    <a href="./luodi.html" ><img class="jionus" src="images/btn_02.png"></a>
+</div>
+</div>
+<!--page03 End-->
+<!--page04 Start-->
+<div class="page04">
+    <img src="images/part04.jpg" alt="" title="">
+
+</div>
+<!--page04 End-->
+<!--page05 Start-->
+<div class="pages">
+<div class="page05">
+    <img src="images/part05.jpg" alt="" title="">
+    <a href="./luodi.html" ><img class="jionus" src="images/btn_02.png"></a>
+</div>
+</div>
+<!--page05 End-->
+<!--page06 Start-->
+
+</body>
+</html>

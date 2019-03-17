@@ -1,0 +1,110 @@
+
+body,h1,h2,h3,p,dl,dd,ol,ul,th,td,form,fieldset,input,button,textarea {
+margin: 0;
+padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+-webkit-text-size-adjust: none;
+word-wrap: break-word;
+}
+
+body{
+  height: 100%;
+
+  overflow: auto;
+  font-size:0.2rem;
+   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  background:#3a3f50;
+
+}
+h1,h2,h3 {
+font-size: 100%;
+}
+
+ol,ul {
+list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+empty-cells: show;
+font-size: inherit;
+}
+
+fieldset,img {
+border: 0;
+}
+
+cite,em,s,i,b {
+font-style: normal;
+}
+
+input,button,textarea,select {
+font-size: 100%;
+}
+
+body,input,button,textarea,select,option {
+font-size: normal;
+}
+
+a,input,textarea {
+text-decoration: none;
+outline: 0;
+}
+
+li,img,label,input {
+vertical-align: middle;
+}
+
+var {
+font-style: normal;
+}
+
+ins {
+text-decoration: none;
+}
+
+a{
+  -webkit-tap-highlight-color:transparent;
+  color:#333;
+}
+input {-webkit-appearance:none;/*去除input默认样式*/}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+.hide {
+display: none;
+}

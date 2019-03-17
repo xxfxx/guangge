@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp -->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT" />
+    <title>双旦活动</title>
+</head>
+<link rel="stylesheet" href="../../../../static/css/reset.css" />
+<link rel="stylesheet" href="./css/jigsaw_puzzle.css" />
+<link rel="stylesheet" href="./css/lucky_draw.css?data=11" />
+<link rel="stylesheet" href="./css/pieces.css" />
+<link rel="stylesheet" href="./css/common.css">
+<script src="../../../../static/js/flexable.js"></script>
+<script>
+    function onMessage(dt) {
+        luckyDraw.onMessage(dt, 'app')
+    }
+</script>
+
+<body v-cloak>
+    <div id="luckyDraw" class="jigsaw_puzzle_box">
+        <div class="mask" v-show='alertBoxFlag' @click.self="alertBoxFlag = false">
+            <div class="mask-content" :class='alertInfo.boxClass'>
+                <img :src='alertInfo.imgUrl' alt="" v-if="alertInfo.imgUrl">
+                <div class="text-box">
+                    <p class="title" v-text="alertInfo.title"></p>
+                    <p class="detail-text" v-html="alertInfo.detail"></p>
+                </div>
+                <div class="btn-box" :class='alertInfo.btnNum'>
+                    <div class="btn" :class='alertInfo.btnBgClass' v-text="alertInfo.btnText" @click="alertInfo['cancel'](luckyDraw)"></div>
+                    <div class="btn" v-if="alertInfo.btnNum==2" :class='alertInfo.btnBgClassSec' @click="alertInfo['ok'](luckyDraw)"
+                        v-text="alertInfo.btnTextSec"></div>
+                </div>
+            </div>
+        </div>
+        <img class="bg-img" src="./img/jigsaw-pizzle-bg.png">
+        <div class="jigsaw_puzzle-content">
+            <ul class="jigsaw_puzzle-box" style="background:#FFF5E1;border-radius: .2rem;margin-top: 1.2rem;">
+               <span style="font-size: .4rem;margin-top: 3.2rem;margin-left: 1rem;text-align: center;">目前活动已结束<br>你可以在下方查看你的领取记录</span>
+            </ul>
+        </div>
+        <div class="my-task-box">
+            <div class="my-task-bg">
+                <div class="tab-box">
+                    <div class="item" @click="openPreviewImg">
+                        <img src="./img/my-pic.png">
+                        <p class="itme-remark">我的拼图</p>
+                    </div>
+                    <div class="item gifts-box" @click="goMyGift">
+                        <div class="img-box" v-if="showTwoPrizes.length > 0">
+                            <div class="prizes-grids">
+                                <img v-for="(item, index) in showTwoPrizes" :key="index" class="gift-img" :src="item">
+                            </div>
+                            <p style="color:red">{{showTwoPrizes.length}}个礼物</p>
+                        </div>
+                        <div v-else class="img-box">
+                            <img class="gift-img" src="./img/no-reward.png">
+                            <p>还没有礼物哦</p>
+                        </div>
+                        <p class="itme-remark">我的礼物记录</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-detail-box">
+            <div class="activity-detail-bg">
+                <div class="text-box">
+                    <p>
+                        1.活动时间:<span class="date-text">2018.12.20-2019.1.7</span>
+                    </p>
+                    <p>2.活动期间点亮9个拼块并完成拼图,即可抽取双旦礼物</p>
+                    <p>3.拼图成功后,分享战绩可多得1次抽取礼物的机会</p>
+                    <p>4.海贝实时发放，实物礼品将在活动结束后统一发放</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-img"><img src="./img/footer.png" alt="" /></div>
+        <div v-show="previewImg" class="luckyDraw-preview-img" @click="closePreviewImg">
+            <img @click.stop src="./img/my-pic.png">
+            <img class="preview-img-close" src="./img/Close@2x.png">
+        </div>
+    </div>
+    <script src="../../../../static/js/zepto.min.js"></script>
+    <script src="../../../../static/js/vue.min.js"></script>
+    <script src="../common/index.js"></script>
+    <script src="../common/buryingPoint.js"></script>
+    <script src="./js/jigsaw_alert.js"></script>
+    <script src="./js/lucky_draw.js"></script>
+</body>
+
+</html>

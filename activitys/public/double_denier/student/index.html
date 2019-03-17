@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	    <meta
+	        name="viewport"
+	        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0"
+	    />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no" />
+	    <!-- Set render engine for 360 browser -->
+	    <meta name="renderer" content="webkit" />
+	    <!-- No Baidu Siteapp -->
+	    <meta
+	        http-equiv="Cache-Control"
+	        content="no-siteapp, no-cache, must-revalidate"
+	    />
+	    <meta http-equiv="Pragma" content="no-cache" />
+	    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT" />
+	    <link rel="stylesheet" href="./css/common.css">
+	    <title>双旦活动</title>
+	    <style>
+			.loading {
+			    width: 3rem;
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+			    top: 0;
+			    bottom: 0;
+			    margin: auto;
+			}
+	    </style>
+	    <script src="../../../../static/js/vue.min.js"></script>
+	    <script>
+		    !function () {
+		        var htmlEl = document.getElementsByTagName('html')[0];
+		        var fitPage = function () {
+		            /* The calculate of with from zepto  */
+		            var w = htmlEl.getBoundingClientRect().width;
+		            w = Math.round(w);
+		            if (w <= 750) {
+			            var newW = w / 750 * 100;
+			            htmlEl.style.fontSize = newW + 'px';
+			        }
+		        }
+		        fitPage();
+
+		        var t;
+		        var func = function () {
+		            clearTimeout(t);
+		            t = setTimeout(fitPage, 25);
+		        }
+		        window.addEventListener('resize', func);
+		    }();
+	    	function onMessage (dt) {
+	            entrance.onMessage(dt, 'app')
+	        }
+	    </script>
+	    <body style="margin: 0;padding: 0;">
+	    	<div id="app">
+				<img class="loading" src="./img/loading01.gif" alt="加载中" v-if="timeNum <= controlTimeNum">
+				<img width="100%" src="./img/upgraded-version.png" alt="" v-else>
+	    	</div>
+	    </body>
+	</head>
+<body>
+	<script src="../../../../static/js/zepto.min.js"></script>
+	<script src="../common/index.js"></script>
+	<script>
+		var entrance = new Vue({
+			el: '#app',
+			mixins: [common],
+			created () {
+			},
+			data: {
+			}, 
+			methods: {
+				initialization () {
+					this.request({}, 0, '/study/blockActivity/StudentActivity/getBlockStatus', this.openWindows)
+				},
+				openWindows (st, data) {
+					if (!st) {
+						// alert(data)
+						if (data.status === 1) {
+							window.location.replace("./lucky_draw.html")
+						} else {
+							window.location.replace("./jigsaw_puzzle.html")
+						}
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

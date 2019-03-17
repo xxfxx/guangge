@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>麦迪格&海风</title>
+    <meta name="keywords" content="麦迪格&海风"/>
+    <meta name="description" content="麦迪格&海风"/>
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="css/baoming.css"/>
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/rootResizeFont.js"></script>
+
+
+</head>
+
+<body>
+
+<!--
+	<div class="header">
+		<a href="/"><img src="images/logo.png" class="new_logo fl" /> </a>
+	</div>
+-->
+<div class="img"><img src="images/lb_01.jpg"/></div>
+
+
+<div class="img"><img src="images/lb_02.jpg"/></div>
+<div class="img"><img src="images/lb_03.jpg"/></div>
+<div class="img"><img src="images/lb_04.jpg"/></div>
+<div class="img"><img src="images/lb_05.jpg"/></div>
+<div class="img"><a href="#15"><img src="images/lb_06.jpg"/></a></div>
+<div class="img"><img src="images/lb_07.jpg"/></div>
+<div class="img"><img src="images/lb_08.jpg"/></div>
+<div class="img"><img src="images/lb_09.jpg" id="15"/></div>
+
+
+<div class="box">
+
+
+    <form name="myform" action="//baoming.jnmaidige.com/formguide/haifeng.php" method="post"
+          enctype="multipart/form-data" class="box" accept-charset="gb2312">
+
+
+        <h6 class="tit">孩子姓名<span>*</span></h6>
+        <input type="text" name="info[name]" id="name" value="姓名" class="text" onfocus="if (value =='姓名'){value =''}"
+               onBlur="if (value ==''){value='姓名'}"/>
+
+        <h6 class="tit">年龄<span>*</span></h6>
+        <input type="text" name="info[age]" id="age" value="年龄" class="text" onfocus="if (value =='年龄'){value =''}"
+               onBlur="if (value ==''){value='年龄'}"/>
+        <h6 class="tit">电话<span>*</span></h6>
+        <input type="text" name="info[phone]" id="phone" value="电话" class="text" onfocus="if (value =='电话'){value =''}"
+               onBlur="if (value ==''){value='电话'}"/>
+
+        <h6 class="tit">城市<span>*</span></h6>
+        <select id="city" name="info[city]" class="choose">
+            <option>请选择城市</option>
+            <option value="西安">西安</option>
+            <option value="北京">北京</option>
+            <option value="宝鸡">宝鸡</option>
+            <option value="成都">成都</option>
+            <option value="乌市">乌市</option>
+            <option value="吉林">吉林</option>
+            <option value="哈尔滨">哈尔滨</option>
+            <option value="长春">长春</option>
+            <option value="南宁">南宁</option>
+            <option value="柳州">柳州</option>
+            <option value="郑州">郑州</option>
+            <option value="太原">太原</option>
+            <option value="包头">包头</option>
+            <option value="咸阳">咸阳</option>
+            <option value="其他">其他</option>
+        </select>
+
+
+        <h6 class="tit">近视状况<span>*</span></h6>
+
+
+        <input type="text" name="info[jinshi]" id="jinshi" value="近视状况" class="text" require="false" datatype="limit"
+               min="0" max="255" msg='字符长度必须为0到255位' onFocus="if (value =='近视状况'){value =''}"
+               onBlur="if (value ==''){value='近视状况'}"/>
+
+        <input style="display: none;" type="text" name="info[time]" id="time" value="预约时间" class="text"
+               onfocus="if (value =='预约时间'){value =''}" onBlur="if (value ==''){value='预约时间'}"/>
+        <textarea style="display: none;" name="info[ps]" id="ps" rows="10" cols="50" class="comment area" id="comment"
+                  onFocus="if (value =='备注信息'){value =''}" onBlur="if (value ==''){value='备注信息'}">备注信息</textarea>
+
+
+        <h5 style=" text-align: center;">8-18岁近视青少年，需父母陪同到店</h5>
+
+
+        <input type="text" name="info[media]" id="media" value="海风教育" class="text" style="display: none;"/>
+        <input type="text" name="info[activity]" id="activity" value="海风教育" class="text" style="display: none;"/>
+        <input type="hidden" name="dataid" value=""/>
+        <input type="hidden" name="formid" value="3"/>
+
+
+        <input type="submit" name="dosubmit" value="立即报名" class="submitBtn"/>
+
+    </form>
+</div>
+
+
+<div class="cl"></div>
+<div class="footer">Copyright 2018 Maidige Team-A</div>
+
+</body>
+
+</html>

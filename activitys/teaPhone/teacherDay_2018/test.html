@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO Video</title>
+</head>
+<body>
+<video id="thevideo" src="http://www.w3school.com.cn/i/movie.mp4" preload="auto" style="display:none;"></video>
+<button id="btn">全屏播放视频</button>
+<script>
+  btn.onclick = function () {
+    thevideo.webkitEnterFullscreen()
+    thevideo.play()
+    thevideo.onended = function () { thevideo.webkitExitFullScreen() }
+  }
+</script>
+</body>
+</html>

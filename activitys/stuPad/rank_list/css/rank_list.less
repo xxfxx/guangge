@@ -1,0 +1,336 @@
+// px转rem
+@px2rem: 750 / 10 * 1rem;
+@font-face {
+    font-family: 'iconfont'; /* project id 841248 */
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot');
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot?#iefix')
+            format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.woff') format('woff'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.svg#iconfont')
+            format('svg');
+}
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Microsoft YaHei', '微软雅黑';
+    background-color: #5a22a0;
+}
+.rank_list_mask_style {
+    overflow: hidden;
+}
+.rank_list_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .mask-box {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.85;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+    }
+    .money-box {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: 0 auto;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        .imgs_box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .box_sunshine {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: 15% auto 0;
+                width: 200 / @px2rem;
+                height: 200 / @px2rem;
+            }
+            .box_img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: 17% auto 0;
+                width: 200 / @px2rem;
+                height: 130 / @px2rem;
+            }
+            .gif_img_box {
+                position: absolute;
+                width: 210 / @px2rem;
+                height: 132 / @px2rem;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: 17% auto 0;
+                background: url('../images/box_one.gif') no-repeat;
+                background-size: 100%;
+                font-size: 8 / @px2rem;
+                color: #ffc80f;
+                .mask_text_box {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    text-align: center;
+                    margin: 49% auto 0;
+                    .money_text {
+                        color: #fff;
+                    }
+                }
+            }
+            .open_box_btn {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                width: 100 / @px2rem;
+                height: 25 / @px2rem;
+                margin: 40% auto 0;
+            }
+        }
+    }
+    .titile_bg {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 740 / @px2rem;
+        background: url('../images/pc1@2x.jpg') no-repeat;
+        background-size: 100% 100%;
+        .my_achievement_box {
+            position: absolute;
+            z-index: 2;
+            width: 376 / @px2rem;
+            margin-top: 294 / @px2rem;
+            left: 0;
+            right: 0;
+            margin: 29% auto 0;
+            .my_grade_box {
+                position: relative;
+                width: 100%;
+                height: 54 / @px2rem;
+                text-align: center;
+                overflow: hidden;
+                .my_grade {
+                    position: absolute;
+                    z-index: 2;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: 0 auto;
+                    width: 179 / @px2rem;
+                    height: 51 / @px2rem;
+                }
+                .my_grade_text{
+                    position: absolute;
+                    z-index: 2;
+                    margin: 1.7% auto 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    color: #fff;
+                    font-size: 12/@px2rem;
+                }
+                .my_grade_bg {
+                    position: absolute;
+                    top: 0;
+                    margin: 10% 0 0;
+                    width: 376 / @px2rem;
+                    height: 18 / @px2rem;
+                    background: #662cc7;
+                    border-radius: 6 / @px2rem 6 / @px2rem 0 0;
+                }
+            }
+
+            .my_achievement_title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 24 / @px2rem;
+                background: #5b27b2;
+                font-size: 10 / @px2rem;
+                color: #ffffff;
+                font-weight: 200;
+            }
+            .my_achievement_content {
+                padding: 0 0 10 / @px2rem;
+                background: #662cc7;
+                border-radius: 0 0 6 / @px2rem 6 / @px2rem;
+                .my_achievement_content_top {
+                    display: flex;
+                    justify-content: center;
+                    .my_achievement_content_item {
+                        margin: 13 / @px2rem 0 13 / @px2rem 0;
+                        width: 50%;
+                        font-size: 10 / @px2rem;
+                        color: #ffffff;
+                        font-weight: 200;
+                        display: flex;
+                        justify-content: center;
+                        .my_achievement_text_box {
+                            .my_achievement_num {
+                                font-size: 12 / @px2rem;
+                                font-weight: 600;
+                            }
+                            .money {
+                                color: #ffdf15;
+                                font-weight: 600;
+                            }
+                        }
+
+                        &:first-child {
+                            border-right: 1px dashed #ffffff;
+                        }
+                    }
+                }
+                .my_achievement_btn {
+                    width: 106 / @px2rem;
+                    height: 33 / @px2rem;
+                    text-align: center;
+                    font-size: 0;
+                    margin: 0 auto;
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .super_student_box {
+            position: absolute;
+            width: 376 / @px2rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto 3.7%;
+            bottom: 0;
+            .super_student_title_box {
+                position: relative;
+                width: 100%;
+                height: 54 / @px2rem;
+                overflow: hidden;
+                .super_stu_bg_box {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    .my_grade {
+                        position: absolute;
+                        z-index: 2;
+                        width: 179 / @px2rem;
+                        height: 51 / @px2rem;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                    }
+                    .my_grade_bg {
+                        position: absolute;
+                        top: 0;
+                        margin: 10% 0 0;
+                        width: 376 / @px2rem;
+                        height: 18 / @px2rem;
+                        background: #662cc7;
+                        border-radius: 6 / @px2rem 6 / @px2rem 0 0;
+                    }
+                    .title_text {
+                        position: absolute;
+                        z-index: 2;
+                        margin: 1.7% auto 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        top: 0;
+                        color: #fff;
+                        font-size: 12 / @px2rem;
+                    }
+                }
+            }
+            .rank_box {
+                box-sizing: border-box;
+                width: 100%;
+                .rank {
+                    width: 20%;
+                    text-align: center;
+                    .rank-img {
+                        width: 13 / @px2rem;
+                        height: 16 / @px2rem;
+                    }
+                }
+                .student {
+                    width: 21%;
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .times {
+                    width: 26%;
+                    text-align: center;
+                }
+                .reward {
+                    width: 33%;
+                    text-align: center;
+                    .money {
+                        font-size: 14 / @px2rem;
+                        color: #ffdf15;
+                    }
+                }
+                .rank_title {
+                    display: flex;
+                    font-size: 10 / @px2rem;
+                    color: #bbb;
+                    background: #5b27b2;
+                    height: 24 / @px2rem;
+                    line-height: 24 / @px2rem;
+                }
+                .rank_content_box {
+                    max-height: 226 / @px2rem;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .rank_content {
+                        font-size: 10 / @px2rem;
+                        font-weight: 200;
+                        color: #fff;
+                        background: #662cc7;
+                        border-radius: 0 0 13 / @px2rem 13 / @px2rem;
+                        .rank_content_itme {
+                            display: flex;
+                            align-items: center;
+                            width: 100%;
+                            height: 24 / @px2rem;
+                            line-height: 24 / @px2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+}

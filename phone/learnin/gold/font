@@ -1,0 +1,138 @@
+<style>
+    .quizContent tr, td {
+        margin: 0px !important;
+        padding: 3px !important;
+    }
+
+    .quizContent * {
+        font-family: 'ProximaNova-Regular', 'MicrosoftYaHei', 'proximanova', 'Microsoft YaHei', 'SimHei', '黑体';
+        margin: 0px;
+        padding: 0px;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 24px !important;
+        font-weight: normal !important;
+        -webkit-box-sizing: border-box;
+        word-wrap: normal;
+        list-style-type: upper-alpha;
+        list-style-position: inside;
+    }
+
+    .quizContent img, table {
+        max-width: 708px;
+        border-spacing: 0 !important;
+        vertical-align: middle;
+    }
+
+    f {
+        display: inline-flex;
+        white-space: nowrap;
+        text-indent: 0px;
+        overflow: visible;
+        text-align: left;
+    }
+
+    .quizContent li > p:first-child {
+        display: inline !important;
+    }
+
+    .quizContent .MathJye * {
+        line-height: 18px !important;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .quizContent .MathJye f {
+        display: inline-block;
+        white-space: nowrap;
+        text-indent: 0px;
+        overflow: visible;
+        text-align: left;
+    }
+
+    .quizContent sub *, sup * {
+        font-size: 12px !important;
+    }
+
+    .quizContent .MathJye span[style*="vertical-align:super"] * {
+        font-size: 12px;
+    }
+
+    .quizContent .MathJye span[style*="vertical-align:sub"] * {
+        font-size: 12px;
+    }
+
+    .question-box dl dd {
+        margin-bottom: 0px;
+    }
+
+    .question-box dl dt {
+        margin-bottom: 0px;
+    }
+
+    .quizContent .MathJye table {
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 16px;
+        line-height: 24px;
+        _font-size: 100%;
+        font-style: normal;
+        font-weight: normal;
+        border: 0;
+        float: none;
+        display: inline-block;
+        zoom: 0;
+    }
+
+    #q_answer {
+        display: none;
+    }
+
+    table.edittable {
+        border-collapse: collapse;
+        text-align: center;
+        margin: 2px
+    }
+
+    table.edittable td, table.edittable th {
+        line-height: 30px;
+        padding: 5px;
+        white-space: normal;
+        word-break: break-all;
+        border: 1px solid #000;
+        vertical-align: middle
+    }
+
+    table.composition {
+        border-collapse: collapse;
+        text-align: left;
+        margin: 2px;
+        width: 98%
+    }
+
+    table.composition td, table.composition th {
+        line-height: 30px;
+        white-space: normal;
+        word-break: break-all;
+        border-width: 0;
+        vertical-align: middle
+    }
+
+    table.composition2 {
+        border-collapse: collapse;
+        width: auto
+    }
+
+    table.composition2 td, table.composition2 th {
+        text-align: left;
+        line-height: 30px;
+        white-space: normal;
+        word-break: break-all;
+        border: none;
+        border-width: 0;
+        vertical-align: middle
+    }
+</style>

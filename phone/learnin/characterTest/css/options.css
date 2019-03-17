@@ -1,0 +1,38 @@
+        body {
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+          background-color: #F1F5F7;
+          font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+        }
+
+        li {
+          list-style: none;
+        }
+
+        .options-body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        p {
+          font-size: 0.42rem;
+          color: #23A7F5;
+          margin: 15% 5% 10%;
+          width: 90%;
+        }
+
+        ul {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+
+        ul li {
+          font-size: 0.32rem;
+          background: #FFF;
+          color: #232323;
+          padding: 4% 5%;
+          margin: 5% 0;
+        }

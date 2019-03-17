@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="HandheldFriendly" content="true">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>双旦活动</title>
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_299456_dek6chjun35.css">
+	<script src="../../../../static/js/vue.min.js"></script>
+	<script>
+		!function () {
+	        var htmlEl = document.getElementsByTagName('html')[0];
+	        var fitPage = function () {
+	            /* The calculate of with from zepto  */
+	            var w = htmlEl.getBoundingClientRect().width;
+	            w = Math.round(w);
+	            if (w <= 750) {
+		            var newW = w / 750 * 100;
+		            htmlEl.style.fontSize = newW + 'px';
+		        }
+	        }
+	        fitPage();
+
+	        var t;
+	        var func = function () {
+	            clearTimeout(t);
+	            t = setTimeout(fitPage, 25);
+	        }
+	        window.addEventListener('resize', func);
+	    }();
+
+	    function onMessage (dt) {
+            vm.onMessage(dt, 'app')
+        }
+	</script>
+</head>
+<body>
+	<div id="app" class="activity-main-bg">
+		<template v-if="os !== 'pc' && (timeNum > controlTimeNum)">
+			<img class="is-old-version" src="./images/phone/update_new_ver_tip.png" alt="">
+		</template>
+		<template v-else>
+			<div class="header-bg"><img :src="os === 'pc' ? './images/pc_bg_01.png' : './images/phone/phone_bg_01.png'" alt=""/></div>
+			<div class="header-bg"><img :src="os === 'pc' ? './images/bg_02.png' : './images/phone/bg_02.png'" alt=""/></div>
+			<div class="header-bg"><img :src="os === 'pc' ? './images/bg_03.png' : './images/phone/bg_03.png'" alt=""/></div>
+			<template v-if="os !== 'pc'">
+				<div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div>
+				<div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div>
+				<div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div>
+				<div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div>
+				<div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div>
+				<!-- <div class="header-bg"><img src="./images/phone/bg_03.png" alt=""/></div> -->
+			</template>
+			<div class="header-bg"><img :src="os === 'pc' ? './images/bg_04.png' : './images/phone/bg_04.png'" alt=""/></div>
+			<div class="rewards-record" @click="showRecords"></div>
+			<div class="activity-cont">
+				<div class="task">
+					<div class="task-list" v-for="(it, index) in taskCont" :style="{'background': os !== 'pc' ? 'url(./images/phone/task_bg_' + ++index + '.png)' : 'url(./images/task_bg_' + ++index + '.png)', 'backgroundSize': 'cover'}">
+						<!-- <div class="task-title"><img :src="os === 'pc' ? './images/task' + ++index + '.png' : './images/phone/task' + ++index + '.png'" alt=""></div> -->
+						<!-- <span class="task-cont">{{it.text}}</span>
+						<div class="task-rewards">
+							<span class="rewards"><img :src="os === 'pc' ? './images/hailuo.png' : './images/phone/hailuo.png'" alt=""><span class="tl">{{it.num}}海螺</span></span>
+							<span class="rewards"><img src="./images/piece.png" alt=""><span class="tl">万能拼块</span></span>
+						</div>
+						<span class="task-conditions" v-html="it.cont"></span> -->
+						<div class="task-btn" @click="jumpToPage(it.type)">{{it.btn}}</div>
+					</div>
+				</div>
+				<div class="give-present">
+					<div class="present-title"><img :src="os === 'pc' ? './images/present_title.png' : './images/phone/present_title.png'" alt=""></div>
+					<div class="header">
+						<div class="tab">
+							<span :class="['tab-item', {'is-active': index == curIndex}]" v-for="(it, index) in tabs" @click="changeTabs(index)"><p>{{it}}</p></span>
+						</div>
+						<div class="pieces-num">
+							<!-- <span class="title">已获得:</span> -->
+							<span class="rw pie"><p>{{rewardNums.pieces}}</p></span>
+							<span class="rw hl"><p>{{rewardNums.hailuo}}</p></span>
+						</div>
+					</div>
+					<div class="present-content" v-if="curIndex == 0">
+						<span class="demand-piece-num">当前有 <p>{{sumStudent}}</p> 个学生求拼块</span>
+						<template v-if="personRewards.length > 0">
+							<div :class="['cont-list', {'disabled': it.gainStatus >= 1}]" v-for="(it, index) in (os !== 'pc' ? personRewards.slice((curPageNum * 4) - 4, curPageNum * 4) :personRewards)">
+								<div class="person-header">
+									<div class="header-img" :style="{'background-image': it.headImageUrl ? 'url(' + it.headImageUrl + ')' : 'url(./images/default-header.png)', 'background-size': 'cover'}"></div>
+									<div class="name">{{it.name || '小龙鱼'}}</div>
+								</div>
+								<div class="person-cont">
+									<div class="ct">{{it.copywriter.replace(/x/, it.lackAmount)}}</div>
+									<div class="tm"><span v-text="changeTimeType(it.requestTime)"></span></div>
+								</div>
+								<div class="bt" v-text="it.gainStatus == 0 ? '赠送' : '已赠送'" @click="sentPieces(it)"></div>
+							</div>
+							<div class="footer" v-if="os !== 'pc'"><span :class="['btn', 'prev', {'is-disabled': curPageNum === 1}]" @click="changePage('prev')" v-show="allPageNum !== 1">上一页</span><span><p class="curPage">{{curPageNum}}</p>/<p>{{allPageNum}}</p></span><span :class="['btn', 'next', {'is-disabled': curPageNum === allPageNum}]" @click="changePage('next')" v-show="allPageNum !== 1">下一页</span></div>
+						</template>
+						<template v-else>
+							<div class="no-data"><img src="./images/no_data_01.png" alt=""><p>您的学生还没有求拼块哦～</p></div>
+						</template>
+					</div>
+					<div class="present-content2" v-else>
+						<span class="demand-piece-num">您今天共赠送 <p>{{sumStudent}}</p> 个学生</span>
+						<template v-if="studentList.length > 0">
+							<div class="student-list" v-for="(it, index) in (os !== 'pc' ? studentList.slice((curPageNum * 4) - 4, curPageNum * 4) :studentList)" :key="index">
+								<span class="header-img" :style="{'background-image': it.headImageUrl ? 'url(' + it.headImageUrl + ')' : 'url(./images/default-header.png)', 'background-size': 'cover'}"></span>
+								<div class="nm">{{it.name || '小龙鱼'}}</div>
+								<div class="cnt" v-html="it.copywriter.replace(/x/, it.lackAmount)"></div>
+								<div class="tm" v-if="it.gainStatus === 1">赠送时间: <span v-text="changeTimeType(it.updateTime)"></span></div>
+								<div :class="['btn', {'is-disabled': it.gainStatus >= 1}]" v-text="it.gainStatus == 0 ? '赠送' : '已赠送'" @click="sentPieces(it)"></div>
+							</div>
+							<div class="footer" v-if="os !== 'pc'"><span :class="['btn', 'prev', {'is-disabled': curPageNum === 1}]" @click="changePage('prev')" v-show="allPageNum !== 1">上一页</span><span><p class="curPage">{{curPageNum}}</p>/<p>{{allPageNum}}</p></span><span :class="['btn', 'next', {'is-disabled': curPageNum === allPageNum}]" @click="changePage('next')" v-show="allPageNum !== 1">下一页</span></div>
+						</template>
+						<template v-else>
+							<div class="no-data"><img :src="os === 'pc' ? './images/no_data_02.png' : './images/phone/no_data_02.png'" alt=""><p>您还没有学生哦～</p></div>
+						</template>
+					</div>
+				</div>
+
+				<div class="activity-rule">
+					<div class="title"><img :src="os === 'pc' ? './images/rule_title.png' : './images/phone/rule_title.png'" alt=""></div>
+					<div class="cont">
+						<img :src="os === 'pc' ? './images/rule_01.png' : './images/phone/rule_01.png'" alt="">
+						<img class="rule2" :src="os === 'pc' ? './images/rule_02.png' : './images/phone/rule_02.png'" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="notes-data" v-if="isShowNotes">
+				<div class="notes">
+					<div class="notes-header">
+						<span class="notes-title">恭喜您获得以下奖励</span>
+						<span class="iconfont icon-guanbichuangkou close" @click="isShowNotes = false, isOpenScroll('yes')"></span>
+						<div class="rw">
+							<div class="item"><p>{{awardList.sumPiece}}</p><span class="pie">万能拼图</span></div>
+							<div class="item hailuo"><p>{{awardList.sumIntegral}}</p><span class="hl">海螺</span></div>
+						</div>
+					</div>
+					<div class="notes-tables">
+						<table class="notes-tab" cellpadding="0" cellspacing="0" v-if="awardList.list && awardList.list.length > 0">
+							<colgroup v-if="os === 'pc'">
+							    <col width="80">
+							    <col width="150">
+							    <col width="110">
+						    </colgroup>
+						    <colgroup v-else>
+							    <col width="80">
+							    <col width="130">
+							    <col width="110">
+						    </colgroup>
+							<tr class="notes-tr"><td>获得时间</td><td>获得任务</td><td>获得奖励</td></tr>
+							<tr class="notes-rd-tr" v-for="it in awardList.list">
+							<td><span>{{it.createTime | changeDtType}}</span><img src="./images/is-new.png" alt="" class="isNew" v-if="it.is_visiable === 0"></td>
+							<td>{{it.source_type === 2 ? taskList[it.source_type]['text'].replace(/xxx/, it.team_student_name) : taskList[it.source_type]['text'].replace(/x/, it.count * taskList[it.source_type].n)}}</td>
+							<td><span class="pie t1">{{it.count}}</span><span class="hl t2" v-text="it.count * taskList[it.source_type].num"></span></td>
+							</tr>
+						</table>
+						<div class="no-notes-data" v-else>
+							<img src="./images/success-pic.png" alt="">
+							<span class="cont">您还没有获得奖励，快去做任务吧~</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mask" v-if="isShowModel"></div>
+			<div class="showModel" v-if="isShowModel">
+				<div :class="['content', modelData.className ? modelData.className : '']">
+					<img :src="modelData.img" alt="">
+					<span class="cont">{{modelData.content}}</span>
+					<div class="footer">
+						<span class="btn cancel" v-if="modelData.cancelText" @click="modelData['cancelEvent'](vm)">{{modelData.cancelText}}</span>
+						<span class="btn ok" v-if="modelData.okText" @click="modelData['okEvent'](vm)">{{modelData.okText}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="toast" v-if="toastFlag">{{toastFlagCont}}</div>
+		</template>
+	</div>
+</body>
+<script src="../../../../static/js/zepto.min.js"></script>
+<script src="../common/index.js"></script>
+<script src="../common/buryingPoint.js"></script>
+<script>
+	var vm = new Vue({
+		el: '#app',
+		mixins: [common, buryingPoint],
+		data: {
+			isOnline: false,
+			num: 4,
+			os: 'pc',
+			taskCont: [
+			{text: '分享内推海报', num: 20, cont: '推荐好友提交1份简历<p>* 每天限10次</p>', btn: '立即分享', type: 0},
+			{text: '师生组队消课', num: 10, cont: '与同一学员累计上 3 节课', btn: '去上课', type: 1},
+			{text: '学员满分好评', num: 10, cont: '获得 4 次学员满分好评', btn: '去上课', type: 2},
+			{text: '完成阶段反馈', num: 80, cont: '完成 1 份可获得', btn: '立即完成', type: 3}
+			],
+			taskList: {
+				1: {text: '内推x位好友提交简历', num: 20, n: 1},
+				2: {text: '与xxx师生组队累计上3节课', num: 10},
+				3: {text: '获得x次学员满分好评', num: 10, n: 4},
+				4: {text: '完成x次阶段反馈', num: 80, n: 1}
+			},
+			tabs: ['求拼块', '送拼块'],
+			curIndex: 0,
+			rewardNums: {
+				hailuo: 0,
+				pieces: 0
+			},
+			sumStudent: 0,
+			personRewards: [
+			],
+			studentList: [
+			],
+			curPageNum: 1,
+			allPageNum: 2,
+			isShowNotes: false,
+			awardList: {
+				sumPiece: 0,
+				sumIntegral: 0,
+				list: [
+				]
+			},
+			isShowModel: false,
+			toastFlag: false,
+			toastFlagCont: '',
+			modelData: {},
+			modelList: {
+				testPaperOpen: {
+					img: './images/error-bg.png',
+					okText: '知道了',
+					cancelText: '',
+					content: '该项任务1月1日开启，请耐心等待~',
+					okEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					},
+					cancelEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					}
+				},
+				sendGeneralPieces: {
+					img: './images/general-pieces.png',
+					okText: '立即赠送',
+					cancelText: '再想想',
+					content: '您要赠予小龙鱼一块万能拼块吗？',
+					okEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isSureSendPieces()
+						vm.isOpenScroll('yes')
+					},
+					cancelEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					}
+				},
+				sendGeneralPiecesSuccess: {
+					className: 'send-success-model',
+					img: './images/send-success.png',
+					okText: '知道了',
+					cancelText: '',
+					content: '恭喜您，成功助力小龙鱼获得10海螺',
+					okEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					}
+				},
+				toPcFinishTask: {
+					img: './images/success-pic.png',
+					okText: '知道了',
+					cancelText: '',
+					content: '请至授课中心完成该任务~',
+					okEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					}
+				},
+				default: {
+					img: './images/error-bg.png',
+					okText: '知道了',
+					cancelText: '',
+					content: '暂无可赠送拼块，快去完成任务吧~',
+					okEvent: function (vm) {
+						vm.isShowModel = false
+						vm.isOpenScroll('yes')
+					}
+				}
+			},
+			currentSendStudentId: '',
+			currentSendStudentName: ''
+		},
+		created () {
+			var nav = window.navigator.userAgent
+			if (nav.indexOf('Windows NT') < 0) {
+				this.os = 'App'
+			}
+		},
+		filters: {
+			changeDtType (val) {
+				var tm = new Date(val)
+				var mon = tm.getMonth() + 1
+				var day = ('0' + tm.getDate()).slice(-2)
+				return mon + '月' + day + '日'
+			}
+		},
+		watch: {
+			isShowModel (newVal, oldVal) {
+				if (this.os !== 'pc') {
+					if (newVal) {
+				        document.addEventListener('touchstart', this.eventCollect, false)
+				    } else {
+				        document.removeEventListener('touchstart', this.eventCollect, false)
+				        document.removeEventListener('touchmove', this.moveEventCollect, {passive: false})
+				    }
+				}
+			},
+			isShowNotes (newVal, oldVal) {
+				if (this.os !== 'pc') {
+					if (newVal) {
+				        document.addEventListener('touchstart', this.eventCollect, false)
+				    } else {
+				        document.removeEventListener('touchstart', this.eventCollect, false)
+				        document.removeEventListener('touchmove', this.moveEventCollect, {passive: false})
+				    }
+				}
+			}
+		},
+		methods: {
+			initialization () {
+				this.request({}, 2, '/study/activity/NewYearTeacherSide/teacherCurrentSum', this.getPiecesNum)
+				this.request({requestStatus: 1}, 2, '/study/activity/NewYearTeacherSide/requestAndSentPiecces', this.getRequestPieces)
+				this.request({}, 2, '/study/activity/NewYearTeacherSide/teacherIntoActivity')
+				this.request({}, 2, '/study/activity/NewYearTeacherSide/teacherGetAwardRecord', this.getAwardRecord)
+			},
+			changeTimeType (val) {
+				var tm = new Date(val)
+				var mon = tm.getMonth() + 1
+				var day = ('0' + tm.getDate()).slice(-2)
+				var hour = tm.getHours()
+				var minutes = ('0' + tm.getMinutes()).slice(-2)
+				if (this.curIndex === 0) {
+					return mon + '-' + day + ' ' + hour + ':' + minutes
+				} else {
+					return mon + '-' + day
+				}
+			},
+			changeTabs (idx) {
+				this.curIndex = idx
+				this.curPageNum = 1
+				this.request({requestStatus: idx == 0 ? 1 : 0}, 2, '/study/activity/NewYearTeacherSide/requestAndSentPiecces', this.getRequestPieces)
+			},
+			showRecords () {
+				this.isShowNotes = true
+				this.isOpenScroll('no')
+				this.request({}, 2, '/study/activity/NewYearTeacherSide/teacherGetAwardRecord', this.getAwardRecord)
+			},
+			getPiecesNum (status, data, code) {
+				if (status == 0 && code === 200) {
+					this.rewardNums.pieces = data.sumPiece
+					this.rewardNums.hailuo = data.sumIntegral
+				} else {
+					console.log('接口调取失败')
+				}
+			},
+			getAwardRecord (status, data, code) {
+				if (status == 0 && code === 200) {
+					this.awardList.list = []
+					this.awardList.sumPiece = data.sumPiece
+					this.awardList.sumIntegral = data.sumIntegral
+					this.awardList.list = data.list
+					if (!this.isOnline) {
+						this.isOnline = true
+						var list = []
+						for(var i = 0; i <= data.list.length - 1; i++) {
+							if (data.list[i].is_visiable === 0) {
+								list.push(data.list[i])
+							}
+						}
+						if (list.length > 0) {
+							this.isShowNotes = true
+						}
+					}
+				} else {
+					console.log('接口调取失败')
+				}
+			},
+			getRequestPieces (status, data) {
+				if (status == 0) {
+					if (this.curIndex == 0) {
+						this.personRewards = data.list
+						// this.allPageNum = Math.ceil(data.list.length / 4)
+					} else {
+						this.studentList = data.list
+					}
+					this.allPageNum = Math.ceil(data.list.length / 4)
+					this.sumStudent = data.sumStudent
+				}	
+			},
+			changePage (type) {
+				if (type === 'prev') {
+					if (this.curPageNum > 1) {
+						this.curPageNum -= 1
+					}
+				} else {
+					if (this.curPageNum < this.allPageNum) {
+						this.curPageNum += 1
+					}
+				}
+			},
+			sentPieces (dt) {
+				if (dt.gainStatus === 0) {
+					if (this.rewardNums.pieces > 0) {
+						this.currentSendStudentName = dt.name
+						this.currentSendStudentId = dt.studentId
+						this.modelList.sendGeneralPieces.content = '您要赠予' + dt.name + '一块万能拼块吗？'
+						this.modelData = this.modelList.sendGeneralPieces
+						this.isShowModel = true
+					} else {
+						this.modelData = this.modelList.default
+						this.isShowModel = true
+					}
+					this.isOpenScroll('no')
+				}
+			},
+			isSureSendPieces () {
+				this.request({studentId: this.currentSendStudentId}, 2, '/study/activity/NewYearTeacherSide/teacherSentPiece', this.sentCallback)
+				if (this.curIndex === 0) {
+					if (this.os === 'pc') {
+						this.sendBuryingPointMsg('main_SDbanner_request-send', 'main_SDbanner_request', 1)
+					} else {
+						this.sendBuryingPointMsg('classschedule_SDbanner_request-send', 'classschedule_SDbanner_request', 1)
+					}
+				} else {
+					if (this.os === 'pc') {
+						this.sendBuryingPointMsg('main_SDbanner_gift', 'main_SDbanner_gift-send', 1)
+					} else {
+						this.sendBuryingPointMsg('classschedule_SDbanner_gift-send', 'classschedule_SDbanner_gift', 1)
+					}
+				}
+			},
+			sentCallback (status, data, code) {
+				if (status === 0 && code === 200) {
+					console.log('赠送成功！')
+					this.modelList.sendGeneralPiecesSuccess.content = '恭喜您，成功助力' + this.currentSendStudentName + '获得10海螺';
+					this.modelData = this.modelList.sendGeneralPiecesSuccess
+					this.isShowModel = true
+					this.isOpenScroll('no')
+					this.request({requestStatus: this.curIndex == 0 ? 1 : 0}, 2, '/study/activity/NewYearTeacherSide/requestAndSentPiecces', this.getRequestPieces)
+				}
+			},
+			jumpToPage (ty) {
+				if (this.os !== 'pc' && ty !== 0) {
+					this.modelData = this.modelList.toPcFinishTask
+					this.isShowModel = true
+					this.isOpenScroll('no')
+					return
+				}
+				if (ty === 3) {
+					var openTime = new Date('2019/1/1 00:00:00').getTime()
+					var dt = Date.now()
+					if ((dt + this.offsetTime) < openTime) {
+						this.modelData = this.modelList.testPaperOpen
+						this.isShowModel = true
+						this.isOpenScroll('no')
+						return
+					}
+				}
+				var that = this
+				var dt = ''
+				switch (ty) {
+					case 0:
+						dt = { type: 'jump', keyword: 'sharingInternalPush'}
+						break
+					case 1:
+						dt = { type: 'jump', keyword: 'lesson'}
+						break
+					case 2:
+						dt = { type: 'jump', keyword: 'evaluate'}
+						break
+					case 3:
+						dt = { type: 'jump', keyword: 'stageFeedback'}
+						break
+					default:
+						break
+						
+				}
+				this.sendMsg(dt)
+			},
+			sendMsg (data) {
+				if (window.opener) {
+					window.opener.postMessage(JSON.stringify(data), '*')
+				}
+				this.sendMessage(data)
+			},
+			isOpenScroll (type) {
+				if (type === 'yes') {
+					document.body.style.overflow = 'auto'
+				} else {
+					document.body.style.overflow = 'hidden'
+				}
+			},
+			toastShow (msg) {
+				var that = this
+				this.modelList.default.content = msg
+				this.modelData = this.modelList.default
+				this.isShowModel = true
+				this.isOpenScroll('no')
+			},
+			eventCollect (e) {
+		      e.stopPropagation()
+		      document.addEventListener('touchmove', this.moveEventCollect, {passive: false})
+		    },
+		    moveEventCollect (e) {
+		      e.stopPropagation()
+		      // e.preventDefault()
+		      e.cancelBubble = false
+		    }
+		}
+	})
+</script>
+</html>

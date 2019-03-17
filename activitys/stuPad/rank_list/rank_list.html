@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <title>排行榜</title>
+</head>
+<link rel="stylesheet" href="../../../static/css/reset.css">
+<link rel="stylesheet" href="./css/rank_list.css?data=201811101636">
+<script src="../../../static/js/flexable.js"></script>
+<body v-cloak>
+    <div class="rank_list_box" :class={rank_list_mask_style:maskFlag}>
+        <div class="mask-box" v-show="maskFlag" style="display: none"></div>
+        <div class="money-box" v-show="maskFlag" style="display: none">
+            <div class="imgs_box">
+                <img class="box_sunshine" src="./images/box_sunshine_bg.png" alt="">
+                <img v-show="openBoxFlag" style="display: none" class="box_img" src="./images/box.png" alt="">
+                <div v-show="!openBoxFlag" class="gif_img_box" style="display: none">
+                    <div class="mask_text_box" v-show="moneyDetailShow" style="display: none">恭喜你获得<span class="money_text" v-text="reward"></span>海贝</div>
+                </div>
+                <img v-show="openBoxFlag" style="display: none" class="open_box_btn" src="./images/open_box_pc.png" alt="" @click="openBox()">
+                <img v-show="!openBoxFlag" style="display: none" class="open_box_btn" src="./images/sure_btn_pc.png" alt="" @click="receiveSure()">
+            </div>
+        </div>
+        <div class="titile_bg">
+            <div class="my_achievement_box">
+                <div class="my_grade_box">
+                    <img class="my_grade" src="./images/my_grade.png" alt="">
+                    <span class="my_grade_text">我的成绩</span>
+                    <div class="my_grade_bg"></div>
+                </div>
+                <div class="my_achievement_title">
+                    <span>我的排名:&nbsp;&nbsp;</span>
+                    <span v-show="ranking==0" style="display: none">未上榜</span>
+                    <div v-show="ranking!=0" style="display: none">
+                        <span>第</span>
+                        <span v-text="ranking"></span>
+                        <span>名</span>
+                    </div>
+                </div>
+                <div class="my_achievement_content">
+                    <div class="my_achievement_content_top">
+                        <div class="my_achievement_content_item">
+                            <div class="my_achievement_text_box">
+                                <div>完成作业次数</div>
+                                <div>
+                                    <span class="my_achievement_num" v-text="homeWorkTimes"></span>次</div>
+                            </div>
+                        </div>
+                        <div class="my_achievement_content_item">
+                            <div class="my_achievement_text_box">
+                                <div>获得奖励</div>
+                                <div>
+                                    <span class="my_achievement_num money" v-text="reward"></span>海贝
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my_achievement_btn">
+                        <img v-show="ranking==0&&isFetch==1" style="display: none" src="./images/disable_reward_pc.png" alt="">
+                        <img v-show="ranking!=0&&isFetch==1" style="display: none" src="./images/btn2@2x.png" alt="">
+                        <img v-show="ranking!=0&&isFetch==0" style="display: none" src="./images/btn@2x.png" alt="" @click="getReward()">
+                    </div>
+                </div>
+            </div>
+            <div class="super_student_box">
+                <div class="super_student_title_box">
+                    <div class="super_stu_bg_box">
+                        <img class="my_grade" src="./images/super_stu-bg.png" alt="">
+                        <div class="my_grade_bg"></div>
+                        <span class="title_text" v-text="gradeName"></span>
+                    </div>
+                </div>
+                <div class="rank_box">
+                    <div class="rank_title">
+                        <span class="rank">排名</span>
+                        <sapn class="student">学生</sapn>
+                        <span class="times">完成作业</span>
+                        <span class="reward">奖励</span>
+                    </div>
+                    <div class="rank_content_box">
+                        <div class="rank_content">
+                            <div class="rank_content_itme" v-for="item in list">
+                                <div class="rank">
+                                    <img class="rank-img" v-show="item.ranking==1" src="./images/1@2x.png" alt="">
+                                    <img class="rank-img" v-show="item.ranking==2" src="./images/2@2x.png" alt="">
+                                    <img class="rank-img" v-show="item.ranking==3" src="./images/3@2x.png" alt="">
+                                    <span class="rank" v-show="item.ranking!=1 && item.ranking!=2 && item.ranking!=3" v-text="item.ranking"></span>
+                                </div>
+                                <sapn class="student">{{item.studentName | wordsNum}}</sapn>
+                                <span></span>
+                                <div class="times">
+                                    <span v-text="item.homeWorkTimes"></span>次</div>
+                                <span class="reward">
+                                    <span class="money" v-text="item.reward"></span>
+                                    <span>海贝</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <img src="./images/footer.jpg" alt="">
+        </div>
+    </div>
+    <script src="../../../static/js/zepto.min.js"></script>
+    <script src="../../../static/js/vue.min.js"></script>
+    <script src="../../../config/config.js"></script>
+    <script src="./js/rank_list.js?data=20181110"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name='HandheldFriendly'  content='True'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no"/>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>App下载首页</title>
+</head>
+<script src="../../config/config.js"></script>
+<script src="dist/bundle.min.js"></script>
+<link rel="stylesheet" href="dist/app.css">
+<body>
+<div class="container app-cont">
+    <div class="bg"></div>
+    <img src="//o061kmjss.qnssl.com/026e444ddefd45729b3b64bf0db7365e?imageView2" alt="" class="logo-box"/>
+  <a id="stuPhone" target="_blank" class="media-box">
+    <div class="media-box-hd">
+      <img src="//o061kmjss.qnssl.com/bfd6e18165a345c59c79da0d33b8a6ae?imageView2" alt="" />
+    </div>
+    <div class="media-box-bd">
+        <h4 class="media-box-title">海风智学中心</h4>
+        <p class="media-box-desc"><span>Android版</span><span>iPhone版</span></p>
+    </div>
+    <span class="cell-ft"></span>
+  </a>
+   <a id="stuPad" target="_blank" class="media-box">
+    <div class="media-box-hd">
+      <img src="//o061kmjss.qnssl.com/0aa5b80cac7c4c4b84643077f6418e2f?imageView2" alt="" />
+    </div>
+    <div class="media-box-bd">
+        <h4 class="media-box-title">海风智学中心HD</h4>
+        <p class="media-box-desc"><span>Android版</span><span>iPad版</span></p>
+    </div>
+    <span class="cell-ft"></span>
+  </a>
+   <a id="parPhone" target="_blank" class="media-box">
+    <div class="media-box-hd">
+      <img src="//o061kmjss.qnssl.com/2ff0e0d7ae034fe88d40f739f1d89e6c?imageView2" alt="" />
+    </div>
+    <div class="media-box-bd">
+        <h4 class="media-box-title">海风家委会</h4>
+        <p class="media-box-desc"><span>Android版</span><span>iPhone版</span></p>
+    </div>
+    <span class="cell-ft"></span>
+  </a>
+   <a id="teaPhone" target="_blank"  class="media-box">
+    <div class="media-box-hd">
+      <img src="//o061kmjss.qnssl.com/7bfe96282768448ea29d241789bf67a4?imageView2" alt="" />
+    </div>
+    <div class="media-box-bd">
+        <h4 class="media-box-title">海风名师天团</h4>
+        <p class="media-box-desc"><span>Android版</span><span>iPhone版</span></p>
+    </div>
+    <span class="cell-ft"></span>
+  </a>
+</div>
+</body>
+<script>
+    document.getElementById('stuPhone').href = PROJECT_DOMAIN + '/phone_official/downloads/student.html';
+    document.getElementById('stuPad').href = PROJECT_DOMAIN + '/phone_official/downloads/student_HD.html';
+    document.getElementById('parPhone').href = PROJECT_DOMAIN + '/phone_official/downloads/parent.html';
+    document.getElementById('teaPhone').href = PROJECT_DOMAIN + '/phone_official/downloads/teacher.html';
+</script>
+</html>

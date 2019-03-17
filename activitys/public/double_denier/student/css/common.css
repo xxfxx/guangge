@@ -1,0 +1,34 @@
+.error-msg {
+    position: absolute;
+    top: .5rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    padding: .2rem .4rem;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5);
+    border-radius: .2rem;
+    text-align: center;
+    font-size: .4rem;
+    max-width: 5rem;
+    word-break: break-all;
+    box-sizing: border-box;
+}
+.toast {
+    color: #fff;
+    padding: .15rem .3rem;
+    position: fixed;
+    top: 9rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 50;
+    background: #000;
+    text-align: center;
+    opacity: .5;
+    border-radius: .2rem;
+    box-sizing: border-box;
+    max-width: 2.5rem;
+    font-size: .35rem;
+}

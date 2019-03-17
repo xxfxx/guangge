@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="./_guidePage.css"> -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    body {
+      font-family: "MicrosoftYaHei", "\5FAE\8F6F\96C5\9ED1", "9\5B8B\4F53", Arial;
+      font-size: 14px;
+    }
+    .hf-dialog-Guide {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      color: #fff;
+      z-index: 9;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hf-dialog-Guide-In {
+      color: #637282 !important;
+    }
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-style: normal;
+      vertical-align: middle;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.1px;
+    }
+        
+    .hf-button {
+      display: inline-block;
+      padding: 0 10px;
+      height: 30px;
+      line-height: 28px;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      background: #00a0e9;
+      color: #fff;
+      border-radius: 2px;
+      border: none;
+      min-width: 80px;
+      font-family: "MicrosoftYaHei", "\5FAE\8F6F\96C5\9ED1", "9\5B8B\4F53", Arial;
+      -webkit-user-select: none;
+    }    
+    .guide {
+      height: 450px;
+      width: 930px;
+      border: 0;
+      padding: 0;
+    }
+    .guide-btns {
+      background: url(./images/guide_btns.png) no-repeat;
+    }
+    .guide-rectangle {
+      background: url(./images/guide_content.png) no-repeat;
+    }
+    .guide .guide-new-copywriting {
+      position: absolute;
+      top: 10px;
+      width: 100px;
+      height: 20px;
+      left: 15px;
+      z-index: 9;
+    }
+    .guide .guide-new-copywriting-before {
+      background-position: center -625px;
+    }
+    .guide .guide-new-copywriting-after {
+      background-position: center -600px;
+    }
+    .guide .guide-begin {
+      width: 100%;
+      height: inherit;
+      background: url("./images/guide_begin.png");
+    }
+    .guide .guide-guideing {
+      width: 100%;
+      height: inherit;
+      background: url("./images/guide_guideing.png") no-repeat center center;
+      position: relative;
+    }
+    .guide .guide-backGround {
+      width: 580px;
+      height: 340px;
+      position: relative;
+      top: 80px;
+      left: 100px;
+    }
+    .guide .guide-desc {
+      position: absolute;
+      width: 245px;
+      height: 75px;
+      right: -230px;
+    }
+    .guide .guide-circle {
+      align-items: center;
+      background-color: rgba(0, 153, 255, 0.31);
+      border: 1px solid #0099ff;
+      border-radius: 50%;
+      box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      display: flex;
+      height: 20px;
+      justify-content: center;
+      position: absolute;
+      transition: border 200ms, background-color 200ms, height 200ms, width 200ms;
+      width: 20px;
+      z-index: 9;
+    }
+    .guide .guide-circle .guide-circle-center {
+      background-color: #0099ff;
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+    }
+
+    .guide .guide-circle .guide-circle-center::before {
+      animation: ripple 1.4s infinite;
+    }
+    .guide .guide-circle .guide-circle-center::after {
+      animation: ripple 1.4s infinite;
+      animation-delay: .8s;
+    }
+    .guide .guide-circle .guide-circle-center::before,
+    .guide .guide-circle .guide-circle-center::after {
+      background: transparent;
+      border: solid 1px #0099ff;
+      border-radius: 50%;
+      content: '';
+      height: 100%;
+      left: -1px;
+      top: -1px;
+      position: absolute;
+      transform-origin: center center;
+      width: 100%;
+    }
+
+    .guide .guide-hand {
+      background: url(./images/guide_hand.gif) no-repeat center center;
+      background-size: 100%;
+      width: 55px;
+      height: 69px;
+      bottom: -55px;
+      position: absolute;
+      right: -37px;
+    }
+    .guide .guide-first {
+      background-position: center 0;
+    }
+    .guide .guide-first-circle {
+      bottom: 40px;
+      right: 55px;
+    }
+    .guide .guide-first-circle:hover~.guide-first-add {
+      background-position: center -192px;
+    }
+    .guide-first-add {
+      background-position: center -224px;  
+      position: absolute;
+      bottom: 40px;
+      right: 10px;
+      width: 86px;
+      height: 42px;
+      cursor: pointer;
+    }
+    .guide-first-add:hover {
+      background-position: center -192px;
+    }
+    .guide-first-desc {
+      background: url(./images/guide_text1.png) no-repeat center center;
+      bottom: 61px;
+    }
+
+    .guide-second {
+      background-position: center -340px;
+    }
+    .guide-second-circle {
+      top: 70px;
+      right: 45px;
+    }
+    .guide-second-circle:hover~.guide-second-questions {
+      background-position: center -50px;
+    }
+    .guide-second-circle:hover~.guide-second-questions ~.guide-second-questions-message {
+      display: block;
+    }
+    .guide-second-questions {
+      background-position: center -18px;
+      position: absolute;
+      top: 48px;
+      right: 7px;
+      width: 86px;
+      height: 34px;
+      cursor: pointer;
+    }
+    .guide-second-questions:hover {
+      background-position: center -50px
+    }
+    .guide-second-questions:hover ~.guide-second-questions-message {
+      display: block;
+    }
+    .guide-second-desc {
+      background: url(./images/guide_text2.png) no-repeat center center;
+      top: 31px;
+      right: -220px;
+    }
+    .guide-second-questions-message {
+      background-position: center -1700px;
+      width: 528px;
+      height: 207px;
+      position: absolute;
+      top: 68px;
+      right: -268px;
+      display: none;
+    }
+              
+    .guide-third {
+      background-position: center -680px;
+    }
+    .guide-third-circle {
+      top: 72px;
+      right: 55px;
+    }
+    .guide-third-examination {
+      background-position: center -80px;
+      position: absolute;
+      top: 49px;
+      right: 7px;
+      width: 86px;
+      height: 42px;
+      cursor: pointer;
+    }
+    .guide-third-desc {
+      background: url(./images/guide_text3.png) no-repeat center center;
+      top: 31px;
+      right: -230px;
+    }
+              
+    .guide-fourth {
+      background-position: center -1020px;
+    }
+    .guide-fourth-circle {
+      top: 22px;
+      right: 115px;
+    }
+    .guide-fourth-circle:hover~.guide-fourth-preview {
+      background-position: center -160px;
+    }
+    .guide-fourth-preview {
+      background-position: center -120px;
+      position: absolute;
+      right: 70px;
+      width: 86px;
+      height: 40px;
+      cursor: pointer;
+      top: -1px;
+    }
+    .guide-fourth-preview:hover {
+      background-position: center -160px;
+    }
+    .guide-fourth-desc {
+      background: url(./images/guide_text4.png) no-repeat center center;
+      top: -20px;
+      right: -240px;
+    }
+              
+    .guide-fifth {
+      background-position: center -1360px;
+      left: 190px;
+    }
+    .guide-fifth-desc {
+      background: url(./images/guide_text5.png) no-repeat center center;
+      width: 550px;
+      height: 60px;
+      top: -60px;
+      position: absolute;
+      left: 20px;
+    }
+    .guide-footer {
+      margin-top: 15px;
+      text-align: center;
+      line-height: 50px;
+    }
+    .guide-submit-btn {
+      width: 160px;
+      height: 40px;
+    }
+    .guide-footer-progress {
+      display: flex;
+      align-items: center;
+      /* height: 40px; */
+    }
+    .progress-first {
+      margin-left: 50px;
+    }
+    .progress {
+      display: flex;
+      width: 300px;
+    }
+    .progress-begin {
+      width: 100px;
+      height: 18px;
+      background-position: center -266px;
+      margin-top: 14px;
+    }
+    .progress-go {
+      width: 100px;
+      height: 18px;
+      background-position: center -322px;
+      margin-top: 15px;
+    }
+    .progress-success {
+      width: 100px;
+      height: 18px;
+      background-position: center -376px;
+      margin-top: 15px;
+    }
+    .progress-text {
+      margin-left: -60px;
+    }
+    .progress-next {
+      width: 100px;
+      height: 16px;
+      background-position: center -430px;
+      margin-top: 16px;
+      position: relative;
+      left: 18%;
+    }
+    .progress-finish {
+      color: #0099ff;
+    }
+    .progress-finish .progress-next-finish {
+      background-position: center -456px;
+    }
+    .progress-finish .progress-begin-finish {
+      background-position: center -294px;
+    }
+    .progress-finish .progress-go-finish {
+      background-position: center -350px;
+    }
+    .progress-finish .progress-success-finish {
+      background-position: center -402px;
+    }
+    .guide-previous-page {
+      background: url("./images/guide_btns.png") center -475px no-repeat;
+      width: 90px;
+      height: 65px;
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      cursor: pointer;
+    }
+    .guide-previous-page:hover {
+      background: url("./images/guide_btns.png") center -537px no-repeat;
+    }
+
+
+    @-webkit-keyframes ripple {
+      0% {
+        opacity: .75;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+  </style>
+  <script src="../../static/js/vue.min.v2.5.16.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div slot="body" class="guide">
+      <div class="guide-new-copywriting guide-btns" :class="[guidePage === 0 ? 'guide-new-copywriting-before' : 'guide-new-copywriting-after']"></div>
+      <div class="guide-begin" v-if="guidePage === 0"></div>
+      <div class="guide-guideing" v-if="guidePage !== 0">
+        <div class="guide-backGround guide-first guide-rectangle" v-if="guidePage === 1">
+          <div class="guide-first-circle guide-circle" @click="beginGuide">
+            <div class="guide-circle-center"></div>
+            <div class="guide-hand"></div>
+          </div>
+          <div class="guide-first-add guide-btns" @click="beginGuide"></div>
+          <div class="guide-first-desc guide-desc"></div>
+        </div>
+        <div class="guide-backGround guide-second guide-rectangle" v-if="guidePage === 2">
+          <div class="guide-second-circle guide-circle" @click="beginGuide">
+            <div class="guide-circle-center"></div>
+            <div class="guide-hand"></div>
+          </div>
+          <div class="guide-second-questions guide-btns" @click="beginGuide"></div>
+          <div class="guide-second-questions-message guide-rectangle"></div>
+          <div class="guide-second-desc guide-desc"></div>
+        </div>
+        <div class="guide-backGround guide-third guide-rectangle" v-if="guidePage === 3">
+          <div class="guide-third-circle guide-circle" @click="beginGuide">
+            <div class="guide-circle-center"></div>
+            <div class="guide-hand"></div>
+          </div>
+          <div class="guide-third-examination guide-btns" @click="beginGuide"></div>
+          <div class="guide-third-desc guide-desc"></div>
+        </div>
+        <div class="guide-backGround guide-fourth guide-rectangle" v-if="guidePage === 4">
+          <div class="guide-fourth-circle guide-circle" @click="beginGuide">
+            <div class="guide-circle-center"></div>
+            <div class="guide-hand"></div>
+          </div>
+          <div class="guide-fourth-preview guide-btns" @click="beginGuide"></div>
+          <div class="guide-fourth-desc guide-desc"></div>
+        </div>
+        <div class="guide-backGround guide-fifth guide-rectangle" v-if="guidePage === 5">
+          <div class="guide-fifth-desc"></div>
+        </div>
+        <div class="guide-previous-page" @click="backGuide"></div>
+      </div>
+    </div>
+    <div slot="footer" class="guide-footer">
+      <button type="submit" class="hf-button guide-submit-btn" @click="beginGuide('start')" v-if="guidePage === 0">立即体验</button>
+      <button type="submit" class="hf-button guide-submit-btn" @click="close('addCourse')" v-else-if="guidePage === 5">添加课件</button>
+      <div class="guide-footer-progress" v-else>
+        <div class="progress progress-first" :class="{'progress-finish': true}">
+          <div class="progress-begin progress-begin-finish guide-btns"></div>
+          <span class="progress-text">选择题目并确认已选资源</span>
+          <div class="progress-next progress-next-finish guide-btns"></div>
+        </div>
+        <div class="progress" :class="{'progress-finish': guidePage >= 3 }" style="width: 260px">
+          <div class="progress-go progress-go-finish guide-btns"></div>
+          <span class="progress-text">检查您选中的题目</span>
+          <div class="progress-next progress-next-finish guide-btns"></div>
+        </div>
+        <div class="progress" :class="{'progress-finish': guidePage === 4}">
+          <div class="progress-success progress-success-finish guide-btns"></div>
+          <span class="progress-text">题目添加成功，进入课件预览</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var $vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          guidePage: 0,
+          channelMsg: window.parent.guideMsg,
+        }
+      },
+      methods: {
+        close(msg) {
+          this.channelMsg.port2.postMessage(msg)
+        },
+        beginGuide(msg) {
+          // msg === 'start' && $vm.$userAction.courseListSetQualityQuizStart()
+          $vm.guidePage++
+        },
+        backGuide() {
+          // $vm.$userAction.courseListSetQualityQuizBack()
+          $vm.guidePage--
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

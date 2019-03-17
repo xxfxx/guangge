@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+  <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_299456_0g56pl7ng055.css">
+  <link rel="stylesheet" href="./static/css/components.css?2019-1-8">
+  <script src="static/js/vue.min.js"></script>
+  <script src="../../config/config.js"></script>
+  <script src="../../static/js/zepto.min.js"></script>
+  <script src="static/js/question.js"></script>
+  <title>老师技术支持</title>
+</head>
+<body>
+<div id="app" class="question-content">
+  <div class="question-content-support" v-if="questionConsult.length !== 0">
+    <dl
+      v-for="(item, index) in questionConsult"
+      @click="hanldeConsultLink(item.link)"
+      class="qcs-tilte"
+      :class="{pointer: Boolean(item.link)}"
+      :key="index"
+    >
+      <dt>{{ item.position }}</dt>
+      <dd @click="handleCopyConsult" v-if="item.content" class="pointer">{{ item.content }}</dd>
+      <dd class="qcst-color" v-if="item.workTime">{{ item.workTime }}</dd>
+    </dl>
+  </div>
+  <ul class="question-list"
+      v-for="(item,index) in questionList"
+  >
+    <li @click="currentIndex = index" class="question-list-title"><span class="qlt-gardenicon">•</span>
+      <div class="qlt-answer">{{item.question}}</div>
+      <i class="iconfont" :class="[currentIndex===index ? 'icon-fangxiangxia' : 'icon-fangxiangshang']"></i></li>
+    <li class="question-list-idea" v-show="currentIndex===index">答：{{item.answer}}</li>
+  </ul>
+  <div class="question-footer-warp">
+    <img id="img" title="点击复制"
+            class="question-footer-img">
+    <input ref="selectImg" @click="openWeb" type="text" class="question-footer-input" value="//my.polyv.net/front/video/preview?vid=bf1f1aa05c2e5e63b99e665aae6ccdcb_b">
+  </div>
+  <transition name="fade">
+    <div class="question-copy-tips" v-show="copytipsState">
+      {{text}}
+    </div>
+  </transition>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    mixins: [mixin],
+    data() {
+      return {
+        questionConsult: [],
+        questionList: {},
+        currentIndex: '',
+        copytipsState: false,
+        text:'已复制到剪贴板'
+      }
+    },
+    methods:{
+      copyString (str) {
+        const elInput = document.createElement('input')
+        elInput.value = str
+        elInput.style.position = 'fixed'
+        elInput.style.zIndex = '-1'
+        document.body.appendChild(elInput)
+        elInput.select()
+        document.execCommand('Copy')
+        document.body.removeChild(elInput)
+      },
+      handleCopyConsult({target}){
+        if (!this.copytipsState) {
+          this.text = '已复制到剪贴板'
+          this.copyString(target.innerHTML)
+          this.copytipsState = true
+          setTimeout(()=>{
+              this.copytipsState = false
+          }, 1000)
+        }
+      },
+      openWeb(){
+        this.text = '已复制到剪贴板，请在浏览器内打开视频！'
+        let dom = this.$refs.selectImg
+        dom.select()
+        document.execCommand("Copy")
+        this.copytipsState = true
+        setTimeout(()=>{
+          this.copytipsState = false
+        },800)
+      },
+      changeData (data) {
+        this.questionList = data.question
+        this.questionConsult = data.content
+      },
+      hanldeConsultLink (url) {
+        // test
+        if (url) {
+          window.parent.postMessage({
+            type: 'consultTeacher',
+            url: url
+          }, '*')
+        }
+      },
+      getNewSystemQandA () {
+        let baseUri = ''
+        var parentOrigin = window.parent && window.parent.location.origin
+        if (parentOrigin && parentOrigin.indexOf(SJ_DOMAIN) > -1) {
+          baseUri = parentOrigin.replace('http:', 'https:')
+        } else {
+          baseUri = XUE_DOMAIN
+        }
+        this.request(this, 1, baseUri + '/study/common/SystemController/getNewSystemQandA', this.changeData, () => {
+          document.getElementById('img').src = QINIU_DOMAIN + '/9699c63de6fa4049ae68cf066639a015?imageView2'
+        })
+      }
+    },
+    mounted () {
+      this.getNewSystemQandA()
+    }
+  })
+</script>
+</body>
+</html>

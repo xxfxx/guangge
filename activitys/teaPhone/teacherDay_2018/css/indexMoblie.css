@@ -1,0 +1,825 @@
+@charset "utf-8";
+/* CSS Document */
+/*ie8 background-size:cover;background-clip:content-box;transform: scale(2,2);不兼容 */
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+}
+
+.swiper-container {
+  /*  width: 320px;
+    height: 480px;*/
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.swiper-slide {
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+    background: url(../images/moblie/bg1.jpg) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.slide1 {
+    width: 100%;
+    height: 100%;
+    background: url(../images/moblie/bg.jpg) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.moon-img {
+    width: 30%;
+    left: 20px;
+    top: 10px;
+}
+
+.slide1-img {
+    width: 60%;
+    left: 50%;
+    top: 14%;
+    margin-left: -30%;
+}
+
+.slide2-img {
+    width: 40%;
+    left: 50%;
+    top: 20px;
+    margin-left: -20%;
+    ;
+}
+
+.text-box {
+    top: 13%;
+    margin: 0 30px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+    z-index: 9;
+}
+
+.title {
+    font-size: 18px;
+    color: #f7e54d;
+}
+
+.section3-title {
+    padding-left: 35px;
+}
+
+.slide-title {
+    font-size: 25px;
+    color: #f7e54d;
+    margin-bottom: 10px;
+}
+
+.slide2-text-box02 {
+    top: 23%;
+}
+
+.slide2-text-box03 {
+    bottom: 46%;
+    top: inherit;
+}
+
+.slide2-img03 {
+    width: 100%;
+    bottom: 0;
+}
+
+.slide3-img01 {
+    width: 60%;
+    margin-left: 20%;
+    bottom: 0;
+}
+
+.timeline-box {
+    margin: 20px;
+    height: 100%;
+}
+
+.timeline {
+    z-index: 10;
+    height: 90%;
+    overflow-y: auto;
+    margin-top: 15px;
+    padding-left: 5px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:first-child:before {
+    display: block;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    z-index: 0;
+    width: 1px;
+    height: 100%;
+}
+
+.timeline-item:before {
+    background-color: #e6e6e6;
+}
+
+.timeline-axis {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+    background: -webkit-radial-gradient(#a6eedf, #4ea7fd);
+ /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(#a6eedf, #4ea7fd);
+ /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(#a6eedf, #4ea7fd);
+ /* Firefox 3.6 - 15 */
+    background: radial-gradient(#a6eedf, #4ea7fd);
+ /* 标准的语法 */
+}
+.slide4-img01 {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.timeline-content {
+    padding-left: 35px;
+}
+
+.text {
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.text h3, .text .time {
+    font-size: 18px;
+    font-weight: 500;
+    color: #f7e54d;
+/*    margin-bottom: 10px;*/
+}
+
+.map-img {
+    width: 100%;
+    bottom: 0;
+}
+
+.slide4-img {
+    margin: 30px;
+}
+
+.slide5 {
+    width: 100%;
+    height: 85%;
+    bottom: 0;
+    background: url(../images/moblie/bg5-01.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+.section5-box {
+    position: relative;
+    height: 100%;
+}
+
+.section5-box .list {
+    position: relative;
+    color: #fff;
+    font-size: 13px;
+    margin: 0 auto;
+    line-height: 26px;
+    height: 44%;
+    overflow: hidden;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section5-box .list li {
+    float: left;
+/*    height: 54px;*/
+    padding: 0 30px 0 120px;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 13px;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    position: absolute;
+    height: 30.3%;
+    left: 0;
+    right: 0;
+}
+#totalPropNum {
+    top: 0;
+}
+#usedQuiz{
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+#correctHomeWork{
+    bottom: 0;
+}
+.section5-box .list li p {
+      font-size: 13px;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: #fff;
+}
+.section5-footer-box {
+    width: 63%;
+    height: 30%;
+    /* margin: 20px auto; */
+    position: absolute;
+    bottom: 25%;
+    left: 20%;
+}
+
+.section5-footer-box .section4-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.section5-footer-box .text {
+    font-size: 13px;
+    line-height: 26px;
+}
+
+.section5-footer-box .time {
+    font-size: 18px;
+}
+
+.section5-box .list li .time {
+    margin: 0;
+}
+
+.slide6 {
+    width: 100%;
+    height: 74%;
+    top: 16%;
+}
+
+.slide6 .swiper-container {
+    background: transparent;
+}
+.media-box-des {
+     font-size: 13px;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.slide6 .swiper-slide {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    font-size: 13px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: url(../images/moblie/bg6-01.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.section6 .section6-box {
+    width: 80%;
+    margin: 0;
+    overflow: hidden;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+}
+.section6-box {
+    margin: 20px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-btn, .right-btn {
+    position: absolute;
+    top: 50%;
+    margin-top: -33px;
+    width: 66px;
+    height: 66px;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.left-btn {
+    left: -40px;
+}
+
+.right-btn {
+    right: -65px;
+}
+
+.media-box {
+    padding: 3px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: 1px dashed #859fff;
+    border-radius: 44px;
+    margin-bottom: 4%;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.media-box-hd {
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.media-box-bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 0;
+}
+
+.media-box-title {
+    font-weight: 400;
+    color: #0099ff;
+    font-size: 16px;
+    line-height: 1.5;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.media-box-desc {
+    color: #0e2982;
+    font-size: 13px;
+    height: 30px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.slide6-img2 {
+    width: 30%;
+    bottom: 0;
+    left: 30px;
+}
+
+.slide6-img3 {
+    width: 48px;
+    bottom: 8%;
+    right: 30px;
+}
+
+.slide6-img4 {
+    width: 50%;
+    bottom: 6%;
+    left: 25%;
+}
+
+.slide7-img {
+    width: 100%;
+    top: 5%;
+    text-align: center;
+}
+.slide7-img .text{
+    font-size: 15px;
+}
+.slide7 {
+    height: 60%;
+    top: 20%;
+    background: url(../images/moblie/bg7-01.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin: 0 10px;
+    width: 96%;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section7-box {
+    padding: 6%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.btn-box {
+    bottom: 10%;
+    left: 10%;
+    text-align: center;
+    width: 80%;
+}
+
+.btn {
+    display: inline-block;
+    width: 40%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    background: #0099ff;
+    border-radius: 22.5px;
+    text-decoration: none;
+}
+
+.btn-org {
+    background: #ffba00;
+    margin-left: 20px;
+}
+
+img {
+    display: block;
+}
+
+.swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    opacity: .4;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+@-webkit-keyframes tipmove {
+    0% {
+        bottom: 10px;
+        opacity: 0
+    }
+
+    50% {
+        bottom: 15px;
+        opacity: 1
+    }
+
+    100% {
+        bottom: 20px;
+        opacity: 0
+    }
+}
+
+.ani {
+    position: absolute;
+}
+
+.txt {
+    position: absolute;
+}
+
+#array {
+    width: 5%;
+    left: 46%;
+    position: absolute;
+    z-index: 999;
+    -webkit-animation: tipmove 1.5s infinite ease-in-out;
+}
+/*无数据页面*/
+.no-data-container {
+    background: #f5f7fc;
+}
+
+.no-data-container .swiper-slide {
+    background: #f5f7fc;
+    font-size: 13px;
+    color: #8b9eb6;
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.no-data-container .swiper-slide > img {
+    width: 63.4%;
+    margin-bottom: 20px;
+}
+/*缺省页面*/
+.no-network-container  .swiper-slide {
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: #f5f7fc;
+   /* background: url(../images/moblie/network_bg.png) no-repeat left top;
+    background-size: 100% 100%;*/
+    color: #8b9eb6;
+}
+
+.no-network-container .swiper-slide p {
+    margin: 30px 0 40px;
+}
+
+.no-network-container .swiper-slide .btn {
+    width: 76%;
+}
+
+.video-box {
+    position:relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40%;
+    background: #444b50;
+}
+
+.video-text-box {
+    z-index: 9;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    margin: 0;
+
+}
+
+.video-bg {
+    z-index: 2;
+    width: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.wave-bg {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.video-box-slide2 {
+    text-align: center;
+}
+
+.video-box-slide2 h3 {
+    color: #fff;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.video-box-btn {
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    background: #ffcc41;
+    margin-top: 20%;
+}
+/*分享*/
+.section8 {
+
+}
+.slide8{
+    width: 100%;
+    height: 85%;
+    bottom: 0;
+    background: url(../images/moblie/bg5-01.png) no-repeat left top;
+    background-size: 100% 100%;
+}
+
+/*弹框*/
+.modal-mask, .video-modal-mask {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity .3s ease;
+}
+.video-modal-mask .modal-container {
+    width: 100%;
+    height: 80%;
+}
+.video-modal-mask .modal-container .modal-body{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.modal-container {
+    position: fixed;
+    z-index: 5000;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #eff3f6;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+    min-height: 275px;
+}
+.video-modal-mask .close {
+  z-index: 9999;
+  position: absolute;
+  right: 15%;
+  top: 12px;
+  z-index: 1;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: url(../images/moblie/icon-close.png) no-repeat center center;
+}
+.modal-header {
+  height: 45px;
+  line-height: 45px;
+  padding-left: 20px;
+  color: #232323;
+  font-size: 16px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: inset 0 -1px 0 0 #e5e5e5;
+}
+.modal-footer {
+    width: 100%;
+    height: 80px;
+    background: #fff;
+}
+.erweima {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.modal-body {
+  max-height: 90vh;
+  box-sizing: border-box;
+  padding: 90px 20px 70px;
+  overflow: auto;
+}
+.content-area p {
+   font-size: 14px;
+   line-height: 2.14;
+   margin-bottom: 10px;
+}
+.video-modal-box{
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 99999;
+    left: 0;
+}

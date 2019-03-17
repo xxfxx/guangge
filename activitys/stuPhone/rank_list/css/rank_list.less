@@ -1,0 +1,262 @@
+// px转rem
+@px2rem: 750 / 10 * 1rem;
+@font-face {
+    font-family: 'iconfont'; /* project id 841248 */
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot');
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot?#iefix')
+            format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.woff') format('woff'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_841248_1mm92gv6flk.svg#iconfont')
+            format('svg');
+}
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Microsoft YaHei', '微软雅黑';
+    background-color: #5a22a0;
+}
+.rank_list_mask_style {
+    overflow: hidden;
+}
+.rank_list_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .mask-box {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.85;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+    }
+    .money-box {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: 0 auto;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        .imgs_box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .box_sunshine {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                // margin: 25% 0 0;
+                width: 670 / @px2rem;
+                height: 670 / @px2rem;
+                margin: 20% auto 0;
+            }
+            .box_img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: 28% auto 0;
+
+                // margin: 35% 0 0;
+                width: 670 / @px2rem;
+                height: 435 / @px2rem;
+            }
+            .gif_img_box {
+                position: absolute;
+                width: 670 / @px2rem;
+                height: 435 / @px2rem;
+                left: 0;
+                right: 0;
+                top: 0;
+                margin: 33% auto 0;
+                background: url('../images/box_one.gif') no-repeat;
+                background-size: 100%;
+                font-size: 26 / @px2rem;
+                color: #ffc80f;
+                .mask_text_box {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 15%;
+                    text-align: center;
+                    .money_text {
+                        color: #fff;
+                    }
+                }
+            }
+            .open_box_btn {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                margin: 110% auto 0;
+                width: 300 / @px2rem;
+                height: 80 / @px2rem;
+            }
+        }
+    }
+    .titile_bg {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 550 / @px2rem;
+        background: url('../images/title_bg.png') no-repeat;
+        background-size: 100% 100%;
+    }
+    .my_achievement_box {
+        padding: 0 30 / @px2rem;
+        .my_achievement_title {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 58 / @px2rem;
+            line-height: 58 / @px2rem;
+            font-size: 30 / @px2rem;
+            color: #ffffff;
+            background: #5b27b2;
+        }
+        .my_achievement_content {
+            padding: 0 0 20 / @px2rem;
+            background: #662cc7;
+            border-radius: 0 0 13 / @px2rem 13 / @px2rem;
+            .my_achievement_content_top {
+                display: flex;
+                justify-content: center;
+                .my_achievement_content_item {
+                    margin: 30 / @px2rem 0 30 / @px2rem 0;
+                    width: 50%;
+                    font-size: 26 / @px2rem;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: center;
+                    .my_achievement_text_box {
+                        .my_achievement_num {
+                            font-size: 32 / @px2rem;
+                            font-weight: 600;
+                        }
+                        .money {
+                            color: #ffdf15;
+                            font-weight: 600;
+                        }
+                    }
+                    &:first-child {
+                        border-right: 1px dashed #ffffff;
+                    }
+                }
+            }
+            .my_achievement_btn {
+                width: 300 / @px2rem;
+                height: 80 / @px2rem;
+                text-align: center;
+                font-size: 0;
+                margin: 0 auto;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .super_student_box {
+        width: 100%;
+        .super_student_img {
+            width: 100%;
+            height: 156 / @px2rem;
+            background: url('../images/super_student.png') no-repeat;
+            background-size: 100%;
+            position: relative;
+            text-align: center;
+            span {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: 44 / @px2rem auto 0;
+                color: #fff;
+                font-size: 30 / @px2rem;
+            }
+        }
+        .rank_box {
+            box-sizing: border-box;
+            width: 100%;
+            .rank {
+                width: 20%;
+                text-align: center;
+                .rank-img {
+                    width: 40 / @px2rem;
+                    height: 50 / @px2rem;
+                }
+            }
+            .student {
+                width: 24%;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .times {
+                width: 26%;
+                text-align: center;
+            }
+            .reward {
+                width: 30%;
+                text-align: center;
+                .money {
+                    font-size: 36 / @px2rem;
+                    color: #ffdf15;
+                }
+            }
+            .rank_title {
+                display: flex;
+                font-size: 26 / @px2rem;
+                color: #bbb;
+                background: #5b27b2;
+                margin: 0 30 / @px2rem;
+                height: 58 / @px2rem;
+                line-height: 58 / @px2rem;
+            }
+            .rank_content_box {
+                max-height: 645 / @px2rem;
+                // max-height: 245/@px2rem;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .rank_content {
+                    font-size: 26 / @px2rem;
+                    color: #fff;
+                    margin: 0 30 / @px2rem;
+                    background: #662cc7;
+                    border-radius: 0 0 13 / @px2rem 13 / @px2rem;
+                    .rank_content_itme {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 68 / @px2rem;
+                        line-height: 68 / @px2rem;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        width: 100%;
+        margin: 30 / @px2rem 0 0;
+        img {
+            width: 100%;
+        }
+    }
+}

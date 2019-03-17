@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>如何获取海贝</title>
+</head>
+
+<body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7f8fa;
+    }
+
+    .quizContent {
+        margin: 15px 20px;
+        padding: 0px;
+
+    }
+</style>
+<div class="quizContent">
+    <style>
+        .quizContent * {
+            margin: 0px 0px;
+            padding: 0px;
+        }
+
+        .quizContent img,
+        .quizContent li > p:first-child {
+            display: inline !important;
+        }
+
+        .quizContent li {
+            margin-bottom: 20px;
+        }
+
+        .mt {
+            display: block;
+            color: #1a1a1a;
+            font-size: 16px;
+            line-height: 36px;
+        }
+
+        .mc {
+            /*display:block;*/
+            color: #535353;
+            margin-top: 6px;
+            margin-bottom: 6px;
+
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .divClass {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .imgStyle {
+            margin-top: 11px;
+            margin-right: 10px;
+        }
+
+    </style>
+    <div>
+        <div class="divClass">
+            <img src="images/seachell.png" class="imgStyle" style="width: 18px; height: 15px;">
+            <div>
+                <p class='mt'>介绍自己领海贝</p>
+                <p class='mc'>新用户注册账号，奖励50海贝</p>
+                <p class='mc'>完善个人资料所有必填项，奖励100海贝</p>
+                <p class='mc'>上传头像，奖励100海贝</p>
+                <p class='mc'>生日你最大，我们会一口气送你1000海贝哟</p>
+            </div>
+        </div>
+        <div class="divClass">
+            <img src="images/seachell.png" class="imgStyle" style="width: 18px; height: 15px;">
+            <div>
+                <p class='mt'>学习有奖励</p>
+                <p class='mc'>课前预习：每节课奖励2海贝。</p>
+                <p class='mc'>课堂表现：老师上课使用了鼓励道具，每次奖励2海贝，一堂课最高奖励10海贝。</p>
+                <p class='mc'>课后作业：完成该堂课布置的第一份作业，获得海贝抽奖机会一次。</p>
+                <p class='mc'>评价老师：上课结束给老师评价，获得海贝抽奖机会一次。</p>
+                <p class='mc'>云盘妙用：首次使用海风智学中心手机APP拍照云盘上传图片，奖励20海贝。</p>
+                <p class='mc'>错题收录：错题本首次加入5道题，奖励50海贝</p>
+                <p class='mc'>课后测评：课程结束后，完成该堂课布置的测评卷，获得海贝抽奖机会一次</p>
+            </div>
+        </div>
+        <div class="divClass">
+            <img src="images/seachell.png" class="imgStyle" style="width: 18px; height: 15px;">
+            <div>
+                <p class='mt'>分享拿超超超大奖励</p>
+                <p class='mc'>
+                    分享上课照片集齐十个赞，首次完成奖励1000海贝，之后每月完成奖励500海贝
+                    <a href="javascript:void(0);" onclick="goldShareWechat()">【了解详情】</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goldShareWechat() {
+            window.location.href = 'goldShareWechat.html'
+        }
+    </script>
+</body>
+
+</html>

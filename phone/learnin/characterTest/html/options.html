@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1，maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <link rel="" type="" href="../css/recet.css">
+    <link rel="stylesheet" href="../css/options.css">
+    <script type="text/javascript">
+        ! function () {
+            var htmlEl = document.getElementsByTagName('html')[0];
+            var fitPage = function () {
+                /* The calcliate of with from zepto  */
+                var w = htmlEl.getBoundingClientRect().width;
+                w = Math.round(w);
+                w = w > 750 ? 750 : w;
+                var newW = w / 750 * 100;
+                htmlEl.style.fontSize = newW + 'px';
+            }
+            fitPage();
+            var t;
+            var func = function () {
+                clearTimeout(t);
+                t = setTimeout(fitPage, 25);
+            }
+            window.addEventListener('resize', func);
+        }();
+    </script>
+</head>
+
+<body>
+<div class="options-body" style="display:block;">
+    <p>1.孩子对周围环境的感受</p>
+    <ul class="ulo">
+        <li data-name="a">喜欢热闹的环境,活泼好动,人越多越幸福,善于结交朋友</li>
+        <li data-name="b">喜欢安静、独处，不愿意凑热闹</li>
+        <li data-name="c">对环境的掌控力比较强，能够迅速适应环境，并主导周围的人</li>
+        <li data-name="d">比较安静、随和，不愿意与人发生冲突，人际关系很好，不喜欢显露自己</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>2.孩子给人的印象</p>
+    <ul class="ulo">
+        <li data-name="a">乐观，喜欢开玩笑，善于表达，热情洋溢</li>
+        <li data-name="b">说话严谨，做事考虑周到，不会莽撞而为</li>
+        <li data-name="c">行动迅速，目标明确，不达目的誓不罢休</li>
+        <li data-name="d">做事节奏慢，心态平和，不给自己施加压力</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>3.孩子在表现自我的方面</p>
+    <ul class="ulo">
+        <li data-name="a">喜欢表现自己，追求别人的赞美与认可，在意别人对自己的评价</li>
+        <li data-name="b">默默地做好自己的事，不喜欢张扬</li>
+        <li data-name="c">有目的地展现自己，对自己充满自信，轻易不认错，不服输</li>
+        <li data-name="d">做事需要较大的推动力或者环境所迫，不会主动表现自己</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>4.对于承诺</p>
+    <ul class="ulo">
+        <li data-name="a">乐于承诺，但是说过就忘</li>
+        <li data-name="b">注重承诺，说到做到，反感别人承诺不兑现</li>
+        <li data-name="c">对于承诺，有选择地兑现，该记住的记住，不该记得的就忘掉，完全由自己掌控</li>
+        <li data-name="d">除非被逼无奈，否则很少承诺，不愿意承担责任和风险</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>5.孩子在面对任务的时候</p>
+    <ul class="ulo">
+        <li data-name="a">经常拖到最后一刻才完成任务</li>
+        <li data-name="b">计划性极强，每件事都按照计划一步步完成</li>
+        <li data-name="c">一拿到任务，只要认为值得做，第一时间就完成，行动果断迅速</li>
+        <li data-name="d">善于从容面对压力，不急不慢，很少出现焦急、烦躁的情绪</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>6.孩子在做事的时候</p>
+    <ul class="ulo">
+        <li data-name="a">喜欢同时做几件事，容易被干扰诱惑，偏离主题</li>
+        <li data-name="b">专心致志做一件事，有始有终</li>
+        <li data-name="c">抗压能力极强，一旦开始做事，非常专注，讨厌别人打扰</li>
+        <li data-name="d">从重心里较强，喜欢大家一起做，不愿意单独承担任务</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>7.如果受到老师的批评</p>
+    <ul class="ulo">
+        <li data-name="a">很容易认错和道歉，但重复错误的概率较高</li>
+        <li data-name="b">情绪会受到较大影响，内心容易受到伤害</li>
+        <li data-name="c">轻易不会认错，抗争到底</li>
+        <li data-name="d">害怕被批评，马上妥协退让</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>8.在面对陌生人时</p>
+    <ul class="ulo">
+        <li data-name="a">喜欢主动与人搭话，很快就熟悉起来</li>
+        <li data-name="b">小心翼翼，不会轻易靠近，警惕性强</li>
+        <li data-name="c">视情况而定，该近的近，该远的远，有自己明确的判断</li>
+        <li data-name="d">能躲就躲，跟自己没有关系</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>9.和同学的关系</p>
+    <ul class="ulo">
+        <li data-name="a">害怕独处，喜欢交际，人缘好，朋友多，主动与同学交朋友</li>
+        <li data-name="b">喜欢独处，朋友不多，但是对朋友非常用心、忠诚</li>
+        <li data-name="c">掌控欲强，不愿意听从别人的指挥，喜欢自己主导</li>
+        <li data-name="d">为人随和，愿意配合别人，非常忍让</li>
+    </ul>
+</div>
+
+<div class="options-body" style="display:none;">
+    <p>10.对于家长和老师的教导</p>
+    <ul class="ulo">
+        <li data-name="a">答应的快，但是转眼就忘，落实较为困难</li>
+        <li data-name="b">只要答应的事，一定严格执行，极少出差错</li>
+        <li data-name="c">有条件地答应，不会轻易妥协，答应的就会很快做</li>
+        <li data-name="d">极少反抗，态度平和，但是行动缓慢，见效果很慢</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+
+  var oli = window.document.getElementsByTagName("li");
+//  window.location.href='green-character.html';
+  var ulo = window.document.getElementsByClassName('ulo')
+  var arr = [];
+  arr['a'] = 0;
+  arr['b'] = 0;
+  arr['c'] = 0;
+  arr['d'] = 0;
+//
+  for (var i = 0; i < oli.length; i++) {
+    oli[i].index = i;
+    oli[i].onclick = function (e) {
+
+      // 1到10个选择项跳转
+      var _parent = this.parentNode.parentNode;
+      _parent.style.display = "none";
+      _parent.nextSibling.nextSibling.style.display = "";
+      // 把拿到的值放进arr数组里面
+      var data_name = this.getAttribute('data-name');
+      arr[data_name] += 1;
+      //window.location.href='blue-character.html';
+      // 判断性格
+      var j = this.index;
+      if (j >= 36) {
+
+        // 比大小
+        var arrs = [arr['a'], arr['b'], arr['c'], arr['d']];
+        var maths = 0;
+        for (var o = 0; o < arrs.length; o++) {
+          maths = Math.max(maths, arrs[o]);
+        }
+        if (maths == arr['a']) {
+          window.location.href = 'red-character.html';
+        } else if (maths == arr['b']) {
+          window.location.href = 'blue-character.html';
+        } else if (maths == arr['c']) {
+          window.location.href = 'yellows-character.html';
+        } else if (maths == arr['d']) {
+          window.location.href = 'green-character.html';
+        }
+      }
+
+
+    }
+  }
+</script>
+
+</html>

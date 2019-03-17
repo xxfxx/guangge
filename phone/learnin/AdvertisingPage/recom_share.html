@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+		<meta http-equiv="Pragma" content="no-cache">
+    	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+		<title>邀请好友一起学习</title>
+		<script type="text/javascript">
+		    window.onload = function(){
+				var clientH = document.getElementById("show_title");
+				var img = document.getElementById("show_title").getElementsByTagName("img")[0];
+				var realH = clientH.offsetHeight;
+				img.style.height = realH / 16 + "em";
+		     }
+		</script>
+		<style type="text/css">
+            html,body{margin: 0px; padding: 0px; width: 100%; height: 100%; }
+            #cont{width: 100%; height: 100%;}
+            p{margin: 0px; padding: 0px;}
+            #cont{width: 100%; height: 100%; overflow-y:scroll ;}
+            #cont ul{list-style: none; margin: 0px; padding: 0px;}
+            #show_title{width: 100%; height: 78%; position: relative;}
+            #show_title img{width: 100%;height: 78%;}
+			#instruction{width: 100%; position: relative; padding-top: 0.4em; height: 13%;}
+			#instruction p{font-size: 1em; position: relative; padding-top: 0.09em; margin-left: 0.20em;}
+			#instruction ol{margin-top: 0px;}
+			#instruction ol li{font-size: 0.9em; color: #666; position: relative; margin-left: -0.6em;}
+		</style>
+		
+	</head>
+	<body>
+		<div id="cont">
+			<div id="show_title"><p><img src="//o061kmjss.qnssl.com/1502795995.8327.png"></p></div>
+			<div id="instruction">
+				<p>邀请卡使用方式：</p>
+				<ol>
+					<li>长按保存邀请卡为图片</li>
+					<li>分享给好友或发送到朋友圈</li>
+					<li>成功邀请好友报名课程可获奖学金奖励！<a href="//mp.weixin.qq.com/s/GNr_yHl7YbCtggm1IKw4sA" target="_self">（了解详细规则）</a></li>
+				</ol>
+			</div>
+		</div>
+	<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+
+	    wx.config( {
+	        debug: false,
+	        appId    : "wx199f202da1f10384",//wxc0b5dfa06f872eee  wx199f202da1f10384
+	        timestamp: '1505295865',
+	        nonceStr : 'SWGZapK57g',
+	        signature: '2c019a2bed7a9ed773912d17b8ea2a86fa33760f',
+	        jsApiList: [
+	            // 所有要调用的 API 都要加到这个列表中
+	            'onMenuShareTimeline','onMenuShareAppMessage',"hideMenuItems"
+	        ]
+	    } );
+
+	    wx.ready( function() { 
+
+	        wx.hideMenuItems({
+	            menuList: ["menuItem:share:qq","menuItem:share:QZone","menuItem:copyUrl","menuItem:openWithQQBrowser","menuItem:openWithSafari"]
+	        });
+
+	        //朋友圈 "menuItem:share:qq",
+	        wx.onMenuShareTimeline({
+	            title: "邀请你一起学习", // 分享标题
+	            link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx199f202da1f10384&redirect_uri=http://weixin.la/gongkai/index.php?s=/addon/Haifengjiaoyu/Index/recomShare/uid//name/&response_type=code&scope=snsapi_base&state=from_share#wechat_redirect', // 分享链接
+	            imgUrl: '', // 分享图标
+	            success: function () {},
+	            cancel: function () {}
+	        });
+	        //分享到朋友
+	        wx.onMenuShareAppMessage({
+	            title: "邀请你一起学习", // 分享标题
+	            link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx199f202da1f10384&redirect_uri=http://weixin.la/gongkai/index.php?s=/addon/Haifengjiaoyu/Index/recomShare/uid//name/&response_type=code&scope=snsapi_base&state=from_share#wechat_redirect', // 分享链接
+	            imgUrl: '', // 分享图标
+	            type: 'link', // 分享类型,music、video或link，不填默认为link
+	            success: function () {},
+	            cancel: function () {}
+	        });
+
+	    } );
+
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+  <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_299456_0g56pl7ng055.css">
+  <link rel="stylesheet" href="./static/css/components.css?2019-1-8">
+  <title>学生技术支持</title>
+</head>
+<body>
+<div id="app" class="question-content">
+  <div class="question-content-support" v-if="questionList.content && questionList.content.length > 0">
+    <div class="qcs-tilte" v-for="(it, index) in questionList.content">
+      <div class="qcst-text" v-text="it.position ? it.position : ''"></div>
+      <input ref="selectText" @click="copyText(index)" class="qcst-input qcst-input-student" type="text" :value="it.content ? it.content : ''">
+      <span class="qcst-color">{{it.workTime}}</span>
+    </div>
+  </div>
+  <ul class="question-list"
+      v-for="(item,index) in questionList.question"
+  >
+    <li @click="currentIndex = index" class="question-list-title"><span class="qlt-gardenicon">•</span>
+      <div class="qlt-answer">{{item.question}}</div>
+      <i class="iconfont" :class="[currentIndex===index ? 'icon-fangxiangxia' : 'icon-fangxiangshang']"></i></li>
+    <li class="question-list-idea" v-show="currentIndex===index">答：{{item.answer}}</li>
+  </ul>
+  <div class="question-footer-warp">
+    <img id="img" title="点击复制"
+         class="question-footer-img">
+    <input ref="selectImg" @click="openWeb" type="text" class="question-footer-input" value="//my.polyv.net/front/video/preview?vid=bf1f1aa05c2e5e63b99e665aae6ccdcb_b">
+  </div>
+  <transition name="fade">
+    <div class="question-copy-tips" v-show="copytipsState">
+      {{text}}
+    </div>
+  </transition>
+</div>
+</body>
+<script src="../../config/config.js"></script>
+<script src="static/js/vue.min.js"></script>
+<script src="../../static/js/zepto.min.js"></script>
+<script src="static/js/question.js"></script>
+<script>
+  document.getElementById('img').src = QINIU_DOMAIN + '/9699c63de6fa4049ae68cf066639a015?imageView2';
+  new Vue({
+    el: '#app',
+    mixins: [mixin],
+    data () {
+      return {
+        questionList: {},
+        currentIndex: '',
+        copytipsState: false,
+        text: '已复制到剪贴板'
+      }
+    },
+    methods: {
+      copyText (index) {
+        this.text = '已复制到剪贴板'
+        let dom = this.$refs.selectText
+        dom[index].select()
+        document.execCommand("Copy")
+        this.copytipsState = true
+        setTimeout(() => {
+          this.copytipsState = false
+        },800)
+      },
+      openWeb () {
+        this.text = '已复制到剪贴板，请在浏览器内打开视频！'
+        let dom = this.$refs.selectImg
+        dom.select()
+        document.execCommand("Copy")
+        this.copytipsState = true
+        setTimeout(() => {
+          this.copytipsState = false
+        },800)
+      },
+      changeData (data) {
+        this.questionList = data
+      }
+    },
+    created () {
+      this.request(this, 0, XUE_DOMAIN + '/study/common/SystemController/getNewSystemQandA', this.changeData)
+    }
+  })
+
+
+</script>
+
+</html>

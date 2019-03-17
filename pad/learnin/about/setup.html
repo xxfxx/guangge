@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>应用详情</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=375">
+        <script src="ios_setup/resources/scripts/jquery-1.7.1.min.js"></script>
+        <script src="../../../config/config.js"></script>
+        <script>
+                // 取得操作系统信息
+                function os_info(){
+                var info = {};
+                    var ua = navigator.userAgent.toLowerCase();
+                    //document.getElementById('testMessage').innerHTML=ua;//alert(ua);
+                    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                    info.weixin = true;
+                    } else {
+                        info.weixin = false;
+                    }
+                    
+                    var m;
+                    if ((m=ua.match(/; android ([\d\.]+);/))) {
+                    info.osName = 'android';
+                    info.osVersion = m[1];
+                    var v=info.osVersion.split('\.');
+                    info.osMainVersion=v[0];
+                    } else if((m=ua.match(/\(iphone; cpu[^;]*? os ([\d_]+)/))) {
+                    info.osName = 'iphone';
+                    info.osVersion = m[1];
+                    var v=info.osVersion.split('_');
+                    if (v.length>1) {
+                    info.osMainVersion=v[0];
+                    } else {
+                    info.osMainVersion=info.osVersion;
+                    }
+                    } else if ((m=ua.match(/\(ipad; cpu[^;]*? os ([\d_]+)/))) {
+                    info.osName = 'ipad';
+                    info.osVersion = m[1];
+                    var v=info.osVersion.split('_');
+                    if (v.length>1) {
+                    info.osMainVersion=v[0];
+                    } else {
+                    info.osMainVersion=info.osVersion;
+                    }
+                    } else {
+                    // 根据需要自行扩展pc浏览器
+                    info.osName = 'pc';
+                    //info.osVersion = m[1];
+                    }
+                    
+                    //document.getElementById('testMessage').innerHTML='weixin:'+info.weixin+';osName:'+info.osName+';osMainVersion:'+info.osMainVersion;
+                    return info;
+                }
+        </script>
+        <style>
+                body,p {
+                margin:0px;
+                padding:0px;
+                }
+                .header, .container, .footer {
+                width:100%;
+                text-align:center;
+                }
+                .s1 {
+                width:100%;
+                background:url(setup/bg_gezi_blue.png);
+                }
+                .wrapper {
+                margin: auto;
+                width:375px;
+                position:relative;
+                }
+                .s2 {
+                background:url(setup/bg_gezi_gray.png);
+                }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+        </div>
+        <div class="container">
+            <div class="s1">
+                <div class="wrapper">
+                    <p style="padding-top:72px;">
+                    <img src="setup/appLogo.png" style="width:140px;height:140px;"/>
+                    </p>
+                    <img src="setup/icnMath.png" style="position:absolute;left:41px;top:85px;width:37px;height:37px;" />
+                    <img src="setup/icnWuli.png" style="position:absolute;left:297px;top:86.5px;width:37px;height:37px;" />
+                    <img src="setup/icnChinese.png" style="position:absolute;left:0px;top:131px;width:37px;height:37px;" />
+                    <img src="setup/icnMath.png" style="position:absolute;left:337px;top:129.5px;width:37px;height:37px;" />
+                    <img src="setup/icnEn.png" style="position:absolute;left:50.5px;top:166px;width:37px;height:37px;" />
+                    <img src="setup/icnHuaxue.png" style="position:absolute;left:295px;top:165.5px;width:37px;height:37px;" />
+                    <p style="margin-top:15px;">
+                    <span style="font-size:23px;color:#00A0E9;">海风学习中心</span>
+                    </p>
+                    <p style="margin-top:63px;">
+                    <a href="javascript:;" class="android bigbtn" onclick="install('2');">
+                    <img src="setup/btnDownloadAndroidNor.png" style="width:206px;height:61px;" />
+                    </a>
+                    </p>
+                    <p style="margin-top:25.5px;">
+                    <a href="//itunes.apple.com/cn/app/hai-feng-xue-xi-zhong-xin/id1110333306" class="ios bigbtn" onclick="/*install('1');*/">
+                    <img src="setup/btnDownloadIOSNor.png" style="width:206px;height:61px;" />
+                    </a>
+                    </p>
+                    <!--
+                                        <p style="margin-top:51px;">
+                                        <span style="font-size:28px;color:#9b9b9b">ios用户安装说明</span>
+                                        <img src="setup/arrowR.png" style="margin-left:3px;" />
+                                        </p>
+                    -->
+                    <p style="margin-top:50px;padding-bottom: 32.5px;">
+                    <img src="setup/arrowDown.png" style="width:25px;height:17px;" />
+                    </p>
+                </div>
+            </div>
+            <div class="s2">
+                <div class="wrapper">
+                    <p style="padding-top:25px;font-size:23px;color:#00a0e9">
+                    辅助上课
+                    </p>
+                    <p style="padding-top:5px;font-size:16px;color:#9b9b9b;line-height:21px;">
+                    一键拍题，老师解答
+                    </p>
+                    <p style="padding-top:10px;">
+                    <img src="setup/picFuzhushangke.png" style="width:130px;height:130px;" />
+                    </p>
+                    <p style="padding-top:25px;font-size:23px;color:#00a0e9">
+                    完成作业
+                    </p>
+                    <p style="padding-top:5px;font-size:16px;color:#9b9b9b;line-height:21px;">
+                    手机做作业，随时随地更方便
+                    </p>
+                    <p style="padding-top:10px;">
+                    <img src="setup/picWanchengzuoye.png" style="width:130px;height:130px;" />
+                    </p>
+                    <p style="padding-top:25px;font-size:23px;color:#00a0e9">
+                    课程安排
+                    </p>
+                    <p style="padding-top:5px;font-size:16px;color:#9b9b9b">
+                    课程清晰呈现，信息一目了然
+                    </p>
+                    <p style="padding-top:10px;">
+                    <img src="setup/picKechenganpai.png" style="width:130px;height:130px;" />
+                    </p>
+                    <p style="padding-top:25px;font-size:23px;color:#00a0e9">
+                    错题本
+                    </p>
+                    <p style="padding-top:5px;font-size:16px;color:#9b9b9b;line-height:21px;">
+                    了解自身薄弱环节，复习更有针对性
+                    </p>
+                    <p style="padding-top:10px;">
+                    <img src="setup/picCuotiben.png" style="width:130px;height:130px;" />
+                    </p>
+                    <p style="padding-top:25px;font-size:23px;color:#00a0e9">
+                    微课堂
+                    </p>
+                    <p style="padding-top:5px;font-size:16px;color:#9b9b9b;line-height:21px;">
+                    视频讲解，“视＋听”体验真实上课氛围
+                    </p>
+                    <p style="padding-top:10px;">
+                    <img src="setup/picWeiketang.png" style="width:130px;height:130px;" />
+                    </p>
+                    <p style="margin-top:25px;">
+                    <a href="javascript:;" class="android bigbtn" onclick="install('2');">
+                    <img src="setup/btnDownloadAndroidNor.png" style="width:206px;height:61px;" />
+                    </a>
+                    </p>
+                    <p style="margin-top:25px; padding-bottom:34.5px;">
+                    <a href="//itunes.apple.com/cn/app/hai-feng-xue-xi-zhong-xin/id1110333306" class="ios bigbtn" onclick="install('1');">
+                    <img src="setup/btnDownloadIOSNor.png" style="width:206px;height:61px;" />
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+        <div id="weixin_ios_div" style="display:none;position: fixed;left:0px;top:0px;width:100%;height:100%;background:url(ios_setup/bg_intro.png);">
+            <img style="position: absolute;right:0px;width:300px;" src="ios_setup/img_intro.png"/>
+        </div>
+        <div id="weixin_android_div" style="display:none;position: fixed;left:0px;top:0px;width:100%;height:100%;background:url(ios_setup/bg_intro.png);">
+            <img style="position: absolute;right:0px;width:300px;" src="ios_setup/img_intro2.png"/>
+        </div>
+        <script>
+                var downloadURL;
+                function install(type) {
+                if (!type) {
+                return;
+                }
+                $.post(XUE_DOMAIN + '/userApp/validateAppVersionUpdateOrNot?t='+new Date().getTime(),
+                {
+                "platform":type ,
+                "appVersion":"0.0.0"
+                }, function(data) {
+                if (data.code==0) {
+                var versions = data.data;
+                if (versions.length>0) {
+                downloadURL = versions[0].downLoadUrl;
+                download();
+                }
+                }
+                }
+                );
+                }
+                function download() {
+                    if (downloadURL) {
+                window.location.href=downloadURL;
+                }
+                }
+                var osInfo=os_info();
+                if (osInfo.weixin) {
+                // 弹层
+                if (osInfo.osName=='iphone'||osInfo.osName=='ipad') {
+                $('#weixin_ios_div').css({'display':'block', 'width':document.body.scrollWidth});
+                } else {
+                $('#weixin_android_div').css({'display':'block', 'width':document.body.scrollWidth});
+                }
+                } else {
+                // 打开浏览器
+                }
+        </script>
+    </body>
+</html>

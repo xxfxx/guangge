@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="../experience_lesson/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../experience_lesson/css/index.css">
+    <link rel="stylesheet" href="/static/js/flexable.js">
+    <script src="../experience_lesson/dist/js/swiper.min.js"></script>
+</head>
+<style>
+    * {
+        touch-action: pan-y;
+    }
+</style>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                 <div style="color:navy;font-size:40px">sdfssad</div>
+                <div class="videobox">
+                    <!-- <video autoplay="autoplay" muted id="audio"> -->
+                    <audio src="http://hao.haolingsheng.com/ring/000/995/6f98624d7ca22b56291a09ea08812c94.mp3"
+                        preload="true"></audio>
+                    <!-- muted -->
+                    <!-- <video autoplay="autoplay" muted id="audio" preload="">
+                        <source src="https://app-download.hfjy.com/parPhone/video/tourist/propaganda.mp4"
+                            type="video/mp4">
+                    </video> -->
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <!-- <div class="page-group"> -->
+                <div class="page">
+                    <div class="content">
+                        <div class="title-bg-box">
+                            <div class="music-img"></div>
+                            <img src="./imgs/match-teacher-title-img.png" class="match-teacher-title-img" alt="">
+                            <img src="./imgs/music.png" class="music-img" alt="">
+                        </div>
+                        <div class="tips-box">
+                            <span class="tips-left-text">海风大数据匹配专属名师(正式学员信息越详细，名师匹配更精准)</span>
+                            <span class="tips-right-text">仅体验匹配流程></span>
+                        </div>
+                        <div class="select-box">
+                            <ul class="select-content">
+                                <li class="select-item">
+                                    <span class="select-label">期望提高科目</span>
+                                    <span class="select-detail">数学<i class="iconfont icon">&#xe61f;</i></span>
+                                </li>
+                                <li class="select-item">
+                                    <span class="select-label">孩子年级</span>
+                                    <span class="select-detail">数学<i class="iconfont icon">&#xe61f;</i></span>
+                                </li>
+                                <li class="select-item">
+                                    <span class="select-label">所在地区</span>
+                                    <span class="select-detail">江苏 南京<i class="iconfont icon">&#xe61f;</i></span>
+                                </li>
+                                <li class="select-item">
+                                    <span class="select-label">教材版本</span>
+                                    <span class="select-detail">人教版<i class="iconfont icon">&#xe61f;</i></span>
+                                </li>
+                                <li class="select-item">
+                                    <span class="select-label">最近考试成绩</span>
+                                    <span class="select-detail">80分</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="start-match-box">
+                                <img class="start-match-img" src="./imgs/start-match.png" alt="">
+                        </div>
+                        <div class="content-block">
+                            <p><a href="#" class="button button-fill open-panel" data-panel='#panel-left-demo'>打开左侧栏</a>
+                            </p>
+                        </div>
+                        <p><a href="#" class="button button-fill open-panel" data-panel='#panel-left-demo-xx'>打开左侧栏</a>
+                        </p>
+
+                        <!--  <div class="list-block">
+                            <ul class="content-test">
+                                
+                            </ul>
+                        </div> -->
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="panel-overlay"></div>
+                <!-- Left Panel with Reveal effect -->
+                <div class="panel panel-right panel-cover theme-dark" id='panel-left-demo'>
+                    <div class="content-block">
+                        <input type="text" id='picker' />
+                        <p><a href="#" class="close-panel">关闭</a></p>
+                    </div>
+                </div>
+                <div class="panel panel-right panel-cover theme-dark" id='panel-left-demo-xx'>
+                    <div class="content-block">
+                        xxxx love
+                        <p><a href="#" class="close-panel">关闭</a></p>
+                    </div>
+                </div>
+                <div class="modal modal-no-buttons">
+
+                    <div class="popup">
+                        Any HTML content goes here
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide no-bg-img">
+                <div class="register-box">
+                     <p class="title-text">注册</p>
+                     <p class="register-tips">
+                         <img class="gift-img" src="./imgs/gift-img.png" alt="">
+                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script>
+        $(function () {
+
+            //sui初始化
+            $(document).on("click", ".my-btn", function () {
+                $.openPanel("#panel-js-demo");
+            });
+            $.init();
+        })
+
+        var content_html = '';
+        var data = [{ "name": "张三", "age": 11 }, { "name": "张三", "age": 0 }];
+        $.each(data, function (index, value) {
+            if (!value.age) {
+                value.age = '';
+            }
+            console.log(value.name);
+            content_html += '<li class="item-content item-link">' +
+                '<div class="item-media"><i class="icon icon-f7"></i></div>' +
+                '<div class="item-inner">' +
+                '<div class="item-title">' + value.name + '</div>' +
+                '<div class="item-after">' + value.age + '</div>' +
+                '</div>' +
+                '</li>';
+        });
+        console.log(content_html);
+        $('.content-test').append(content_html);
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: function () {
+
+            },
+            //可选选项，自动滑动
+        })
+
+        var audio = document.getElementById('audio');
+        //视频自动播放
+        //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // audioAutoPlay();
+        });
+        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        document.addEventListener('touchstart', function () {
+            function audioAutoPlay() {
+                // audio.play();
+            }
+            // audioAutoPlay();
+        });
+
+        /*   audio.load();
+          audio.addEventListener("canplaythrough",
+              function () {
+                  setTimeout(function(){
+                    var audio1= document.getElementById('audio')
+                    audio1.play();
+                  },1000)
+                  
+              }, false);
+   */
+        function audioAutoPlay() {
+            /*   var audio = document.getElementById('audio');
+              alert(audio)
+              audio && audio.play(); */
+            // audio&&audio.muted();
+
+
+        }
+
+
+        audio.addEventListener('ended', function () {
+            mySwiper.slideNext();
+        })
+        console.log(mySwiper.autoplay)
+
+        //与rn通信
+
+        // WebViewBridge && WebViewBridge.send(JSON.stringify({ msg: 'web message' }));
+
+
+
+
+    </script>
+    <style>
+        html,
+        body,
+        .main {
+            width: 100%;
+            height: 120%;
+            overflow: hidden;
+            background: #FFF;
+            box-sizing: border-box;
+        }
+
+        .videobox {
+            z-index: 12;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #audio {
+            position: absolute;
+            top: -2%;
+            width: 100%;
+            height: 110%;
+        }
+    </style>
+
+
+</body>
+
+</html>

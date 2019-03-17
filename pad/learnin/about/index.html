@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Expires" content="0">
+<title>海风教育</title>
+<style>
+  
+body,h1,h2,h3,p,dl,dd,ol,ul,th,td,form,fieldset,input,button,textarea {
+margin: 0;
+padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+-webkit-text-size-adjust: none;
+word-wrap: break-word;
+}
+
+body{
+  height: 100%;
+  overflow: auto;
+  font-size:16px;
+   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  background:#eaeaec;
+}
+h1,h2,h3 {
+font-size: 100%;
+}
+
+ol,ul {
+list-style: none;
+}
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+empty-cells: show;
+font-size: inherit;
+}
+
+fieldset,img {
+border: 0;
+}
+
+cite,em,s,i,b {
+font-style: normal;
+}
+
+input,button,textarea,select {
+font-size: 100%;
+}
+
+body,input,button,textarea,select,option {
+font-size: normal;
+}
+
+a,input,textarea {
+text-decoration: none;
+outline: 0;
+}
+
+li,img,label,input {
+vertical-align: middle;
+}
+
+var {
+font-style: normal;
+}
+
+ins {
+text-decoration: none;
+}
+
+a{
+  -webkit-tap-highlight-color:transparent;
+  color:#333;
+}
+input {-webkit-appearance:none;/*去除input默认样式*/}
+.banner{
+   position:relative;
+   width:100%;
+}
+.banner img{
+    width:100%;
+}
+.banner a {
+    position: absolute;
+    width: 25em;
+    height: 1.5;
+    top: 20%;
+    left: 40%;
+    display: block;
+    cursor: pointer;
+}
+.page01,.page02,.page03,.page04,.page05,.page06,.page07{
+    width: 100%;
+    position: relative;
+    
+}
+.page01 img ,.page02 img ,.page03 img,.page04 img,.page05 img,.page06 img,.page07 img{
+    width:100%;
+}
+.btn{
+    display:block;
+    width: 100%;
+    height: 49px;
+    line-height: 49px;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all ease .2s;
+    background: #FA2828;
+    -webkit-transition: all ease .2s;  
+}
+.btn:active {
+    background: #d42222;
+}
+.page01 .btn,.page02 .btn,.page03 .btn,.page04 .btn,.page05 .btn,.page06 .btn, .page07 .btn{
+    width:345px;
+    position:absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left:-172.5px;
+}
+
+.page02 .btn{
+   bottom: 34px;
+}
+.page07 .btn{
+   bottom: 60px;
+}
+.page07-from{   
+    width: 345px;
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    margin-left: -172.5px;
+    text-align: center;
+}
+.page07-from h3{
+    font-size: 20px;
+   font-weight: 200;
+
+}
+.page07-from img{
+    width: 25%;
+}
+.page07-from p{
+    font-size:17px;
+    color:#FA2828;
+
+}
+.form-item{
+    position:relative;
+    margin-top:40px;
+}
+.form-item-box{
+    display: flex;
+    padding: 0 0rem;
+    margin-bottom: 10px;
+}
+.ui-input{
+    display:block;
+    width: 100%;
+    height: 49px;
+    font-size: 1em;
+    padding-left:15px;
+    border: 1px solid #ededed;
+    outline: 0;
+    border-radius: 4px;
+    background: #fff;
+    color: #333; 
+	-webkit-user-modify: read-write-plaintext-only;
+	user-modify: read-write-plaintext-only;
+}
+ .Modal{
+    display:none ;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+ } 
+ .mask {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.Modal-box{
+  position: fixed;
+   z-index: 3000;
+   width: 300px;   
+  top: 50%;
+  left: 50%;
+ -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(255,255, 255, 1);
+}
+ .Modal-bd{
+   
+   
+    padding: 15px 40px;
+    font-size:17px;
+    line-height: 30px;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #333; 
+ }
+ .Modal-ft{
+    position: relative;
+    height: 45px;
+    line-height: 45px;
+    font-size: 17px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #D5D5D6;
+ }
+  .Modal-ft a{
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    color: #0076ff;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  .tips {
+    position: fixed;
+    z-index: 5000;
+    width: 200px;   
+    top: 50%;
+    left: 50%;
+    color:#fff;
+    font-size: 14px;
+    padding: 15px 20px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: rgba(0,0, 0, 0.8);
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden; 
+  }
+</style>
+
+</head>
+<body>
+<!--header Start-->
+<!--header End  -->
+
+<!--banner Start-->
+<div class="banner">
+    <img src="images/banner.jpg" alt="" title="">
+    <a href="#dataform"></a>
+</div>
+<!--banner End-->
+<!--page01 Start-->
+<div class="page01">
+    <img src="images/page01.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page01 End-->
+<!--page02 Start-->
+<div class="page02">
+    <img src="images/page02.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page02 End-->
+<!--page03 Start-->
+<div class="page03">
+    <img src="images/page03.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page03 End-->
+<!--page04 Start-->
+<div class="page04">
+    <img src="images/page04.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page04 End-->
+<!--page05 Start-->
+<div class="page05">
+    <img src="images/page05.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page05 End-->
+<!--page06 Start-->
+<div class="page06">
+    <img src="images/page06.jpg" alt="" title="">
+     <a class="btn " href="#dataform">立即体验</a>
+</div>
+<!--page06 End-->
+<!--page07 Start-->
+<div class="page07" id="dataform">
+    <img src="images/page07.jpg" alt="" title="">
+    <div class="page07-from">
+        <h3>填表免费体验</h3>
+         <img src="images/combinedShape.png" alt="" title="">
+      
+        <p>海风名师1对1真人在线课程</p>
+        <div class="form-item">
+            <div class="form-item-box">
+                <input type="text" class="ui-input" name="studentName" placeholder="姓名" id="name">
+            </div>
+             <div class="form-item-box">
+                <input value="" class="ui-input" type="text" placeholder="手机号" id="phone" name="firstPhone" maxlength="11">
+            </div>
+            
+        </div>          
+    </div>
+    <a class="btn " onclick = "doRegister()">立即体验</a>
+</div>
+<!--page07 End-->
+<div class="Modal " id="theModal">
+    <div class="mask"></div> 
+    <div class="Modal-box">
+        <div class="Modal-bd">
+            预约成功！</br>
+    海风老师会尽快联系您</br>请留意手机来电。
+        </div>
+      <div class="Modal-ft">
+          <a href="javascript:$('#theModal').hide();return false" onclick="$('#theModal').hide()">好的</a>
+      </div> 
+    </div>  
+    
+</div>
+<!--111-->
+<div class="tips " id="theError" style="display:none">
+    
+</div>
+<script src="images/jquery-1.12.3.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script>
+	var isIOS = /Mac\s+OS/i.test(navigator.userAgent) || /Mac/i.test(navigator.platform);
+	function doRegister(){
+		var studentName = document.getElementById('name').value;
+		var firstPhone = document.getElementById('phone').value;
+		if(!studentName||!firstPhone){
+			//alert('姓名和手机号不能为空');
+			showTips('姓名和手机号不能为空')
+			return;
+		}
+		if(!/^1\d{10}$/i.test(firstPhone)){
+			//alert('手机格式不正确');
+			showTips('手机格式不正确')
+			return;
+		}
+		$.ajax({
+			url: I_DOMAIN + '/landingForm/register',
+			type:'GET',
+			data:{
+				studentName:studentName||'',
+				firstPhone:firstPhone||'',
+				adidNo:isIOS?'52dd08130ba429d8':'29ed0c9bfebe6a53',//adidNo：android为：29ed0c9bfebe6a53 ISO为：52dd08130ba429d8 
+				formId:'16'
+			},
+			success:function(){
+              $('#theModal').show();
+			},
+            error:function (err) {
+              if(err&&err.message){
+                showTips(err.message)
+              }
+            }
+		})
+	}
+	
+	var _timer = null;
+	function showTips(str){
+		$('#theError').html(str).show()
+		setTimeout(function(){
+			$('#theError').hide()
+		},3000)
+		
+	}
+	
+</script>
+</body>
+</html>

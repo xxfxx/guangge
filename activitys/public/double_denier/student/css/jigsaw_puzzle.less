@@ -1,0 +1,745 @@
+// px转rem
+@px2rem: 750 / 10 * 1rem;
+@font-face {
+    font-family: 'iconfont';
+    /* project id 841248 */
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot');
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.woff') format('woff'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.ttf') format('truetype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.svg#iconfont') format('svg');
+}
+
+body,
+html {
+    width: 100%;
+    height: 3413/@px2rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'sans-serif';
+}
+
+body {
+    position: relative;
+}
+
+.jigsaw_puzzle_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .mask {
+        // display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.78);
+    }
+    .mask-list {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 20;
+    }
+    .mask-content {
+        // display: none;
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 21;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        width: 570/@px2rem; // height: 830/@px2rem;
+        height: 761/@px2rem;
+        background: url('../img/alert-box-bg.png') no-repeat;
+        background-size: 100% 100%;
+        .text-box {
+            width: 426/@px2rem;
+            margin: 0 auto;
+            text-align: center;
+            .alert-title {
+                margin: 32% 0 0;
+                font-size: 30/@px2rem;
+                color: #FF8122;
+            }
+            .title {
+                font-size: 36/@px2rem;
+                font-weight: 600;
+                color: #4A4A4A;
+                line-height: 50/@px2rem;
+                margin: 6% 0 0;
+            }
+            .detail-text {
+                width: 426/@px2rem;
+                box-sizing: border-box;
+                padding: 5% 0;
+                text-align: center;
+                font-size: 30/@px2rem;
+                color: #4A4A4A;
+                line-height: 50/@px2rem;
+            }
+            .activtiy-img {
+                width: 120/@px2rem;
+                height: 116/@px2rem;
+                margin: 10/@px2rem 0 0;
+            }
+            .stu-name {
+                margin: 30/@px2rem 0 0;
+                font-size: 30/@px2rem;
+                color: #4A4A4A;
+                line-height: 30px;
+            }
+        }
+        .title-img {
+            /*  width: 178/@px2rem;
+            height: 178/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0; */
+        }
+        .get-reward-box {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 120/@px2rem;
+            text-align: center;
+            margin: 20/@px2rem 0 0;
+            .get-reward-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 453/@px2rem;
+                height: 100%;
+                background: #FDFAF4;
+                border-radius: 12/@px2rem;
+                box-shadow: 0 0 4px 1px rgba(246, 200, 140, 0.29);
+                .get-label {
+                    width: 167/@px2rem;
+                    text-align: right;
+                    font-size: 26/@px2rem;
+                    color: #FF8122;
+                }
+                .show-right {
+                    display: flex;
+                    flex: 1;
+                    justify-content: space-around;
+                    .item {
+                        text-align: center;
+                        .img-box {
+                            width: 70/@px2rem;
+                            height: 70/@px2rem;
+                            background: url('../img/mask-money.png') no-repeat;
+                            background-size: 100%;
+                        }
+                        .sec {
+                            background: url('../img/secret.png') no-repeat;
+                            background-size: 100%;
+                        }
+                        .img-bottom-text {
+                            font-size: 22/@px2rem;
+                            color: #FF8122;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-box {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50/@px2rem;
+            margin: 30/@px2rem 0 0;
+            .btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 225/@px2rem;
+                height: 80/@px2rem;
+                font-size: 34/@px2rem;
+                color: #FFFFFF;
+                border-radius: 50/@px2rem;
+            }
+            .blue-btn {
+                background: #0099FF;
+            }
+            .orange-btn {
+                background: #FF8122;
+            }
+        }
+        .one-btn {
+            justify-content: center;
+            .btn {
+                width: 340/@px2rem;
+            }
+        }
+        .close-btn {
+            width: 80/@px2rem;
+            height: 80/@px2rem;
+            margin: 25% 0 0;
+        }
+    }
+    .finish-task {
+        // height: 440px;
+        height: 880/@px2rem !important;
+        .text-box {
+            .alert-title {
+                margin: 38% 0 0;
+            }
+            .stu-name {
+                font-weight: 600;
+            }
+            .detail-text {
+                height: 130/@px2rem ;
+                line-height: 38/@px2rem;
+                font-size: 26/@px2rem;
+            }
+        }
+        .btn-box {
+            margin: 7% 0 0;
+        }
+    }
+    .get-pic {
+        // display: none;
+        box-sizing: border-box;
+        text-align: center;
+        height: 761/@px2rem;
+        padding: 0 70/@px2rem;
+        .title-img {
+            width: 178/@px2rem;
+            height: 178/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0;
+        }
+        .text {
+            margin: 74/@px2rem 0 0;
+        }
+        .btn-box {
+            justify-content: center;
+        }
+    }
+    .get-all-pic {
+        display: none;
+    }
+    .no-reward-box {
+        .title-img {
+            width: 274/@px2rem;
+            height: 194/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem 0 0 160/@px2rem;
+        }
+    }
+    .send-pic {
+        .title-img {
+            width: 200/@px2rem;
+            height: 200/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0;
+        }
+    }
+    .is-use-pic {
+        height: 790/@px2rem;
+        .title-img {
+            width: 200/@px2rem;
+            height: 200/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0;
+        }
+    }
+    .get-help {
+        .title-img {
+            width: 322/@px2rem;
+            height: 180/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0;
+        }
+    }
+    .task-details {
+        .text-box {
+            margin: 31% auto 0;
+            .detail-text{
+                padding: 0;
+                margin: 50/@px2rem auto 0; 
+            }
+        }
+    }
+    .virtual-reward {
+        margin: 30% auto 0;
+        background: url('../img/gift-bg.png') no-repeat;
+        background-size: 100% 100%;
+        .title-img {
+            width: 250/@px2rem;
+            height: 250/@px2rem;
+            margin: 31% auto 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        img {
+            width: 3.5rem;
+            margin-top: 2.4rem;
+        }
+    }
+    .task-detail {
+        display: none;
+        .text-box {
+            width: 400/@px2rem;
+            margin: 178/@px2rem auto 0;
+            .title {
+                font-size: 36/@px2rem;
+                font-weight: 600;
+                line-height: 50/@px2rem;
+            }
+            .text {
+                margin: 53/@px2rem 0 0;
+            }
+        }
+    }
+    .game-over {
+        .title-img {
+            width: 274/@px2rem;
+            height: 194/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 160/@px2rem 0 0 20/@px2rem;
+        }
+    }
+    .guide-pieces {
+        .title-img {
+            width: 178/@px2rem;
+            height: 178/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem auto 0;
+        }
+    }
+    .mask-get-skill {
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 21;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 24% auto 0;
+        text-align: center;
+        width: 650/@px2rem;
+        height: 800/@px2rem; // overflow: hidden;
+        background: url('../img/get-help-bg.png') no-repeat;
+        background-size: 100% 100%;
+        .title-box {
+            margin: 18% 0 0;
+            .title {
+                font-size: 24/@px2rem;
+                color: #9B9B9B;
+                line-height: 33/@px2rem;
+            }
+            .detail {
+                font-size: 28/@px2rem;
+                color: #4A4A4A;
+                line-height: 44/@px2rem;
+                .highlight {
+                    font-size: 36/@px2rem;
+                    color: #FF8122;
+                    ;
+                }
+            }
+        }
+        .tab-content {
+            box-sizing: border-box;
+            height: 520/@px2rem;
+            overflow-y: auto;
+            border-radius: 30/@px2rem;
+            margin: 30/@px2rem 0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch; // -webkit-overflow-scrolling: touch;
+        }
+        .no-teacher {
+            font-size: 24/@px2rem;
+            color: #85888E;
+            .backImg {
+                width: 423/@px2rem;
+                height: 229/@px2rem;
+                margin: 20% auto 0;
+            }
+        }
+    }
+    .teacher-close-btn {
+        position: fixed;
+        width: 80/@px2rem;
+        height: 80/@px2rem;
+        z-index: 22;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: 1050/@px2rem auto 0;
+    }
+    .bg-img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .bubble-img-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        margin: 13% 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 194 / @px2rem;
+        height: 172 / @px2rem;
+        background: url(../img/Bubble.png) no-repeat;
+        background-size: 100% 100%;
+        .text-box {
+            box-sizing: border-box;
+            padding: 0 0 0 18 / @px2rem;
+            text-align: center;
+            p {
+                font-size: 26 / @px2rem;
+                color: #ffffff;
+                line-height: 30 / @px2rem;
+            }
+        }
+    }
+    .jigsaw_puzzle-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 694 / @px2rem;
+        padding: 88 / @px2rem 100 / @px2rem 0;
+        margin: 50% auto 0;
+        z-index: 5;
+        background: url('../img/Luck-draw.png') no-repeat;
+        background-size: 100% 100%;
+        .jigsaw_puzzle-box {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            top: 0;
+            z-index: 10;
+            margin: 11% 0 0;
+            width: 540 / @px2rem;
+            height: 550 / @px2rem;
+            .jigsaw_puzzle-item-mask {
+                position: relative;
+                width: 33.33333%;
+                height: 183.4 / @px2rem;
+                background: #000;
+                opacity: 0.8;
+                border-radius: 4 / @px2rem;
+                border: 1px solid #ff6d4d;
+                .jigsaw_puzzle-item {
+                    position: absolute;
+                    z-index: 1;
+                    width: 1.2rem;
+                    height: 1.7rem;
+                    top: 25/@px2rem;
+                    left: 45/@px2rem;
+                    margin: auto;
+                    font-size: 26 / @px2rem;
+                    color: #9b9b9b;
+                    border-radius: 12 / @px2rem;
+                    text-align: center;
+                    .shape-img {
+                        width: 90/ @px2rem;
+                        height: 90 / @px2rem; // margin: 0 0 10/@px2rem;
+                    }
+                }
+            }
+        }
+    }
+    .over-task {
+        font-size: 30/@px2rem;
+    }
+    .lighten-up-pieces{
+        font-size: 30/@px2rem;
+    }
+    .my-task-box {
+        box-sizing: border-box;
+        width: 100%;
+        height: 918 / @px2rem;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 1050/@px2rem auto 0;
+        text-align: center;
+        z-index: 4;
+        font-size: 36 / @px2rem;
+        .my-task-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            width: 710 / @px2rem;
+            height: 100%;
+            background: url('../img/my-task-bg.png') no-repeat;
+            background-size: 100% 100%;
+            .my-task-text {
+                margin: 50 / @px2rem 0 0;
+                .title {
+                    font-size: 36 / @px2rem;
+                    font-weight: 600;
+                }
+                .center-text {
+                    font-size: 22 / @px2rem;
+                    color: #4a4a4a;
+                }
+                .bottom-text {
+                    font-size: 22 / @px2rem;
+                    color: #ff6b52;
+                    .bold-text {
+                        font-size: 36 / @px2rem; // font-weight: 600;
+                    }
+                }
+            }
+            .tab-box {
+                box-sizing: border-box;
+                position: absolute;
+                z-index: 4;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 28% auto 0;
+                padding: 20 / @px2rem 0 0;
+                width: 690 / @px2rem; // height: 500 / @px2rem;
+                // background: #000;
+                .tab-title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    .title-item-box {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
+                        flex: 1;
+                        height: 100 / @px2rem;
+                        font-size: 30 / @px2rem;
+                        color: #fff;
+                        .open-date-text {
+                            font-size: 20 / @px2rem;
+                        }
+                    }
+                    .active {
+                        color: #d2381e;
+                        border-radius: 30 / @px2rem 30 / @px2rem 0px 0px;
+                        background: #ffe9e4; // background: #fff;
+                    }
+                    .not-opened {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+    .tab-content {
+        box-sizing: border-box;
+        height: 170 / @px2rem;
+        padding: 0 20 / @px2rem;
+        .not-opend-bg {
+            width: 300 / @px2rem;
+            height: 191 / @px2rem;
+            margin: 136 / @px2rem 0 0;
+        }
+        .not-opend-text {
+            font-size: 30/@px2rem;
+            color: #7d0929;
+        }
+        .content-item {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 14 / @px2rem;
+            margin: 20 / @px2rem 0 0;
+            .item-left {
+                padding: 23 / @px2rem 23 / @px2rem 23 / @px2rem 30 / @px2rem;
+                .task-bg {
+                    box-sizing: border-box;
+                    width: 90 / @px2rem;
+                    height: 90 / @px2rem;
+                    background: url('../img/task-bg.png') no-repeat;
+                    background-size: 100%;
+                    margin: 0 0 6 / @px2rem; 
+                    padding: 5 / @px2rem 0 0;
+                    .task-name {
+                        font-size: 22 / @px2rem;
+                        color: #ffffff;
+                    }
+                }
+                .teacher-header-img {
+                    width: 100/@px2rem;
+                    height: 100/@px2rem;
+                }
+                .progress-box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 90 / @px2rem;
+                    height: 32 / @px2rem;
+                    background: #ff6d4d;
+                    border-radius: 16 / @px2rem;
+                    font-size: 20 / @px2rem;
+                    color: #fff;
+                }
+            }
+            .line {
+                width: 1px;
+                height: 40 / @px2rem;
+                background: #d1d1d1;
+                border-radius: 1.5 / @px2rem;
+            }
+            .item-right {
+                display: flex;
+                flex: 1;
+                justify-content: space-between;
+                align-items: center;
+                .item-detail {
+                    text-align: left;
+                    margin: 0 0 0 26 / @px2rem;
+                    .detail-title {
+                        font-size: 36 / @px2rem;
+                        color: #4a4a4a;
+                    }
+                    .teacher-name {
+                        font-size: 28/@px2rem;
+                        color: #4A4A4A;
+                    }
+                    .get-help-text {
+                        font-size: 24/@px2rem;
+                        color: #727272;
+                    }
+                    .reward-text {
+                        font-size: 22 / @px2rem;
+                        color: #9b9b9b;
+                    }
+                    .show-detail {
+                        font-size: 22 / @px2rem;
+                        color: #0099ff;
+                        border-bottom: 1px solid #0099ff;
+                    }
+                }
+                .over-task {
+                    font-size: 30/@px2rem;
+                }
+                img {
+                    width: 201 / @px2rem;
+                    height: 140 / @px2rem;
+                }
+                .btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 158/@px2rem;
+                    height: 64/@px2rem;
+                    font-size: 30/@px2rem;
+                    color: #FF6B52;
+                    border: 1px solid #FF6D4D;
+                    border-radius: 50/@px2rem;
+                    margin: 0 20/@px2rem 0 0;
+                }
+                .highlight {
+                    color: #fff;
+                    background: #FF6D4D;
+                }
+                .blue-btn {
+                    color: #fff;
+                    background: #0099FF;
+                    border: 0;
+                }
+                .disable-btn {
+                    color: #fff;
+                    background: #A9B8CC;
+                    border: 0;
+                }
+            }
+        }
+        .teacher-list {
+            background: #F4FAFF;
+            border-radius: 12/@px2rem;
+        }
+    }
+    .load-error {
+        img {
+            width: 80/@px2rem!important;
+            height: 80/@px2rem!important;
+        }
+        p{
+            font-size: 30/@px2rem;
+            color:rgb(128, 127, 127);
+        }
+        .refresh-btn{
+            font-size: 30/@px2rem;
+            margin: 8% 0 0!important;
+        }
+    }
+    .reward-list {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 579 / @px2rem;
+        position: absolute;
+        top: 1960/@px2rem;
+        left: 0;
+        margin: 0 auto;
+        z-index: 2;
+        .reward-list-img {
+            width: 710 / @px2rem;
+        }
+    }
+    .activity-detail-box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 579 / @px2rem;
+        position: absolute;
+        top: 2540/@px2rem;
+        left: 0;
+        margin: 0 auto;
+        z-index: 1;
+        .activity-detail-bg {
+            box-sizing: border-box;
+            width: 710 / @px2rem;
+            background: url('../img/activity_detail_bg.png') no-repeat;
+            background-size: 100% 100%;
+            padding: 0 30 / @px2rem;
+            .text-box {
+                margin: 36% auto 0;
+                font-size: 28 / @px2rem;
+                color: #4a4a4a;
+                text-align: left;
+                .date-text {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .footer-img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "static-resource",
+  "version": "1.0.1",
+  "description": "静态资源",
+  "main": "index.js",
+  "scripts": {
+    "prod": "bash cp.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.hfjy.com/front/static-resource"
+  },
+  "bugs": {
+    "url": "http://gitlab.hfjy.com/front/static-resource/issues"
+  },
+  "homepage": "http://gitlab.hfjy.com/front/static-resource#readme"
+}

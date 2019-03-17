@@ -1,0 +1,14 @@
+{
+  "name": "dome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "node-sass sass/app.sass > dist/app.css",
+    "lint": "standard src/** test/**",
+    "js": "rollup -c  script/build.js",
+    "build": "run-p css js"
+  },
+  "author": "",
+  "license": "ISC"
+}

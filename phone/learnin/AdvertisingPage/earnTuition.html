@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+
+<head>
+    <title>赚学费</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
+    <link rel="stylesheet" href="css/recet.css">
+    <link rel="stylesheet" href="css/earnTuition.css">
+    <link rel="stylesheet" href="css/dialogg.css">
+    <script type="text/javascript">
+        ! function () {
+            var htmlEl = document.getElementsByTagName('html')[0];
+            var fitPage = function () {
+                /* The calculate of with from zepto  */
+                var w = htmlEl.getBoundingClientRect().width;
+                w = Math.round(w);
+                w = w > 750 ? 750 : w;
+                var newW = w / 750 * 100;
+                htmlEl.style.fontSize = newW + 'px';
+            }
+            fitPage();
+            var t;
+            var func = function () {
+                clearTimeout(t);
+                t = setTimeout(fitPage, 25);
+            }
+            window.addEventListener('resize', func);
+
+        }();
+
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+        function dl() {
+            if (isiOS) {
+                window.open("//itunes.apple.com/cn/app/%E6%B5%B7%E9%A3%8E%E5%AE%B6%E5%A7%94%E4%BC%9A/id1319072611?mt=8");
+            } else {
+                window.open('//a.app.qq.com/o/simple.jsp?pkgname=com.hfjy.learningparentphone');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="earnTuitionboby">
+        <img src="img/1.jpg" alt="" class="earnTuition-imgone">
+        <p class="earnTuition-Ttwo" onclick="detailed()">查看奖励</p>
+
+        <img src="img/2.png" alt="" class="earnTuition-imgtwo" id="no" style="display: block;">
+        <div id="yes" style="display: none;">
+            <img src="img/9.png" alt="" class="earnTuition-imgnine">
+            <div class="earnTuition-ninet">
+                <p class="earnTuition-ninet-one">已成功邀请<span id="people"></span>人,本期已赚</p>
+                <p class="earnTuition-ninet-two">¥<span id="money"></span></p>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <img src="img/3_new.png" alt="" class="earnTuition-imgthree">
+        <img src="img/4.png" alt="" class="earnTuition-imgfour">
+        <!-- <img src="img/5.png" alt="" class="earnTuition-imgfive"> -->
+    </div>
+    <div class="earnTuitionsix">
+        <img src="img/6.png" alt="" class="earnTuition-imgsix"><span class="earnTuition-sizesix">注意事项</span>
+    </div>
+    <div class="earnTuitionseven">
+        <div class="earnTuitionseven-body">
+            <p><img src="img/7.png" alt="" class="earnTuition-imgseven"><span class="earnTuition-sizeseven">本活动仅限邀请新学员。</span></p>
+            <p><img src="img/7.png" alt="" class="earnTuition-imgseven"><span class="earnTuition-sizeseven">邀请者享受的现金奖励为每位600元，不作累计。</span></p>
+            <p><img src="img/7.png" alt="" class="earnTuition-imgseven"><span class="earnTuition-sizeseven">被邀请学员首次报名课程满3000元才计为有效推荐人数。</span></p>
+            <p><img src="img/7.png" alt="" class="earnTuition-imgseven"><span class="earnTuition-sizeseven">活动时间：2018年3月13日至2018年6月30日。</span></p>
+        </div>
+<!--         <a  href="javascript:void(0)" onclick="goUrl()">
+    <img src="img/8.png" alt="" class="earnTuition-imgeight">
+</a> -->
+    </div>
+    <div>
+        <!--href="inviteFriends.html?userId=123456"-->
+        <a  href="javascript:void(0)" onclick="dl()">
+            <img src="img/hf.png" alt="" class="earnTuition-imgten">
+        </a>
+    </div>
+
+    <div id="toast2" style="display:none;">
+        <div class="Popup-body" onclick="hidetoast2()"></div>
+        <div class="dig-toast2-one">
+            <img src="img/popup.png" alt="" class="dig-toast2-img">
+        </div>
+    </div>
+    <script src="js/jQuery.js"></script>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script>
+        var toast2 = document.getElementById("toast2");
+        var userId;
+        var userName;
+        function detailed() {
+            toast2.style.display = "";
+        }
+
+        function hidetoast2() {
+            toast2.style.display = "none"
+        }
+       
+
+        function AppFunction(e) {
+            userId=e.userId;
+            userName=e.userName;
+            if (e.inviteNum == 0 || e.inviteNum == null) {
+                //document.getElementById('no').style.display = '';
+            } else {
+                document.getElementById('people').innerHTML = e.inviteNum;
+                document.getElementById('money').innerHTML = e.money;
+                document.getElementById('no').style.display = 'none';
+                document.getElementById('yes').style.display = '';
+                localStorage.setItem("userId", e.userId);
+
+            }
+        }
+
+        //跳转页面
+/*        function goUrl() {
+                window.location.href='inviteFriends.html?userId='+userId+'&userName='+encodeURI(userName);
+        }*/
+
+    </script>
+</body>
+
+</html>

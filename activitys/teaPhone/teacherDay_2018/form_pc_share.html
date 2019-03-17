@@ -1,0 +1,237 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>教师节</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/indexMoblie.css">
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="./js/config.js"></script>
+<script src="../../../static/js/zepto.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../../static/js/common.js"></script>
+<script src="../../../static/js/mui.min.js"></script>
+</head>
+
+<body>  
+<div class="swiper-container"  id="video-box">
+    <div class="swiper-wrapper">
+        <!--slide1-->
+        <section class="swiper-slide section5 section8 with_data">
+            <div class="ani resize slide4-img">
+                <h3 id="teacherName" class="slide-title" style="font-size:20px;">2018年老师与学生的故事</h3>
+            </div>
+            <div class="ani resize slide5">
+                <div class="section5-box">
+                    <ul class="list text">
+                        <li id="totalPropNum">
+                        <p>
+                            您在海风为学生们送上了<span class="time"> 0 </span>次鼓励让他们变得更加自信
+                        </p>
+                        </li>
+                        <li id="usedQuiz">
+                        <p>
+                            您准备的 <span class="time"> 0 </span>份课件，让孩子们掌握了更多的知识
+                        </p>
+                        </li>
+                        <li id="correctHomeWork">
+                        <p>
+                            认真负责的您,在授课期间还批改了 <span class="time"> 999 </span>份作业
+                        </p>
+                        </li>
+                    </ul>
+                    <div class="section5-footer-box">
+                        <h3 id="maxLessonCountDay" class="slide-title section4-title"></h3>
+                        <p class="text">
+                             一定是个特别的日子<br>
+                            那天 <span id="maxLessonCount" class="time">老师</span> 连续上了<span class="time"> </span>节课程<br>
+                            <br>
+                             辛苦的汗水都将成为学生们永远的记忆   
+                            <span id="blessingCount" class="time"> ? </span>个学生也向您送来了特别的祝福哦~
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="swiper-slide ">
+            <div class="video-box">
+                <img src="images/moblie/video_img.png" alt="" onclick="playPause()" class="video-bg resizes" />
+                <video  width="100%" height="100%" id="video1" class="video-pian resize">
+                </video>
+            </div>
+            <div class="text-box video-text-box resize">            
+                <p>
+                2018年教师节<br />
+
+                海风教育开展了<br />
+               <span class="title">“感恩教师节 爱要大声说出来”</span>活动<br />
+                共计收到了  <span class="title">3579 </span>名学生<br />
+
+                为老师送上的  <span class="title">23456 </span>次祝福<br /><br />
+
+                在这个特殊的日子里<br />
+
+                海风学员还通过视频的方式<br />
+
+                送上了他们最真挚的祝福！<br />
+
+                让我们一起来看一下吧~</p>
+            </div>
+            <img src="images/moblie/wave.png" alt="" class="wave-bg resizes" />
+        </section> 
+        <!--slide2-->  
+        <section class="swiper-slide video-box-slide2 resize">
+           <h3>加入海风<br />
+            一起续写和学生们的故事 </h3>
+          <a href="http://t.cn/RrnDduh" class="btn resize video-box-btn">立即加入</a>
+              <img src="images/moblie/wave.png" alt="" class="wave-bg resizes" />
+        </section>
+        <!--slide2--> 
+        <img src="images/moblie/web-swipe-tip.png"  id="array" class="resize swipe-tip"> 
+        <div class="swiper-pagination"></div>  
+    </div>
+</div>
+</body>
+</html>
+<script>  
+    document.getElementById('video1').src = APP_DOWNLOAD_DOMAIN + '/teaPhone/videos/teachDayVideo.mp4';
+    scaleW=window.innerWidth/320;
+    scaleH=window.innerHeight/480;
+    var resizes = document.querySelectorAll('.resize');
+      for (var j=0; j<resizes.length; j++) {
+       resizes[j].style.width=parseInt(resizes[j].style.width)*scaleW+'px';
+       resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px';
+       resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+       resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
+
+      }
+    var scales = document.querySelectorAll('.txt');
+    for (var i=0; i<scales.length; i++) {
+        ss=scales[i].style;
+        ss.webkitTransform = ss.MsTransform = ss.msTransform = ss.MozTransform = ss.OTransform =ss.transform='translateX('+scales[i].offsetWidth*(scaleW-1)/2+'px) translateY('+scales[i].offsetHeight*(scaleH-1)/2+'px)scaleX('+scaleW+') scaleY('+scaleH+') ';
+    }
+
+              
+      var mySwiper = new Swiper ('#video-box', {
+        direction : 'vertical',
+        pagination: {
+           el:'.swiper-pagination',
+        },
+        mousewheel: true,
+        on:{
+          init: function(){
+            swiperAnimateCache(this);
+            swiperAnimate(this);
+          },
+          slideChangeTransitionEnd: function(){
+            swiperAnimate(this);
+          }
+        }
+      })         
+  </script>
+  <script type="text/javascript">
+    var myVideo=document.getElementById("video1");
+    function playPause(){
+        if (myVideo.paused) {
+          myVideo.play();
+          myVideo.style.opacity="1";
+          myVideo.style.zIndex = "3"
+        }else {
+          myVideo.pause();
+          myVideo.style.opacity="0";
+          myVideo.style.zIndex = "1"
+        }
+    }
+</script>
+ <script>
+   var userId = getHtmlParam('userId')
+   $(function init () {
+     console.log(userId)
+     $('#noData').hide()
+     $('#net_err').hide()
+     if (userId && userId > 0) {
+       getTeacherInformation(userId)
+       $('.no_user').remove()
+     } else {
+        console.log('没有用户ID')
+     }
+   })
+   function getTeacherInformation(userId) {
+     $.ajax({
+       type: 'POST',
+       dataType: 'json',
+       crossDomain: true,
+       url: XUE_DOMAIN + APIS.getTeacherInformation,
+       data: {
+         userId: userId,
+       },
+       success: function (res) {
+         if(res.code==200){
+           $('#teacher-container').show()
+           var data = res.data
+           console.log('data:'+data)
+
+           pageFifthLoad(data)
+         }else {
+           $('#teacher-container').hide()
+           $('#net_err').show()
+           $('#noData').hide()
+         }
+       },
+       error: function (err) {
+         console.log('网络错误:',err)
+       }
+     })
+   }
+   function pageFifthLoad(data) {
+     '2018年吴老师与学生的故事'
+     var title = '2018年'+nameFix(data.teacherName)  + '与学生的故事'
+     $('#teacherName').text(title)
+
+     if(data.totalPropNum<10){
+       $('#totalPropNum').html("<p>您在海风为学生们送上的多次鼓励让他们变得更加自信</p>")
+     }else {
+       $('#totalPropNum span').text(data.totalPropNum)
+     }
+     if(data.usedQuiz<30){
+       $('#usedQuiz').html("<p>您准备的课件，让孩子们掌握了更多的知识</p>")
+     }else {
+       $('#usedQuiz span').text(data.usedQuiz)
+     }
+     if(data.correctHomeWork<30){
+       $('#correctHomeWork').html("<p>认真负责的您，在授课期间还批改了大量作业</p>")
+     }else {
+       $('#correctHomeWork span').text(data.correctHomeWork)
+     }
+     if(data.maxLessonCountDay==0||!data.maxLessonCountDay){
+       $('.section5-footer-box').hide()
+     }else {
+       $('#maxLessonCountDay').text(timestampToData(data.maxLessonCountDay))
+       $('#maxLessonCount').text(data.maxLessonCount)
+       $('#blessingCount').text(data.list.length)
+     }
+   }
+   function nameFix(name) {
+     if(!name) return "老师"
+     if(name.length<4){
+       return (name.substring(0,1) + "老师");
+     }else {
+       return (name.substring(0,2) + "老师");
+     }
+   }
+   function timestampToData(timestamp) {
+     var date = new Date(timestamp) //获取一个时间对象
+     var year = date.getFullYear()// 获取完整的年份(4位,1970)
+     var month = date.getMonth() +1 // 获取月份(0-11,0代表1月,用的时候记得加上1)
+     var day = date.getDate()// 获取日(1-31)
+     date.getTime() // 获取时间(从1970.1.1开始的毫秒数)
+     date.getHours()// 获取小时数(0-23)
+     date.getMinutes() // 获取分钟数(0-59)
+     date.getSeconds() // 获取秒数(0-59)
+     var  result = year + '年' + month + '月' + day +'日'
+     return result
+   }
+ </script>

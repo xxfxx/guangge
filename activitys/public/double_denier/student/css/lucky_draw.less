@@ -1,0 +1,266 @@
+// px转rem
+@px2rem: 750 / 10 * 1rem;
+@font-face {
+    font-family: 'iconfont';
+    /* project id 841248 */
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot');
+    src: url('//at.alicdn.com/t/font_841248_1mm92gv6flk.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.woff') format('woff'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.ttf') format('truetype'), url('//at.alicdn.com/t/font_841248_1mm92gv6flk.svg#iconfont') format('svg');
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'sans-serif';
+}
+
+.jigsaw_puzzle_box {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .bg-img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .bubble-img-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        margin: 11% 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 234 / @px2rem;
+        height: 200 / @px2rem;
+        background: url(../img/Bubble.png) no-repeat;
+        background-size: 100% 100%;
+        .text-box {
+            box-sizing: border-box;
+            text-align: center;
+            .share-text {
+                font-size: 30 / @px2rem;
+                color: #f8e71c;
+            }
+            .share-detail-text {
+                padding: 10/@px2rem 14/@px2rem 0 14/@px2rem;
+                font-size: 20 / @px2rem;
+                color: #ffffff;
+                line-height: 25/@px2rem;
+            }
+        }
+    }
+    .jigsaw_puzzle-content {
+        box-sizing: border-box;
+        width: 100%;
+        height: 694 / @px2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 88 / @px2rem 100 / @px2rem 0;
+        margin: 50% auto 0;
+        z-index: 4;
+        background: url('../img/Luck-draw.png') no-repeat;
+        background-size: 100% 100%;
+        .activity-over-show{
+            position: relative;
+            z-index: 31;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 550 / @px2rem;
+            height: 550 / @px2rem;
+            font-size: 36/@px2rem;
+            color: #4D0000;
+            background: #FFF5E1;
+        }
+        .jigsaw_puzzle-box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 550 / @px2rem;
+            height: 550 / @px2rem;
+            .jigsaw_puzzle-item {
+                box-sizing: border-box;
+                position: relative;
+                width: 33.33%;
+                height: 183.4 / @px2rem;
+                padding: 10/@px2rem 0 0;
+                text-align: center;
+                background: #FFF5E1;
+                border-radius: 12 / @px2rem;
+                border: 1px solid #ff6d4d;
+                transform: all 300ms;
+                .shape-img {
+                    width: 130/@px2rem;
+                    height: 130/@px2rem;
+                }
+                .reward-name {
+                    font-size: 24/@px2rem;
+                    color: #FF9546;
+                }
+            }
+            .reward-box {
+                box-sizing: border-box;
+                padding: 50/@px2rem 0 0;
+                color: #763700;
+                background: #FCD947;
+                .get-reward {
+                    font-size: 40/@px2rem;
+                }
+                .get-times {
+                    font-size: 24/@px2rem;
+                }
+            }
+            .disabled {
+                background: #D8D8D8;
+                color: #626262;
+            }
+        }
+    }
+    .my-task-box {
+        box-sizing: border-box;
+        width: 100%;
+        height: 580 / @px2rem;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 142% auto 0;
+        text-align: center;
+        z-index: 3;
+        font-size: 26 / @px2rem;
+        .my-task-bg {
+            position: absolute;
+            width: 710 / @px2rem;
+            height: 100%;
+            background: url('../img/my-gifts.png') no-repeat;
+            background-size: 100% 100%;
+            .tab-box {
+                box-sizing: border-box;
+                position: absolute;
+                z-index: 4;
+                top: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 28% auto 0;
+                padding: 20 / @px2rem 0 0;
+                width: 690 / @px2rem;
+                height: 380/@px2rem;
+                .item {
+                    img {
+                        width: 228/@px2rem;
+                        height: 228/@px2rem;
+                    }
+                    .itme-remark{
+                        margin: 10/@px2rem 0 0;
+                        font-size: 26/@px2rem;
+                        color: #5C5C5C;
+                    }
+                }
+                .gifts-box {
+                    .img-box {
+                        box-sizing: border-box;
+                        width: 228/@px2rem;
+                        height: 228/@px2rem;
+                        // padding: 40/@px2rem; 
+                        background: #ffffff;
+                        border-radius: 12/@px2rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        .gift-img {
+                            width: 100/@px2rem;
+                            height: 100/@px2rem;
+                            margin: 0 0 10/@px2rem;
+                            // flex: 1;
+                        }
+                        p{
+                            font-size: 20/@px2rem;
+                            color:#9b9b9b;
+                        }
+                        .prizes-grids {
+                            width: 94%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .activity-detail-box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 579 / @px2rem;
+        position: absolute;
+        top: 0;
+        margin: 219% auto 0;
+        z-index: 1;
+        .activity-detail-bg {
+            box-sizing: border-box;
+            width: 710 / @px2rem;
+            background: url('../img/activity_detail_bg.png') no-repeat;
+            background-size: 100% 100%;
+            padding: 0 30 / @px2rem;
+            .text-box {
+                margin: 45% auto 0;
+                font-size: 26 / @px2rem;
+                color: #4a4a4a;
+                .date-text {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .footer-img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        margin: 307% auto 0;
+        img {
+            width: 100%;
+        }
+    }
+    .mask-content{
+       .no-reward-box{
+        .title-img{
+            width: 274/@px2rem;
+            height: 194/@px2rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 186/@px2rem 0 0 160/@px2rem;
+        }
+       } 
+    }
+}
+.luckyDraw-preview-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .78);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    img {
+        width: 90%;
+        height: auto;
+    }
+    .preview-img-close {
+        width: 40px;
+        height: 40px;
+        margin-top: 30px;
+    }
+}

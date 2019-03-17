@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp -->
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT" />
+    <title>添加收货地址</title>
+</head>
+<link rel="stylesheet" href="../../../../static/css/reset.css" />
+<link rel="stylesheet" href="./css/write_address.css" />
+<link rel="stylesheet" href="./css/common.css">
+<script src="../../../../static/js/flexable.js"></script>
+<script>
+    function onMessage(dt) {
+        writeAddress.onMessage(dt, 'app')
+    }
+</script>
+
+<body>
+    <div id="app" class="write-address-box" v-cloak>
+        <div class="mask" v-show="maskFlag"></div>
+        <!--二次确认弹框 -->
+        <div class="mask-content" v-show="confirmFlag">
+            <p class="title">请确认你的收货地址<br>提交后将不可修改</p>
+            <div class="btn-box">
+                <div class="btn cancel" @click="dialogClose()">取消</div>
+                <div class="btn sure" @click="secConfirm()">确认</div>
+            </div>
+        </div>
+        <div class="toast" v-show="toastFlag">{{alertMsg}}</div>
+        <!-- 提交成功 -->
+        <div class="mask-content submit-success" v-show="alertBoxFlag">
+            <img class="logo" src="./img/default_success.png" alt="">
+            <p class="title">提交成功</p>
+            <p class="detail" v-html="alertInfo.detail"></p>
+            <div class="btn-box">
+                <div class="btn cancel" @click="seeGiftDetail">查看礼物</div>
+                <div class="btn sure" v-if="alertInfo.btnText" v-text="alertInfo.btnText" @click="getMore()"></div>
+            </div>
+        </div>
+        <ul class="content-box">
+            <li class="content-item">
+                <div class="title-text"><span style="color:red">*</span>收货人:</div>
+                <input class="self-input" type="text" v-model="name" placeholder="请输入姓名">
+            </li>
+            <li class="content-item">
+                <div class="title-text"><span style="color:red">*</span>联系电话:</div>
+                <input class="self-input" type="tel" maxlength="11" minlength="11" v-model="phone" placeholder="请输入手机号码">
+            </li>
+            <li class="content-item">
+                <div class="title-text"><span style="color:red">*</span>所在地区:</div>
+                <div class="city-select-box">
+                    <select name="province" id="province" v-model="curProvince" @change="changeProvinces">
+                        <option value='' disabled>请选择省</option>
+                        <option :value="it.id" v-for="it in province">{{it.areaName}}</option>
+                    </select>
+                    <select name="Cities" id="Cities" v-model="curCity" @change="changeCities">
+                        <option value='' disabled style='color:#a1a1a1;'>请选择市</option>
+                        <option :value="it.id" v-for="it in cities">{{it.areaName}}</option>
+                    </select>
+                    <select name="areas" id="areas" v-model="curArea">
+                        <option value='' disabled style='color:#a1a1a1;'>请选择区</option>
+                        <option :value="it.id" v-for="it in areaList">{{it.areaName}}</option>
+                    </select>
+                </div>
+            </li>
+            <li class="content-item textarea">
+                <div class="title-text"><span style="color:red">*</span>详细地址:</div>
+                <textarea class="self-input" rows="3" v-model="address" placeholder="请填写详细地址:具体到省/市/县/区/街/小区/楼/室"></textarea>
+            </li>
+        </ul>
+        <div class="footer">
+            <div class="submit-btn" @click="submitAddrMsg">立即提交</div>
+        </div>
+    </div>
+    <script src="../../../../static/js/zepto.min.js"></script>
+    <script src="../../../../static/js/vue.min.js"></script>
+    <script src="../../../../config/config.js"></script>
+    <script src="../common/index.js"></script>
+    <script src="./js/jigsaw_alert.js"></script>
+    <script src="../common/buryingPoint.js"></script>
+    <script src="./js/write_address.js"></script>
+</body>
+
+</html>

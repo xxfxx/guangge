@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-siteapp, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../../config/config.js"></script>
+    <title>随便一个网页</title>
+
+    <script>
+
+        window.onload = function () {
+            window.addEventListener('message', this.onMessage)
+        }
+
+        function onMessage(jsonStr) {
+            alert('收到：' + jsonStr)
+        }
+
+        function onClickAll(id, type) {
+            var message = {
+                type: 'jump',
+            }
+            switch (type) {
+                case 1:
+                    message.keyword = 'homeworkUnfinsh';
+                    break;
+                case 2:
+                    message.keyword = 'notebook';
+                    break;
+                case 3:
+                    message.keyword = 'mall';
+                    break;
+                case 4:
+                    message.keyword = 'uploadTestPaper';
+                    break;
+                case 5:
+                    message.keyword = 'lesson';
+                    break;
+                case 6:
+                    message.keyword = 'review';
+                    break;
+                case 7:
+                    message.keyword = 'sharingInternalPush';
+                    break;
+                default:
+                    break;
+            }
+            sendMessage(message)
+        }
+
+        //请求user
+        function getUser(id, index) {
+            var message = ''
+            switch (index) {
+                case 1:
+                    {
+                        message = {
+                            type: 'request',
+                            keyword: 'headers'
+                        }
+
+                    }
+                    break;
+                case 2:
+                    {
+                        message = {
+                            type: 'request',
+                            keyword: 'user'
+                        }
+
+                    }
+                    break;
+                case 3:
+                    {
+
+                        message = {
+                            type: 'request',
+                            keyword: 'all'
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+            alert(JSON.stringify(message))
+            sendMessage(message)
+        }
+
+        //分享
+        function shareClick() {
+            var dataSource = {
+                studentName: 'Mark',
+                ranking: '10086',
+                scale: '98.321'
+            }
+            var message = {
+                type: 'share',
+                keyword: 'ChristmasActivities2018',
+                dataSource: dataSource
+            }
+            sendMessage(message)
+        }
+
+        //发送消息
+        function sendMessage(message) {
+            var sendMessageStr = JSON.stringify(message)
+            WebViewBridge && WebViewBridge.send(sendMessageStr);
+        }
+
+        function requestApi() {
+            $.ajax({
+                type: 'POST',
+                url: XUE_DOMAIN + '/study/blockActivity/StudentActivity/getTeacherDayActivity',
+                data: "{}",
+                success: function (data, status, xhr) {
+                    alert(JSON.stringify(data))
+                },
+                error: function (xhr, type) {
+                    alert(JSON.stringify(xhr))
+                }
+            })
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <span>====</span>
+    <h3 onclick="getUser(this,1)">获取headers</h3>
+    <h3 onclick="getUser(this,2)">获取user信息</h3>
+    <h3 onclick="getUser(this,3)">获取all信息</h3>
+    <h3 onclick="requestApi(this)">随便请求个接口</h3>
+    <span>====</span>
+    <h3 onclick="shareClick(this)">分享</h3>
+    <span>====</span>
+    <h3 onclick="onClickAll(this,1)">跳转作业-未完成</h3>
+    <h3 onclick="onClickAll(this,2)">跳转错题本</h3>
+    <h3 onclick="onClickAll(this,3)">跳转商城</h3>
+    <h3 onclick="onClickAll(this,4)">上传试卷</h3>
+    <h3 onclick="onClickAll(this,5)">课程列表</h3>
+    <h3 onclick="onClickAll(this,6)">回顾</h3>
+    <h3 onclick="onClickAll(this,7)">内推有奖</h3>
+</body>
+
+</html>

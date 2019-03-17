@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document1 */
+/*清除默认样式*/
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+  line-height: 100%;
+  cursor: pointer;
+}
+/* CSS Document */
+
+/************* Reset CSS *************/
+/* 清除内外边距 */
+html, body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset,iframe, lengend, label, button, input, textarea, /* form elements 表单元素 */
+th, td {
+ /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+
+h1 ,h2 ,h3 ,h4, h5, h6 {
+  font-size: 100%;
+}
+
+h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+address, cite, dfn, var {
+  font-style: normal;
+} /* 将斜体扶正 */
+code, kbd, pre, samp, tt {
+  font-family: "Courier New", Courier, monospace;
+} /* 统一等宽字体 */
+small {
+  font-size: 12px;
+} /* 小于 12*@rem 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol {
+  list-style: none;
+}
+
+/* 重置文本格式元素 */
+
+a {
+  color: #000000;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  cursor: pointer;
+}
+a:hover {
+ /*text-decoration: underline;*/
+}
+
+/* 重置表单元素 */
+legend {
+  color: #000000;
+} /* for ie6 */
+fieldset, img, button {
+  border: none;
+}
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+  font-size: 100%;
+ /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+img, iframe, table, form {
+  vertical-align: top;
+}
+
+/* 重置表格元素 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+  height: 0;
+  box-sizing: content-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+
+*,
+ *:before,
+ *:after {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+  border: 0;
+}
+
+.clearfix {
+  zoom: 1;
+  clear: both;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+/* 已访问过的状态 */
+a:hover , a:link {
+  cursor: pointer;
+  color: #f67036;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #00a0e9;
+  text-decoration: none;
+}
+
+a:active, a:hover {
+  cursor: pointer;
+  color: #f67036;
+  text-decoration: none;
+}
+img {
+  width: auto\9;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+a, input, textarea, .hover-delay {
+ /*
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;*/
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.marR-20{
+  margin-right:20px;
+}
+.mar-40 {
+  margin: 40px auto;
+}
+
+.marTop-40 {
+  margin-top: 40px;
+}

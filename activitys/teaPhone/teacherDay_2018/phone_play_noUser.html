@@ -1,0 +1,171 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>教师节</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+<link rel="stylesheet" href="css/video-js.min.css">
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/indexMoblie.css">
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="./js/config.js"></script>
+<script src="../../../static/js/zepto.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../../static/js/common.js"></script>
+<script src="../../../static/js/mui.min.js"></script>
+<script src="./js/video.min.js"></script>
+<script src="./js/zh-CN.js"></script>
+</head>
+
+<body>  
+<div class="swiper-container"  id="video-box">
+    <div class="swiper-wrapper">
+        <!--slide1-->
+        <section class="swiper-slide section5 section8 with_data">
+            <div class="ani resize slide4-img">
+                <h3 class="slide-title" style="font-size:20px;">2018年吴老师与学生的故事</h3>
+            </div>
+            <div class="ani resize slide5">
+                <div class="section5-box">
+                    <ul class="list text">
+                        <li id="totalPropNum">
+                        <p>
+                            您在海风为学生们送上了<span class="time"> 999 </span>次鼓励让他们变得更加自信
+                        </p>
+                        </li>
+                        <li id="usedQuiz">
+                        <p>
+                            您准备的 <span class="time"> 999 </span>份课件，让孩子们掌握了更多的知识
+                        </p>
+                        </li>
+                        <li id="correctHomeWork">
+                        <p>
+                            您准备的 <span class="time"> 999 </span>份课件，让孩子们掌握了更多的知识
+                        </p>
+                        </li>
+                    </ul>
+                    <div class="section5-footer-box">
+                        <h3 id="maxLessonCountDay" class="slide-title section4-title">2017年8月1日</h3>
+                        <p class="text">
+                             一定是个特别的日子<br>
+                            那天 <span id="maxLessonCount" class="time">吴老师</span> 连续上了<span class="time">20 </span>节课程<br>
+                            <br>
+                             辛苦的汗水都将成为学生们永远的记忆   
+                            <span id="blessingCount" class="time"> ? </span>个学生也向您送来了特别的祝福哦~
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="swiper-slide ">
+            <div class="video-box">
+                <img src="images/moblie/video_img.png" alt="" onclick="playVid()" class="video-bg resizes" />
+            </div>
+            <div class="text-box video-text-box resize">            
+                <p>
+                2018年教师节<br />
+
+                海风教育开展了<br />
+               <span class="title">“感恩教师节 爱要大声说出来”</span>活动<br />
+                共计收到了  <span class="title">3579 </span>名学生<br />
+
+                为老师送上的  <span class="title">23456 </span>次祝福<br /><br />
+
+                在这个特殊的日子里<br />
+
+                海风学员还通过视频的方式<br />
+
+                送上了他们最真挚的祝福！<br />
+
+                让我们一起来看一下吧~</p>
+            </div>
+            <img src="images/moblie/wave.png" alt="" class="wave-bg resizes" />
+        </section> 
+        <!--slide2-->  
+        <section class="swiper-slide video-box-slide2 resize">
+           <h3>加入海风<br />
+            一起续写和学生们的故事 </h3>
+          <a href="http://t.cn/RrnDduh" class="btn resize video-box-btn">立即加入</a>
+              <img src="images/moblie/wave.png" alt="" class="wave-bg resizes" />
+        </section>
+        <!--slide2--> 
+        <img src="images/moblie/web-swipe-tip.png"  id="array" class="resize swipe-tip"> 
+        <div class="swiper-pagination"></div>  
+    </div>
+</div>
+   <!-- 弹窗 -->
+   <!-- 弹窗 -->
+<div  class="video-modal-mask" id="videoModalMask">
+    <div  class="close" onclick="pauseVid()"></div>
+    <div class="modal-container">    
+        <div class="modal-body">
+          <video id='videoBox'
+            style="width: 102.2%; height: 569px; margin-top: -1px; margin-left: -1.1%; margin-right: -1.1%;" id="video"><p> 不支持video</p> </video>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>  
+
+    scaleW=window.innerWidth/320;
+    scaleH=window.innerHeight/480;
+    var resizes = document.querySelectorAll('.resize');
+      for (var j=0; j<resizes.length; j++) {
+       resizes[j].style.width=parseInt(resizes[j].style.width)*scaleW+'px';
+       resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px';
+       resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+       resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
+
+      }
+    var scales = document.querySelectorAll('.txt');
+    for (var i=0; i<scales.length; i++) {
+        ss=scales[i].style;
+        ss.webkitTransform = ss.MsTransform = ss.msTransform = ss.MozTransform = ss.OTransform =ss.transform='translateX('+scales[i].offsetWidth*(scaleW-1)/2+'px) translateY('+scales[i].offsetHeight*(scaleH-1)/2+'px)scaleX('+scaleW+') scaleY('+scaleH+') ';
+    }
+
+              
+      var mySwiper = new Swiper ('#video-box', {
+        direction : 'vertical',
+        pagination: {
+           el:'.swiper-pagination',
+        },
+        mousewheel: true,
+        on:{
+          init: function(){
+            swiperAnimateCache(this);
+            swiperAnimate(this);
+          },
+          slideChangeTransitionEnd: function(){
+            swiperAnimate(this);
+          }
+        }
+      })         
+  </script>
+  <script type="text/javascript">
+    var videoBox = document.getElementById("videoBox");
+    var url = APP_DOWNLOAD_DOMAIN + '/teaPhone/videos/test-1.mp4';
+    videoBox.src = url;
+    var videoModalMask = document.getElementById('videoModalMask')
+    function pauseVid () {
+      videoBox.pause();
+      videoBox.webkitExitFullScreen()
+      videoModalMask.style.display = "none"
+      $('#videoModalMask').remove()
+
+    }
+    function playVid(){
+      var dom = "<div  class='video-modal-mask' id='videoModalMask'><div  class='close' onclick='pauseVid()'></div><div class='modal-container'> <div class='modal-body'><video id='videoBox' src='" + url + "' style='width: 102.2%; height: 569px; margin-top: -1px; margin-left: -1.1%; margin-right: -1.1%;' id='video'><p> 不支持video</p> </video></div> </div></div>"
+      if(!videoBox){
+        $('body').append(dom)
+      }
+      var videoBox = document.getElementById("videoBox");
+    var videoModalMask = document.getElementById('videoModalMask')
+      videoModalMask.style.display = "block"
+      // videoBox.webkitEnterFullscreen()
+      videoBox.play();
+
+    }
+</script>
